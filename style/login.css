@@ -1,0 +1,204 @@
+body{
+    width:100%;
+    background-image: url(../assets/Indian_Railways.svg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:;
+}
+.backbutton{
+    width:2rem;
+    background-color:navy;
+    border-radius:0.6rem;
+    box-shadow:1px 1px 3px 1px rgb(153, 152, 152);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+.backbutton:hover{
+    border:2px solid rgb(1, 1, 61);
+    transform:scale(1.07);
+}
+.backl{
+   fill:rgb(236, 236, 241);
+   stroke-width:1.2px;
+ 
+}
+h1{
+    margin:0px;
+    color:navy;
+    font-size:3.5rem;
+}
+.heading{
+    padding:10px;
+}
+form{
+    width:100%;
+    
+}
+label{
+    display:block;
+    height:2rem;
+    
+    width:80%;
+    
+    background:rgba(46, 44, 87, 0.7);
+
+    
+    margin:10px auto;
+    padding:0.5rem;
+    border-radius:0.9rem ;
+    border: 2.5px solid rgb(171, 171, 171);
+    box-shadow:0px 2px 3px 1px rgb(163, 161, 161) ;
+    transition: all 0.3s ease;
+}
+label:hover{
+    transform: scale(1.05);
+    border: 2.5px solid navy;
+}
+.l2{
+    width:100%;
+    margin:10px -0.65rem;
+}
+input{
+    display:inline-block;
+    border:none;
+    color:rgb(217, 219, 227);
+    height:20px;
+    background:rgba(151, 150, 150, 0);
+    margin:auto;
+    margin-bottom:10px;
+    position: relative;
+    top:-10px;
+    left:10px;
+    width:70%;
+}
+input:focus{
+    border: none;
+    outline: none;
+}
+
+a{
+    text-decoration:none;
+    color:navy;
+}
+.fpa{
+    text-align:right;
+}
+form{
+    margin-top:5rem;
+}
+.texa{
+    width:80%;
+    margin:10px auto;
+    padding:0rem;
+    
+
+}
+::placeholder {
+  color: rgb(156, 171, 223);
+  opacity: 1; /* Firefox */
+}
+button{
+    display:block;
+    margin:0 auto;
+    border: none;
+    height:2rem;
+    width:30%;
+    border:3px solid rgb(1, 1, 172);
+    background-color:navy;
+    color:white;
+    border-radius: 0.8rem;
+    transition: all 0.3s ease;
+}
+button:hover{
+    border:2px solid rgb(1, 1, 53);
+    background-color: rgb(4, 4, 90);
+    transform:scale(1.1);
+}
+hr{
+    width:40%;
+    border:1px solid navy ;
+    height:0px;
+}
+.orlogin{
+    display:flex;
+    margin-top:3rem;
+}
+span{
+    width:18%;
+    text-align: center;
+}
+.logos{
+    display :flex;
+    justify-content: space-evenly;
+    margin-top:1.5rem;
+        margin-bottom:3rem;
+        padding:1px;
+
+}
+.logo svg{
+    height:2rem;
+    margin:auto;
+    width:100%;
+
+
+}
+.bac{
+    display: none;
+}
+.logo{
+    width:20%; 
+    box-shadow:1px 3px 3px 1px rgb(163, 161, 161) ;
+    border-radius: 0.8rem;
+    text-align: center;
+
+}
+.bac {
+   
+    color:rgb(249, 246, 246);
+}
+.last{
+    margin:2rem;
+    padding:1px;
+}
+.back2{
+    height:2rem;
+}
+@media screen and (min-width:600px){
+    .cont{
+       
+        width:50%;
+        margin:auto;
+        border: 3px solid rgb(30, 3, 99);
+        padding:20 30px;
+        box-sizing: border-box;
+        border-radius: 30px;
+        max-width:400px;
+        box-shadow: 2px 2px 3px 2px rgb(132, 132, 135);
+    }
+    .backbutton{
+        width:10%;
+        height:2rem;
+        color:rgb(243, 245, 247);
+    }
+    .backl{
+        height:2rem;
+        margin:auto;
+        width:40%;
+    }
+    .link{
+        color:black;
+        font-size:1.2rem;
+    }
+    .bac{
+        display:inline-block;
+        position: relative;
+       top:-10px;
+       left:-5px;
+        font-weight: 800;
+    }
+    h1{
+        font-size: 2.5rem;
+    }
+    
+
+}
