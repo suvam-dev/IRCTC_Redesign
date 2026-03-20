@@ -40,7 +40,7 @@
           <div class="w-10 h-10 shrink-0 bg-red-50 text-red-500 rounded-full flex items-center justify-center">
             <i class="fa-solid fa-location-dot"></i>
           </div>
-          <div class="w-full border-b border-transparent pb-2 group-focus-within:border-red-500 transition-colors">
+          <div class="w-full border-b border-slate-200 pb-2 group-focus-within:border-red-500 transition-colors">
             <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">To Station</label>
             <input type="text" value="Burdwan" class="w-full text-lg font-bold text-slate-800 bg-transparent outline-none placeholder-slate-300 capitalize" placeholder="Enter Destination">
           </div>
@@ -51,73 +51,15 @@
         </button>
 
       </div>
-
-      <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest mt-10 mb-4 px-2 flex items-center gap-2">
-        <i class="fa-solid fa-clock-rotate-left"></i> Recent Searches
-      </h2>
-
-      <div id="dynamic-content-container" class="flex flex-col gap-3"></div>
-
-    </main>
-
-    <script>
-      const recentSearches = [
-        { type: 'train', number: '13017', name: 'ganadevata express' },
-        { type: 'station', name: 'Hijli' }
-      ];
-
-      const historyLogs = ['advchjmw', 'dbewvs', 'ewhke'];
-
-      const container = document.getElementById('dynamic-content-container');
-      let htmlContent = '';
-
-      recentSearches.forEach((item) => {
-        const isTrain = item.type === 'train';
-        const icon = isTrain ? 'fa-train' : 'fa-tower-broadcast';
-        const iconBg = isTrain ? 'bg-emerald-50 text-emerald-600' : 'bg-purple-50 text-purple-600';
-        const title = isTrain ? item.number : item.name;
-        const subtext = isTrain ? item.name : 'Live Station Status';
-        const badge = !isTrain ? `<span class="bg-red-100 text-red-600 text-[9px] uppercase font-bold py-0.5 px-2 rounded-md animate-pulse ml-2">Live</span>` : '';
-
-        htmlContent += `
-          <div class="bg-white border border-slate-100 p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-pointer flex items-center justify-between group">
-            <div class="flex items-center gap-4">
-              <div class="w-11 h-11 shrink-0 ${iconBg} rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform">
-                <i class="fa-solid ${icon} text-lg"></i>
-              </div>
-              <div>
-                <div class="flex items-center">
-                  <p class="font-bold text-slate-800 text-lg">${title}</p>
-                  ${badge}
-                </div>
-                <p class="text-sm font-medium text-slate-500 capitalize">${subtext}</p>
-              </div>
-            </div>
-            <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-slate-500 transition-colors text-sm"></i>
-          </div>
-        `;
-      });
-
-      if (historyLogs.length > 0) {
-        htmlContent += `<div class="flex items-center gap-2 overflow-x-auto pb-2 mt-2 hide-scrollbar">`;
-        
-        historyLogs.forEach((log) => {
-          htmlContent += `
-            <div class="bg-white border border-slate-200 px-4 py-2 rounded-full text-sm font-semibold text-slate-600 whitespace-nowrap cursor-pointer hover:bg-slate-50 hover:border-slate-300 transition-colors shadow-sm active:scale-95 flex items-center gap-2 shrink-0">
-              <i class="fa-regular fa-clock text-slate-400"></i> ${log}
-            </div>
-          `;
-        });
-        
-        htmlContent += `</div>`;
-      }
-
-      container.innerHTML = htmlContent;
-    </script>
+      <div class="trainNumber relative mt-2.5 h-16">
+        <label  class=" absolute top-0 z-10 font-sans text-[10px] font-extrabold -translate-y-1.5 left-4 p-0.5 px-1 bg-gray-50 shadow-2xl shadow-gray-500 rounded-md text-gray-500" for="pnr">Train Search:</label>
+            <input type="text" value="" id="pnr"  placeholder="Enter train number" class="text-gray-600  w-full h-12 place-content-center px-4 absolute shadow-2xl shadow-gray-300 top-0  rounded-full border-0 font-extrabold "/>
+            <div id="search" class="search absolute top-0  my-1 h-10 w-10 z-10 right-1 rounded-full p-5 bg-green-500 flex justify-center items-center hover:bg-green-600 "> <i class="fa-solid fa-magnifying-glass fa-lg text-gray-100 "></i> </div>
+        </label>
+      </div>
+      <div id="result" class="bg-gray-100 h-32"></div>
+    </main> 
     
-    <style>
-      .hide-scrollbar::-webkit-scrollbar { display: none; }
-      .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    </style>
+   <script src="../src/search.js" type="module"></script>
   </body>
 </html>
