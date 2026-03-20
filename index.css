@@ -1,4 +1,4 @@
-
+@import "tailwindcss";
 :root {
   --color-primary: #2563eb;
   --color-secondary: #10b981;
@@ -56,7 +56,7 @@ a {
 }
 
 
-button {
+.button {
   background: var(--color-primary);
   color: white;
   border: none;
@@ -66,7 +66,7 @@ button {
   transition: 0.2s;
 }
 
-button:hover {
+.button:hover {
   background: #1d4ed8;
 }
 
