@@ -1,20 +1,22 @@
 body{
     width:100%;
-    background-image: url(../assets/Indian_Railways.svg.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../assets/trainbackground.jpg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size:;
+    background-size: cover;
+    background-attachment: fixed;
 }
 .backbutton{
     width:2rem;
-    background-color:navy;
+    background-color:#022752;
     border-radius:0.6rem;
-    box-shadow:1px 1px 3px 1px rgb(153, 152, 152);
+    margin:20px;
+    
     transition: all 0.3s ease;
     box-sizing: border-box;
 }
 .backbutton:hover{
-    border:2px solid rgb(1, 1, 61);
+    border:2px solid #07274a;
     transform:scale(1.07);
 }
 .backl{
@@ -24,7 +26,7 @@ body{
 }
 h1{
     margin:0px;
-    color:navy;
+    color:#002D62;
     font-size:3.5rem;
 }
 .heading{
@@ -40,19 +42,18 @@ label{
     
     width:80%;
     
-    background:rgba(46, 44, 87, 0.7);
+    background:rgba(0, 45, 98, 0.7);
 
-    
     margin:10px auto;
     padding:0.5rem;
     border-radius:0.9rem ;
-    border: 2.5px solid rgb(171, 171, 171);
-    box-shadow:0px 2px 3px 1px rgb(163, 161, 161) ;
+    border: 2.5px solid rgb(0,45,98); /* Match palette */
+    box-shadow: none; /* Removed grey shadow */
     transition: all 0.3s ease;
 }
 label:hover{
     transform: scale(1.05);
-    border: 2.5px solid navy;
+    border: 2.5px solid #042db6;
 }
 .l2{
     width:100%;
@@ -78,7 +79,7 @@ input:focus{
 
 a{
     text-decoration:none;
-    color:navy;
+    color:#002D62;
 }
 .fpa{
     text-align:right;
@@ -103,20 +104,20 @@ button{
     border: none;
     height:2rem;
     width:30%;
-    border:3px solid rgb(1, 1, 172);
-    background-color:navy;
+    border:3px solid #07274a;
+    background-color:#002D62;
     color:white;
     border-radius: 0.8rem;
     transition: all 0.3s ease;
 }
 button:hover{
-    border:2px solid rgb(1, 1, 53);
-    background-color: rgb(4, 4, 90);
+    border:2px solid #075ccb;
+    background-color: #001F44;
     transform:scale(1.1);
 }
 hr{
     width:40%;
-    border:1px solid navy ;
+    border:1px solid #021e5b ;
     height:0px;
 }
 .orlogin{
@@ -163,12 +164,20 @@ span{
 .back2{
     height:2rem;
 }
+
+
+.cont {
+    background-color: #ffffff; /* White background for untouched look */
+    padding: 20px;
+    border-radius: 20px;
+    margin: 20px;
+}
 @media screen and (min-width:600px){
     .cont{
        
         width:50%;
         margin:auto;
-        border: 3px solid rgb(30, 3, 99);
+        border: 3px solid #002D62;
         padding:20 30px;
         box-sizing: border-box;
         border-radius: 30px;
