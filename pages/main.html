@@ -5,8 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main</title>
     <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/navbar.css">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="../assets/new_logo.jpeg" alt="Bharat Rail Logo" class="logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="login.html" id="nav-login-link">Login</a></li>
+            <li><a href="#">Bookings</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
     <div class="nav">
         <div class="h">
             <a id="home"></a>
@@ -42,43 +59,44 @@
     </div>
 
     <div class="main">
-        <div class="from">
-           <p>From</p>
+        <div class="ft">
+            <fieldset class="from">
+                <legend>From</legend>
            <div class="place">
              <p class="m">Chennai</p> 
              <p class="sh">CHE</p>
            </div>
            <p>Central Railway Station</p>
-        </div>
-        <a id="rev"></a>
-        <div class="to">
-            <p>To</p>
+            </fieldset>
+        <fieldset class="to">
+            <legend>To</legend>
             <div class="place">
               <p class="m">Kerala</p>
               <p class="sh">KL</p>
             </div>
             <p>Thiruvananthapuram Central Station</p>
+        </fieldset>
         </div>
         <div class="dr">
-            <div class="depart">
-                <p>Departure</p>
+            <fieldset class="depart">
+                <legend>Departure</legend>
                 <a id="calen"></a>
                 <p>26/May/2026</p>
-            </div>
-            <div class="ret">
-                <p>Return</p>
+            </fieldset>
+            <fieldset class="ret">
+                <legend>Return</legend>
                 <p>+Add Return Date</p>
-            </div>
+            </fieldset>
         </div>
         <div class="tquota">
-            <div class="t">
-                <p>Traveller</p>
+            <fieldset class="t">
+                <legend>Traveller</legend>
                 <p>1 Adult</p>
-            </div>
-            <div class="quota">
-                <p>Quota</p>
+            </fieldset>
+            <fieldset class="quota">
+                <legend>Quota</legend>
                 <p>General Quota</p>
-            </div>
+            </fieldset>
         </div>
     </div>
 
@@ -87,3 +105,5 @@
     </div>   
 </body>
 </html>
+
+<a id="rev"></a>
