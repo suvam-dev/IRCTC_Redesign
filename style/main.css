@@ -7,10 +7,11 @@
     justify-content: space-evenly;
 }
 .way{
+    margin-top: 20px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    border: 2px #7B8EE0 solid;
+    border: 2px #101a47 solid;
     border-radius: 30px;
     height: 7vh;
     overflow: hidden;
@@ -26,7 +27,7 @@
     flex: 1;                        
 }
 .sel{
-    background-color: #7B8EE0;
+    background-color: #154980e0;
     color: white;
     border: 4px white solid;
     border-radius: 30px;
@@ -39,12 +40,23 @@
     justify-content: space-around;
     align-items: center;
     margin: 5vh;
-    background-color: #7B8EE0;
+    background-color: #154980e0;
+    border: 2px #101a47 solid;
     border-radius: 30px;
-    height: 60vh;
+    height: 53vh;
     color: white;
 }
 
+.inner{
+    display: flex;
+    gap: 20px;
+}
+.Rail{
+    height: 80px;
+}
+.cal{
+    height: 50px;
+}
 .ft{
     display: flex;
     justify-content: space-evenly;
@@ -53,7 +65,7 @@
 }
 
 .from legend, .to legend, .depart legend, .ret legend {
-    font-size: medium;
+    font-size: 15px;
     color: #ffffff;
     padding: 0 8px;
     margin-left: 10px;
@@ -65,7 +77,7 @@
     padding: 0 8px;
 }
 
-.from, .to, .depart, .ret, .t, .quota {
+.from, .to, .depart, .ret {
     border: 1.5px white solid;
     width: 30vw;
     border-radius: 10px;
@@ -76,17 +88,38 @@
 
 .depart{
     width: 20vw; 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .ret{
-   width: 20vw; 
+    width: 20vw; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .t{
-    width: 15vw;
+    border: 1.5px white solid;
+    border-radius: 10px;
+    padding: 12px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 10vw;
+    display: flex;
+    justify-content: center;
 }
+
 .quota{
-    width: 15vw;
+    border: 1.5px white solid;
+    border-radius: 10px;
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 10vw;
+    display: flex;
+    justify-content: center;
 }
 
 .dr{
@@ -100,16 +133,24 @@
     justify-content: space-evenly;
     width: 100%;
 }
-.place{
-
-}
 
 .m{
-    font-size: large;
+    font-size: xx-large;
+    font-weight: bolder;
+    margin-right: 10px;
 }
 
 .place{
     display: flex;
+    align-items: baseline;
+}
+
+.sh{
+    font-size: large;
+}
+
+.text{
+    font-size: large
 }
 
 .search{
@@ -117,10 +158,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #7B8EE0;
+    background-color: #154980e0;
     margin-left: 25vw;
     margin-right: 25vw;
-    border: 2px #1c2343 solid;
+    border: 2px #0c0f19 solid;
     border-radius: 30px;
     color: white;
     font-size: x-large;
