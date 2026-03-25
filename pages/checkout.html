@@ -33,7 +33,7 @@
             <!-- Journey Details Card -->
             <div class="card journey-details">
                 <h2>Journey Details</h2>
-                <div class="train-info">
+                <div class="train-info" id="trainname">
                     <svg class="train-icon" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path fill="#3b82f6" d="M96 0C43 0 0 43 0 96V352c0 48 35.2 87.7 81.1 94.9l-46 46C28.1 499.9 33.1 512 43 512H82.7c8.5 0 16.6-3.4 22.6-9.4L160 448H288l54.6 54.6c6 6 14.1 9.4 22.6 9.4H405c10 0 15-12.1 7.9-19.1l-46-46c46-7.1 81.1-46.9 81.1-94.9V96c0-53-43-96-96-96H96zM64 128c0-17.7 14.3-32 32-32h256c17.7 0 32 14.3 32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32v-96z"/></svg>
                     Express Train #1234
                 </div>
@@ -108,38 +108,38 @@
                         <h4>Train Ticket</h4>
                         <p id="summary-count">1 &times; Adults</p>
                     </div>
-                    <div class="item-value" id="summary-ticket-price">$149.00</div>
+                    <div class="item-value" id="summary-ticket-price">Rs.149.00</div>
                 </div>
                 <div class="line-item">
                     <div class="item-text">
                         <h4>Seat Reservation</h4>
                         <p>Window seats</p>
                     </div>
-                    <div class="item-value" id="summary-seat-price">$12.00</div>
+                    <div class="item-value" id="summary-seat-price">Rs.12.00</div>
                 </div>
                 <div class="line-item">
                     <div class="item-text">
                         <h4>Travel Insurance <svg class="info-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path fill="#a0aec0" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24z"/></svg></h4>
                     </div>
-                    <div class="item-value" id="summary-insurance-price">$9.00</div>
+                    <div class="item-value" id="summary-insurance-price">Rs.9.00</div>
                 </div>
                 <hr class="divider">
                 <div class="sub-item">
                     <span class="label">Subtotal</span>
-                    <span class="value" id="summary-subtotal">$170.00</span>
+                    <span class="value" id="summary-subtotal">Rs.170.00</span>
                 </div>
                 <div class="sub-item">
                     <span class="label">Service Fee</span>
-                    <span class="value" id="summary-service-fee">$8.50</span>
+                    <span class="value" id="summary-service-fee">Rs.8.50</span>
                 </div>
                 <div class="sub-item">
                     <span class="label">Tax</span>
-                    <span class="value" id="summary-tax">$13.60</span>
+                    <span class="value" id="summary-tax">Rs.13.60</span>
                 </div>
                 <hr class="divider">
                 <div class="total-row">
                     <span class="total-label">Total</span>
-                    <span class="total-value" id="summary-total">$192.10</span>
+                    <span class="total-value" id="summary-total">Rs.192.10</span>
                 </div>
             </div>
         </div>
@@ -234,8 +234,11 @@
                     const timePoints = document.querySelectorAll('.time-point');
                     if (timePoints.length >= 2) {
                         timePoints[0].querySelector('.time').textContent = trainData.departureTime;
+                        timePoints[0].querySelector('.location').textContent = trainData.source || 'Source Station';
                         timePoints[0].querySelector('.duration').textContent = `Duration: ${trainData.duration}`;
+                        
                         timePoints[1].querySelector('.time').textContent = trainData.arrivalTime;
+                        timePoints[1].querySelector('.location').textContent = trainData.destination || 'Destination Station';
                     }
 
                     const metaItems = document.querySelectorAll('.meta-item');
@@ -317,14 +320,14 @@
                 const total = subtotal + serviceFeeBase + tax;
 
                 if (summaryCount) summaryCount.innerHTML = `${count} &times; Adults`;
-                if (summaryTicketPrice) summaryTicketPrice.innerHTML = '$' + tPrice.toFixed(2);
-                if (summarySeatPrice) summarySeatPrice.innerHTML = '$' + sPrice.toFixed(2);
-                if (summaryInsurancePrice) summaryInsurancePrice.innerHTML = '$' + iPrice.toFixed(2);
+                if (summaryTicketPrice) summaryTicketPrice.innerHTML = 'Rs.' + tPrice.toFixed(2);
+                if (summarySeatPrice) summarySeatPrice.innerHTML = 'Rs.' + sPrice.toFixed(2);
+                if (summaryInsurancePrice) summaryInsurancePrice.innerHTML = 'Rs.' + iPrice.toFixed(2);
                 
-                if (summarySubtotal) summarySubtotal.innerHTML = '$' + subtotal.toFixed(2);
-                if (summaryServiceFee) summaryServiceFee.innerHTML = '$' + serviceFeeBase.toFixed(2);
-                if (summaryTax) summaryTax.innerHTML = '$' + tax.toFixed(2);
-                if (summaryTotal) summaryTotal.innerHTML = '$' + total.toFixed(2);
+                if (summarySubtotal) summarySubtotal.innerHTML = 'Rs.' + subtotal.toFixed(2);
+                if (summaryServiceFee) summaryServiceFee.innerHTML = 'Rs.' + serviceFeeBase.toFixed(2);
+                if (summaryTax) summaryTax.innerHTML = 'Rs.' + tax.toFixed(2);
+                if (summaryTotal) summaryTotal.innerHTML = 'Rs.' + total.toFixed(2);
             }
 
             if(numInput) {

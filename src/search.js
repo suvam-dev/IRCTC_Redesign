@@ -135,7 +135,16 @@ async function loadAndSearchTrainsb(){
                 <span>F</span>
                 <span class="text-green-600">S</span>
               </div>
-              <button class="bg-green-500 hover:bg-green-600 transition-colors text-white flex justify-center items-center w-full sm:w-auto px-6 py-2.5 rounded-lg font-semibold text-lg shadow-lg shadow-green-200">
+              <button onclick="bookTrain('${encodeURIComponent(JSON.stringify({
+                name: props.name,
+                number: props.number,
+                departureTime: props.departure,
+                duration: `${props.duration_h}h ${props.duration_m}m`,
+                arrivalTime: props.arrival,
+                date: new Date().toLocaleDateString(),
+                source:source,
+                destination:destination,
+              }))}')" class="bg-green-500 hover:bg-green-600 transition-colors text-white flex justify-center items-center w-full sm:w-auto px-6 py-2.5 rounded-lg font-semibold text-lg shadow-lg shadow-green-200">
                 Book ticket
               </button>
             </div>
@@ -151,3 +160,9 @@ async function loadAndSearchTrainsb(){
       cardGrid.innerHTML = `<div class="p-4 text-center text-red-500 font-bold">No trains found for this route.</div>`;
   }
 }
+
+window.bookTrain = function(encodedTrainData) {
+    const jsonString = decodeURIComponent(encodedTrainData);
+    localStorage.setItem('selectedTrain', jsonString);
+    window.location.href = './checkout.html';
+};
