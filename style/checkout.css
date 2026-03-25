@@ -1,0 +1,374 @@
+/* Checkout specific styles container */
+.checkout-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    align-items: flex-start;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+    background-color: #f6f8fb; /* Very subtle blue-grey background */
+}
+
+/* Base Card Style */
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 20px;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.left-column {
+    flex: 2;
+    min-width: 300px;
+}
+
+.right-column {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Card Headers */
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.25rem;
+    color: #111;
+    font-weight: 600;
+}
+
+/* Journey Details Styles */
+.train-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #8c98a4;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.train-icon {
+    width: 18px;
+    height: 18px;
+    fill: #3b82f6; /* matching blue */
+}
+
+.time-location {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.time-point {
+    flex: 1;
+}
+
+.time-point.text-right {
+    text-align: right;
+}
+
+.time-point .time {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 4px;
+}
+
+.time-point .location {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.time-point .duration {
+    font-size: 0.85rem;
+    color: #8c98a4;
+}
+
+.arrow-container {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    padding: 0 30px;
+    margin-top: -20px;
+}
+
+.arrow-line {
+    flex: 1;
+    height: 1px;
+    background-color: #3b82f6;
+    opacity: 0.5;
+}
+
+.arrow-icon {
+    width: 14px;
+    height: 14px;
+    fill: #3b82f6;
+    margin: 0 10px;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #eef1f6;
+    margin: 25px 0;
+}
+
+.journey-meta {
+    display: flex;
+    gap: 30px;
+    color: #444;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.meta-icon {
+    width: 16px;
+    height: 16px;
+    fill: #8c98a4;
+}
+
+.status-pill {
+    background-color: #f0f7ff;
+    color: #1e40af;
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Order Summary Styles */
+.summary-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ticket-icon {
+    width: 22px;
+    height: 22px;
+    fill: #3b82f6;
+}
+
+.line-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.item-text h4 {
+    margin: 0 0 5px 0;
+    color: #111;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.item-text p {
+    margin: 0;
+    color: #8c98a4;
+    font-size: 0.85rem;
+}
+
+.item-value {
+    font-weight: 600;
+    color: #111;
+    font-size: 0.95rem;
+}
+
+.item-text h4 .info-icon {
+    width: 14px;
+    height: 14px;
+    fill: #a0aec0;
+    vertical-align: middle;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.sub-item {
+    display: flex;
+    justify-content: space-between;
+    color: #6a7a8c;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.sub-item .label {
+    font-weight: 400;
+}
+
+.sub-item .value {
+    font-weight: 600;
+    color: #111;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #111;
+    margin-top: 15px;
+}
+
+.total-value {
+    color: #6366f1;
+    font-size: 1.6rem;
+}
+
+/* Form Styles */
+.passenger-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.name-group {
+    flex: 2;
+    min-width: 200px;
+}
+
+.age-group, .gender-group {
+    flex: 1;
+    min-width: 100px;
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #444;
+}
+
+input, select {
+    padding: 10px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #111;
+    outline: none;
+    transition: border-color 0.2s;
+    background-color: #fff;
+    font-family: inherit;
+}
+
+input:focus, select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.passenger-details-section {
+    background-color: #f9fafb;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #eef1f6;
+}
+
+.passenger-details-section h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #333;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eef1f6;
+}
+
+.mt-15 {
+    margin-top: 15px;
+}
+
+.submit-btn {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: #2563eb;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 992px) {
+    .checkout-container {
+        flex-direction: column;
+    }
+    
+    .left-column, .right-column {
+        width: 100%;
+        min-width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .journey-meta {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .name-group, .age-group, .gender-group {
+        min-width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .time-location {
+        gap: 10px;
+    }
+    
+    .arrow-container {
+        padding: 0 5px;
+    }
+    
+    .time-point .time {
+        font-size: 1.5rem;
+    }
+    
+    .time-point .location {
+        font-size: 0.9rem;
+    }
+    
+    .card {
+        padding: 20px;
+    }
+    
+    .status-pill {
+        font-size: 0.85rem;
+        padding: 10px 15px;
+    }
+}

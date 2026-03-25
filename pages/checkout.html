@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - BharatRail</title>
+    <meta name="description" content="Checkout page of Bharatrail" />
+    <link rel="stylesheet" href="../style/checkout.css" />
+    <link rel="stylesheet" href="../style/navbar.css" />
+    <link rel="stylesheet" href="../style/footer.css" />
+    <script src="../style/navbar.js" defer></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="../assets/new_logo.jpeg" alt="Bharat Rail Logo" class="logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="login.html" id="nav-login-link">Login</a></li>
+            <li><a href="#">Bookings</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <div class="checkout-container">
+        <div class="left-column">
+            <!-- Journey Details Card -->
+            <div class="card journey-details">
+                <h2>Journey Details</h2>
+                <div class="train-info">
+                    <svg class="train-icon" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path fill="#3b82f6" d="M96 0C43 0 0 43 0 96V352c0 48 35.2 87.7 81.1 94.9l-46 46C28.1 499.9 33.1 512 43 512H82.7c8.5 0 16.6-3.4 22.6-9.4L160 448H288l54.6 54.6c6 6 14.1 9.4 22.6 9.4H405c10 0 15-12.1 7.9-19.1l-46-46c46-7.1 81.1-46.9 81.1-94.9V96c0-53-43-96-96-96H96zM64 128c0-17.7 14.3-32 32-32h256c17.7 0 32 14.3 32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32v-96z"/></svg>
+                    Express Train #1234
+                </div>
+                <div class="time-location">
+                    <div class="time-point">
+                        <div class="time">09:30</div>
+                        <div class="location">New York</div>
+                        <div class="duration">Duration: 5h 15m</div>
+                    </div>
+                    <div class="arrow-container">
+                        <div class="arrow-line"></div>
+                        <svg class="arrow-icon" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path fill="#3b82f6" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h306.7L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
+                        <div class="arrow-line"></div>
+                    </div>
+                    <div class="time-point text-right">
+                        <div class="time">14:45</div>
+                        <div class="location">Boston</div>
+                    </div>
+                </div>
+                <hr class="divider">
+                <div class="journey-meta">
+                    <div class="meta-item">
+                        <svg class="meta-icon" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path fill="#8c98a4" d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192z"/></svg>
+                        March 25, 2026
+                    </div>
+                    <div class="meta-item">
+                        <svg class="meta-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path fill="#8c98a4" d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg>
+                        Departure: Platform 7
+                    </div>
+                </div>
+                <div class="status-pill">
+                    Business Class &bull; 2 Adults &bull; Window Seats
+                </div>
+            </div>
+
+            <!-- Passenger Information Card -->
+            <div class="card passenger-info">
+                <h2>Passenger Information</h2>
+                <form class="passenger-form">
+                    <div class="form-group">
+                        <label for="num-passengers">No. of Passengers</label>
+                        <input type="number" id="num-passengers" name="num-passengers" min="1" max="6" value="1" required>
+                    </div>
+                    
+                    <div id="passengers-container">
+                        <!-- Passengers rendered by JS -->
+                    </div>
+                    
+                    <div class="form-group mt-15">
+                        <label for="contact-email">Contact Email</label>
+                        <input type="email" id="contact-email" name="contact-email" placeholder="Enter email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-phone">Contact Phone</label>
+                        <input type="tel" id="contact-phone" name="contact-phone" placeholder="Enter phone number" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn" onclick="event.preventDefault(); alert('Proceeding to payment...')">Proceed to Payment</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <!-- Order Summary Card -->
+            <div class="card order-summary">
+                <h2 class="summary-header">
+                    <svg class="ticket-icon" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path fill="#3b82f6" d="M0 128C0 92.7 28.7 64 64 64H512c35.3 0 64 28.7 64 64V256c-35.3 0-64 28.7-64 64s28.7 64 64 64v128c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V384c35.3 0 64-28.7 64-64s-28.7-64-64-64V128zM320 88H256v48h64V88zM240 216c0-8.8-7.2-16-16-16H160c-8.8 0-16 7.2-16 16v48c0 8.8 7.2 16 16 16h64c8.8 0 16-7.2 16-16v-48z"/></svg> 
+                    Order Summary
+                </h2>
+                <div class="line-item">
+                    <div class="item-text">
+                        <h4>Train Ticket</h4>
+                        <p id="summary-count">1 &times; Adults</p>
+                    </div>
+                    <div class="item-value" id="summary-ticket-price">$149.00</div>
+                </div>
+                <div class="line-item">
+                    <div class="item-text">
+                        <h4>Seat Reservation</h4>
+                        <p>Window seats</p>
+                    </div>
+                    <div class="item-value" id="summary-seat-price">$12.00</div>
+                </div>
+                <div class="line-item">
+                    <div class="item-text">
+                        <h4>Travel Insurance <svg class="info-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path fill="#a0aec0" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24z"/></svg></h4>
+                    </div>
+                    <div class="item-value" id="summary-insurance-price">$9.00</div>
+                </div>
+                <hr class="divider">
+                <div class="sub-item">
+                    <span class="label">Subtotal</span>
+                    <span class="value" id="summary-subtotal">$170.00</span>
+                </div>
+                <div class="sub-item">
+                    <span class="label">Service Fee</span>
+                    <span class="value" id="summary-service-fee">$8.50</span>
+                </div>
+                <div class="sub-item">
+                    <span class="label">Tax</span>
+                    <span class="value" id="summary-tax">$13.60</span>
+                </div>
+                <hr class="divider">
+                <div class="total-row">
+                    <span class="total-label">Total</span>
+                    <span class="total-value" id="summary-total">$192.10</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Match Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <h2 class="footer-logo">
+                    <img src="../assets/new_logo.jpeg" alt="Logo" class="footer-logo-img">
+                </h2>
+                <p>BharatRail.com is an official partner of IRCTC to book train tickets and railway inquiries.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Book</h3>
+                <ul>
+                    <li><a href="#">IRCTC Tickets</a></li>
+                    <li><a href="#">Flights</a></li>
+                    <li><a href="#">Hotels</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Features</h3>
+                <ul>
+                    <li><a href="#">PNR Status</a></li>
+                    <li><a href="#">Train Running Status</a></li>
+                    <li><a href="#">Train Schedule</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>About BharatRail</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Media Kit</a></li>
+                    <li><a href="#">Alliances</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Partners</h3>
+                <ul>
+                    <li><a href="#">irctc</a></li>
+                    <li><a href="#">south central railway</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Follow us</h3>
+                <div class="social-icons">
+                    <a href="#" title="facebook"><svg class="nflogo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                            width="100" height="100" viewBox="0 0 48 48">
+                            <path fill="#3F51B5" d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z"></path>
+                            <path fill="#FFF" d="M34.368,25H31v13h-5V25h-3v-4h3v-2.41c0.002-3.508,1.459-5.59,5.592-5.59H35v4h-2.287C31.104,17,31,17.6,31,18.723V21h4L34.368,25z"></path>
+                        </svg></a>
+                    <a href="#" title="instagram"><svg class="nflogo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                            width="100" height="100" viewBox="0 0 48 48">
+                            <path fill="#d81b60" d="M42,28.72V32c0,0.65-0.06,1.29-0.18,1.91c-0.18,0.92-0.49,1.8-0.91,2.62c-0.22,0.05-0.47,0.05-0.75,0.01 c-0.63-0.11-1.37-0.44-2.17-0.87c-0.04-0.01-0.08-0.03-0.11-0.05c-0.25-0.13-0.51-0.27-0.77-0.43c-0.53-0.29-1.09-0.61-1.65-0.91 c-0.12-0.06-0.24-0.12-0.35-0.18c-0.64-0.33-1.3-0.63-1.96-0.86c0,0,0,0-0.01,0c-0.14-0.05-0.29-0.1-0.44-0.14 c-0.57-0.16-1.15-0.26-1.71-0.26l-1.1-0.32l-4.87-1.41c0,0,0,0-0.01,0l-2.99-0.87h-0.01l-1.3-0.38c-3.76,0-6.07,1.6-7.19,0.99 c-0.44-0.23-0.7-0.81-0.79-1.95c-0.03-0.32-0.04-0.68-0.04-1.1l-1.17-0.57l-0.05-0.02h-0.01l-0.84-0.42L9.7,26.35l-0.07-0.03 l-0.17-0.09L7.5,25.28L6,24.55v-3.43c0.17-0.15,0.35-0.29,0.53-0.43c0.19-0.15,0.38-0.29,0.57-0.44c0.01,0,0.01,0,0.01,0 c1.18-0.85,2.43-1.6,3.76-2.22c1.55-0.74,3.2-1.31,4.91-1.68c0.25-0.06,0.51-0.12,0.77-0.16c1.42-0.27,2.88-0.41,4.37-0.41 c5.27,0,10.11,1.71,14.01,4.59c1.13,0.84,2.18,1.77,3.14,2.78c0.79,0.83,1.52,1.73,2.18,2.67c0.05,0.07,0.1,0.14,0.15,0.2 c0.37,0.54,0.71,1.09,1.03,1.66C41.64,28.02,41.82,28.37,42,28.72z"></path>
+                            <path fill="#f50057" d="M41.82,33.91c-0.18,0.92-0.49,1.8-0.91,2.62c-0.19,0.37-0.4,0.72-0.63,1.06c-0.14,0.21-0.29,0.41-0.44,0.6 c-0.36-0.14-0.89-0.34-1.54-0.56c0,0,0,0,0-0.01c-0.49-0.17-1.05-0.35-1.65-0.52c-0.17-0.05-0.34-0.1-0.52-0.15 c-0.71-0.19-1.45-0.36-2.17-0.46c-0.6-0.1-1.19-0.16-1.74-0.16l-0.46-0.13h-0.01l-2.42-0.7l-1.49-0.43l-1.66-0.48h-0.01l-0.54-0.15 l-6.53-1.88l-1.88-0.54l-1.4-0.33l-2.28-0.54l-0.28-0.07c0,0,0,0-0.01,0l-2.29-0.53c0-0.01,0-0.01,0-0.01l-0.41-0.09l-0.21-0.05 l-1.67-0.39l-0.19-0.05l-1.42-1.17L6,27.9v-4.08c0.37-0.36,0.75-0.7,1.15-1.03c0.12-0.11,0.25-0.21,0.38-0.31 c0.12-0.1,0.25-0.2,0.38-0.3c0.91-0.69,1.87-1.31,2.89-1.84c1.3-0.7,2.68-1.26,4.13-1.66c0.28-0.09,0.56-0.17,0.85-0.23 c1.64-0.41,3.36-0.62,5.14-0.62c4.47,0,8.63,1.35,12.07,3.66c1.71,1.15,3.25,2.53,4.55,4.1c0.66,0.79,1.26,1.62,1.79,2.5 c0.05,0.07,0.09,0.13,0.13,0.2c0.32,0.53,0.62,1.08,0.89,1.64c0.25,0.5,0.47,1,0.67,1.52C41.34,32.25,41.6,33.07,41.82,33.91z"></path>
+                            <g><path fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M30,11H18c-3.9,0-7,3.1-7,7v12c0,3.9,3.1,7,7,7h12c3.9,0,7-3.1,7-7V18C37,14.1,33.9,11,30,11z"></path><circle cx="31" cy="16" r="1" fill="#fff"></circle></g><g><circle cx="24" cy="24" r="6" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"></circle></g>
+                        </svg></a>
+                    <a href="#" title="Twitter / X"><svg class="nflogo nfk" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+                            <path d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"></path>
+                        </svg> </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Le Travenues Technology Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Process Train Details
+            const trainDataJSON = localStorage.getItem('selectedTrain');
+            if (trainDataJSON) {
+                try {
+                    const trainData = JSON.parse(trainDataJSON);
+                    
+                    const trainInfo = document.querySelector('.train-info');
+                    if(trainInfo) {
+                        trainInfo.innerHTML = `<svg class="train-icon" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path fill="#3b82f6" d="M96 0C43 0 0 43 0 96V352c0 48 35.2 87.7 81.1 94.9l-46 46C28.1 499.9 33.1 512 43 512H82.7c8.5 0 16.6-3.4 22.6-9.4L160 448H288l54.6 54.6c6 6 14.1 9.4 22.6 9.4H405c10 0 15-12.1 7.9-19.1l-46-46c46-7.1 81.1-46.9 81.1-94.9V96c0-53-43-96-96-96H96zM64 128c0-17.7 14.3-32 32-32h256c17.7 0 32 14.3 32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32v-96z"/></svg>
+                        ${trainData.name} #${trainData.number}`;
+                    }
+
+                    const timePoints = document.querySelectorAll('.time-point');
+                    if (timePoints.length >= 2) {
+                        timePoints[0].querySelector('.time').textContent = trainData.departureTime;
+                        timePoints[0].querySelector('.duration').textContent = `Duration: ${trainData.duration}`;
+                        timePoints[1].querySelector('.time').textContent = trainData.arrivalTime;
+                    }
+
+                    const metaItems = document.querySelectorAll('.meta-item');
+                    if (metaItems.length > 0) {
+                        metaItems[0].innerHTML = `<svg class="meta-icon" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path fill="#8c98a4" d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H64C28.7 64 0 92.7 0 128v16 48V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192 144 128c0-35.3-28.7-64-64-64H344V24c0-13.3-10.7-24-24-24s-24 10.7-24 24V64H152V24zM48 192H400V448c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192z"/></svg>
+                                ${trainData.date || 'Today'}`;
+                    }
+                } catch(e) {
+                    console.error('Error parsing train data', e);
+                }
+            }
+
+            // 2. Dynamic Passenger Forms
+            const numInput = document.getElementById('num-passengers');
+            const container = document.getElementById('passengers-container');
+            const summaryCount = document.getElementById('summary-count');
+            const summaryTicketPrice = document.getElementById('summary-ticket-price');
+            const summarySeatPrice = document.getElementById('summary-seat-price');
+            const summaryInsurancePrice = document.getElementById('summary-insurance-price');
+            const summarySubtotal = document.getElementById('summary-subtotal');
+            const summaryServiceFee = document.getElementById('summary-service-fee');
+            const summaryTax = document.getElementById('summary-tax');
+            const summaryTotal = document.getElementById('summary-total');
+            
+            const ticketPrice = 149.00;
+            const seatPrice = 12.00;
+            const insurancePrice = 9.00;
+            const serviceFeeBase = 8.50;
+
+            function renderPassengers(count) {
+                const currentForms = container.querySelectorAll('.passenger-details-section');
+                const currentCount = currentForms.length;
+                
+                if (count > currentCount) {
+                    for (let i = currentCount + 1; i <= count; i++) {
+                        const section = document.createElement('div');
+                        section.className = 'passenger-details-section';
+                        if (i > 1) section.style.marginTop = '15px';
+                        section.innerHTML = `
+                            <h3>Passenger ${i}</h3>
+                            <div class="form-row">
+                                <div class="form-group name-group">
+                                    <label for="p${i}-name">Full Name</label>
+                                    <input type="text" id="p${i}-name" name="p${i}-name" placeholder="Enter full name" required>
+                                </div>
+                                <div class="form-group age-group">
+                                    <label for="p${i}-age">Age</label>
+                                    <input type="number" id="p${i}-age" name="p${i}-age" min="1" max="150" placeholder="Age" required>
+                                </div>
+                                <div class="form-group gender-group">
+                                    <label for="p${i}-gender">Gender</label>
+                                    <select id="p${i}-gender" name="p${i}-gender" required>
+                                        <option value="" disabled selected>Select</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                        `;
+                        container.appendChild(section);
+                    }
+                } else if (count < currentCount) {
+                    for (let i = currentCount; i > count; i--) {
+                        if (container.lastElementChild) {
+                            container.removeChild(container.lastElementChild);
+                        }
+                    }
+                }
+                updateOrderSummary(count);
+            }
+            
+            function updateOrderSummary(count) {
+                const tPrice = (ticketPrice * count);
+                const sPrice = (seatPrice * count);
+                const iPrice = (insurancePrice * count);
+                const subtotal = tPrice + sPrice + iPrice;
+                const tax = subtotal * 0.08;
+                const total = subtotal + serviceFeeBase + tax;
+
+                if (summaryCount) summaryCount.innerHTML = `${count} &times; Adults`;
+                if (summaryTicketPrice) summaryTicketPrice.innerHTML = '$' + tPrice.toFixed(2);
+                if (summarySeatPrice) summarySeatPrice.innerHTML = '$' + sPrice.toFixed(2);
+                if (summaryInsurancePrice) summaryInsurancePrice.innerHTML = '$' + iPrice.toFixed(2);
+                
+                if (summarySubtotal) summarySubtotal.innerHTML = '$' + subtotal.toFixed(2);
+                if (summaryServiceFee) summaryServiceFee.innerHTML = '$' + serviceFeeBase.toFixed(2);
+                if (summaryTax) summaryTax.innerHTML = '$' + tax.toFixed(2);
+                if (summaryTotal) summaryTotal.innerHTML = '$' + total.toFixed(2);
+            }
+
+            if(numInput) {
+                renderPassengers(parseInt(numInput.value) || 1);
+                
+                numInput.addEventListener('input', (e) => {
+                    let val = parseInt(e.target.value);
+                    if (isNaN(val) || val < 1) {
+                        renderPassengers(1);
+                    } else if (val > 6) {
+                        renderPassengers(6);
+                    } else {
+                        renderPassengers(val);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

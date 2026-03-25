@@ -7,7 +7,7 @@
 {
     display:flex;
     font-size: xx-large;
-    background-color: aqua; 
+    background-color: rgb(3, 251, 251); 
     justify-content: start;
 }
 hr{
