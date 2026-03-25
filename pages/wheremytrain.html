@@ -6,9 +6,14 @@
     <title>Where is my train</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="../style/navbar.css">
   </head>
   <body class="bg-slate-50 text-slate-800 font-sans min-h-screen">
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">    
+    </nav>
     
+    <!-- Header for the app -->
     <header class="bg-blue-600 text-white pt-6 pb-20 px-4 rounded-b-[2.5rem] shadow-md relative z-0">
       <div class="max-w-md mx-auto flex items-center justify-center">
         <h1 class="text-xl font-bold tracking-wide">
@@ -16,7 +21,8 @@
         </h1>
       </div>
     </header>
-
+      
+    <!-- Main Div for searching -->
     <main class="max-w-3xl mx-auto px-4 -mt-14 relative z-10 pb-12">
       
       <div class="bg-white rounded-2xl shadow-xl shadow-blue-900/5 border border-slate-100 p-5 w-full flex flex-col gap-4">        
@@ -26,7 +32,7 @@
           </div>
           <div class="w-full border-b border-slate-200 pb-2 group-focus-within:border-blue-500 transition-colors">
             <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">From Station</label>
-            <input type="text" value="Howrah" class="w-full text-lg font-bold text-slate-800 bg-transparent outline-none placeholder-slate-300 capitalize" placeholder="Enter Source">
+            <input type="text"  id="Source" value="Howrah" class="w-full text-lg font-bold text-slate-800 bg-transparent outline-none placeholder-slate-300 capitalize" placeholder="Enter Source">
           </div>
         </div>
 
@@ -42,11 +48,11 @@
           </div>
           <div class="w-full border-b border-slate-200 pb-2 group-focus-within:border-red-500 transition-colors">
             <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">To Station</label>
-            <input type="text" value="Burdwan" class="w-full text-lg font-bold text-slate-800 bg-transparent outline-none placeholder-slate-300 capitalize" placeholder="Enter Destination">
+            <input type="text" id="Destination" value="Burdwan" class="w-full text-lg font-bold text-slate-800 bg-transparent outline-none placeholder-slate-300 capitalize" placeholder="Enter Destination">
           </div>
         </div>
 
-        <button class="mt-4 bg-blue-500 hover:bg-green-600 text-white w-full py-3.5 rounded-xl font-bold text-lg flex items-center justify-center gap-2 shadow-lg shadow-green-500/30 transition-all active:scale-[0.98] cursor-pointer">
+        <button id="Find" class="mt-4 bg-blue-500 hover:bg-green-600 text-white w-full py-3.5 rounded-xl font-bold text-lg flex items-center justify-center gap-2 shadow-lg shadow-green-500/30 transition-all active:scale-[0.98] cursor-pointer">
           <i class="fa-solid fa-magnifying-glass"></i> Find trains
         </button>
 
@@ -63,3 +69,4 @@
    <script src="../src/search.js" type="module"></script>
   </body>
 </html>
+

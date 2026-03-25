@@ -4,9 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+       .navbar div{
+           display:flex;
+           align-items: center;   
+           padding:5px;      
+       }
+       .navbar{
+         display:flex;
+         background-color:blueviolet;
+         justify-content: space-between;
+       }
     
+       .navbar a 
+       {
+            padding:10px;;
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+            margin:2px;
+        }
+       .navbar a:hover{
+            background-color: #ff00ff;
+            color: white;
+        }
+        .login{
+            background-color: rgb(255, 0, 255);
+            border-radius: 5px;
+        }
+        .hamburger{
+            display: none;
+        }
+        @media(max-width:700px){
+        .navbar{
+             display:flex;
+             position:relative;
+        }
+        .rightside{
+            position:absolute;  
+            right:0;
+            top:40px;
+            display:none;
+            background-color: rgba(81, 77, 77, 0.703);
+        }
+        .rightside a{
+            display:none;
+        }
+        .hamburger{
+            display: block;
+    }
+}
+   .active
+    {
+        display:block;
+        flex-direction: column;
+        position:absolute;
+        right:0;
+        top:40px;
+        background-color: rgba(81, 77, 77, 0.703);
+    }
+</style>
+<body>
+    <div class="navbar">
+        <div class="leftside">
+            <img src="./assets/logo.png" alt="Logo">
+        </div>
+        <div class="rightside">
+            <a href="./pages/wheremytrain.html">Where is my train</a>
+            <a href="./pages/pnrstatus.html">PNR Status</a>
+            <a href="./pages/trainschedule.html">Train Schedule</a>
+            <a href="./pages/trainstatus.html">Train Status</a>
+            <a  class="login" href="./pages/login.html">Login/Signup</a>
+        </div>
+        <div class="hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
 </body>
-<script src="../src/search.js" type="module"></script>
+<script>
+   const navbar=document.querySelector(".navbar");
+   const hamburger=document.querySelector(".hamburger");
+   hamburger.addEventListener("click",()=>{
+    const rightside=document.querySelector(".rightside");
+    rightside.classList.add("active");
+    hamburger.classList.remove("active");
+   })
+</script>
+<script src="./navbar" type="module"></script>
 </html>

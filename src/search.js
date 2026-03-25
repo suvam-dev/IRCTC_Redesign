@@ -51,4 +51,24 @@ const search=document.querySelector("#search");
 console.log(search);
 const pnr=document.querySelector('#pnr')
 console.log(pnr)
-search.addEventListener('click',()=>loadAndSearchTrains(pnr.value))
+const find=document.querySelector("#Find");
+console.log(find);
+find.addEventListener('click',()=>loadAndSearchTrainsb());
+
+
+async function loadAndSearchTrainsb(){
+  const source=document.querySelector('#Source').value;
+  const destination=document.querySelector('#Destination').value;
+  console.log(source,destination);
+  const response = await fetch('../data/trains.json');
+  const data = await response.json();
+  const trainsData = data.features; 
+  console.log("Success! Data loaded. Total trains:", trainsData.length);
+  for (let x of trainsData) {
+    console.log(x.properties)
+    if (x.properties.from_station_name=== source && x.properties.to_station_name === destination) {
+      console.log("Found train:", x.properties);
+     break;
+    }
+  }
+}
