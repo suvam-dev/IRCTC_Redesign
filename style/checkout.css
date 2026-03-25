@@ -1,5 +1,13 @@
 /* Checkout specific styles container */
-.checkout-container {
+
+body{
+    width:100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../assets/trainbackground.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}.checkout-container {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
