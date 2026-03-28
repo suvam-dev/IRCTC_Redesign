@@ -50,13 +50,19 @@
 
 .inner{
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
 }
 .Rail{
-    height: 80px;
+    width: 40px;
+    height: 40px;
+    color: #ffffff;
 }
 .cal{
-    height: 50px;
+    width: 30px;
+    height: 30px;
+    color: #ffffff;
 }
 .ft{
     display: flex;
@@ -90,8 +96,9 @@
 .depart{
     width: 20vw; 
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    gap: 15px;
 }
 
 .ret{

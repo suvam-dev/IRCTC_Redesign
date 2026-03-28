@@ -1,168 +1,191 @@
-import navbar from "./navbar.js";
-//  navbar loading
-navbar();
+/**
+ * BharatRail Search System
+ * Handles train number search, route search, and cross-page data propagation.
+ */
 
-async function loadAndSearchTrains(pnr) {
-  const response = await fetch('../data/trains.json');
-  const data = await response.json();
-  const trainsData = data.features; 
-  console.log("Success! Data loaded. Total trains:", trainsData.length);
-
-  let key = pnr;
-  console.log("Searching for:", key);
-  const cardGrid=document.querySelector("#result");
-  for (let x of trainsData) {
-      if (x.properties.number === key) {
-        cardGrid.innerHTML=`
-          <div class="flex flex-col bg-white shadow-xl w-full max-w-4xl p-5 md:p-6 rounded-xl mx-auto border border-gray-100 text-gray-800">
-            <div class="flex flex-row gap-3 items-center mb-6 w-full">
-              <div class="bg-blue-100 text-blue-800 rounded-md py-1 px-2 font-bold text-sm tracking-wide">
-                ${x.properties.number}
-              </div>
-              <div class="font-bold text-lg md:text-xl text-gray-900">
-                ${x.properties.name}
-              </div>
-            </div>
-            <div class="relative flex flex-row justify-between items-center w-full py-2 mb-4">
-              <hr class="absolute w-full h-[2px] bg-gray-300 border-0 top-1/2 z-0">
-              <div class="bg-white px-3 font-semibold text-gray-700 z-10">${x.properties.departure}</div>
-              <div class="bg-white px-3 text-sm font-medium text-gray-500 z-10">${x.properties.duration_h}h ${x.properties.duration_m}m</div>
-              <div class="bg-white px-3 font-semibold text-gray-700 z-10">${x.properties.arrival} AM</div>
-            </div>
-            <div class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center gap-4 mt-2">
-              <div class="flex gap-2 text-sm font-bold text-gray-400">
-                <span class="text-green-600">S</span>
-                <span>M</span>
-                <span class="text-green-600">T</span>
-                <span>W</span>
-                <span class="text-green-600">T</span>
-                <span>F</span>
-                <span class="text-green-600">S</span>
-              </div>
-              <button class="bg-green-500 hover:bg-green-600 transition-colors text-white flex justify-center items-center w-full sm:w-auto px-6 py-2.5 rounded-lg font-semibold text-lg shadow-lg shadow-green-200">
-                Book ticket
-              </button>
-            </div>
-          </div>
-        `
-          console.log("Found train:", x.properties);
-          return;
-      }
-  }
-  console.log("not found");
+// Helper to get the correct path to data files regardless of current page location
+function getDataPath(filename) {
+    const isPage = window.location.pathname.includes('/pages/');
+    return (isPage ? "../data/" : "./data/") + filename;
 }
 
-
-
-
-const search = document.querySelector("#search");
-const pnr = document.querySelector('#pnr');
-const find = document.querySelector("#Find");
-
-if (search && pnr) {
-  search.addEventListener('click', () => {
-    if (pnr.value.trim()) loadAndSearchTrains(pnr.value.trim());
-  });
-  pnr.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter' && pnr.value.trim()) loadAndSearchTrains(pnr.value.trim());
-  });
-}
-
-
-if (find) {
-  find.addEventListener('click', () => loadAndSearchTrainsb());
-}
-
-async function loadAndSearchTrainsb(){
-  const sourceInput = document.querySelector('#Source');
-  const destInput = document.querySelector('#Destination');
-  const cardGrid = document.querySelector("#result");
-  
-  if (!sourceInput || !destInput || !cardGrid) return;
-  
-  const source = sourceInput.value.trim().toUpperCase();
-  const destination = destInput.value.trim().toUpperCase();
-  
-  if (!source || !destination) {
-     cardGrid.innerHTML = `<div class="p-4 text-center text-red-500 font-bold">Please enter both source and destination stations.</div>`;
-     return;
-  }
-
-  cardGrid.innerHTML = `<div class="p-4 text-center font-bold">Searching...</div>`;
-
-  const response = await fetch('../data/trains.json');
-  const data = await response.json();
-  const trainsData = data.features; 
-  
-  let foundHTML = '';
-  let foundCount = 0;
-
-  for (let x of trainsData) {
-    const props = x.properties;
-    const fromStation = props.from_station_name ? props.from_station_name.toUpperCase() : '';
-    const toStation = props.to_station_name ? props.to_station_name.toUpperCase() : '';
-
-    if (fromStation.includes(source) && toStation.includes(destination)) {
-      foundHTML += `
-          <div class="flex flex-col bg-white shadow-xl w-full max-w-4xl p-5 md:p-6 rounded-xl mx-auto border border-gray-100 text-gray-800 mb-4">
-            <div class="flex flex-row gap-3 items-center mb-6 w-full">
-              <div class="bg-blue-100 text-blue-800 rounded-md py-1 px-2 font-bold text-sm tracking-wide">
-                ${props.number}
-              </div>
-              <div class="font-bold text-lg md:text-xl text-gray-900">
-                ${props.name}
-              </div>
-            </div>
-            <div class="relative flex flex-row justify-between items-center w-full py-2 mb-4">
-              <hr class="absolute w-full h-[2px] bg-gray-300 border-0 top-1/2 z-0">
-              <div class="bg-white px-3 font-semibold text-gray-700 z-10 flex flex-col items-center">
-                 <span>${props.from_station_name}</span>
-                 <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded mt-1">${props.departure}</span>
-              </div>
-              <div class="bg-white px-3 text-sm font-medium text-gray-500 z-10">${props.duration_h}h ${props.duration_m}m</div>
-              <div class="bg-white px-3 font-semibold text-gray-700 z-10 flex flex-col items-center">
-                 <span>${props.to_station_name}</span>
-                 <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded mt-1">${props.arrival}</span>
-              </div>
-            </div>
-            <div class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center gap-4 mt-2">
-              <div class="flex gap-2 text-sm font-bold text-gray-400">
-                <span class="text-green-600">S</span>
-                <span>M</span>
-                <span class="text-green-600">T</span>
-                <span>W</span>
-                <span class="text-green-600">T</span>
-                <span>F</span>
-                <span class="text-green-600">S</span>
-              </div>
-              <button onclick="bookTrain('${encodeURIComponent(JSON.stringify({
-                name: props.name,
-                number: props.number,
-                departureTime: props.departure,
-                duration: `${props.duration_h}h ${props.duration_m}m`,
-                arrivalTime: props.arrival,
-                date: new Date().toLocaleDateString(),
-                source:source,
-                destination:destination,
-              }))}')" class="bg-green-500 hover:bg-green-600 transition-colors text-white flex justify-center items-center w-full sm:w-auto px-6 py-2.5 rounded-lg font-semibold text-lg shadow-lg shadow-green-200">
-                Book ticket
-              </button>
-            </div>
-          </div>
-        `;
-        foundCount++;
+// 1. Initial Search Trigger (Used on Main/Home page)
+window.triggerSearch = function() {
+    const source = document.querySelector('#Source')?.value || document.querySelector('.from .m')?.innerText;
+    const destination = document.querySelector('#Destination')?.value || document.querySelector('.to .m')?.innerText;
+    
+    if (!source || !destination) {
+        alert("Please select both source and destination.");
+        return;
     }
-  }
-  
-  if (foundCount > 0) {
-      cardGrid.innerHTML = foundHTML;
-  } else {
-      cardGrid.innerHTML = `<div class="p-4 text-center text-red-500 font-bold">No trains found for this route.</div>`;
-  }
+
+    // Save search criteria to localStorage
+    localStorage.setItem('pendingSearch', JSON.stringify({
+        source: source.trim(),
+        destination: destination.trim(),
+        type: 'route'
+    }));
+
+    // Redirect to search results page
+    const isRoot = !window.location.pathname.includes('/pages/');
+    window.location.href = isRoot ? "./pages/searchresult.html" : "./searchresult.html";
+};
+
+// 2. Train Number / PNR Search
+async function searchByNumber(number) {
+    const cardGrid = document.querySelector("#result");
+    if (!cardGrid) return;
+
+    cardGrid.innerHTML = `<div class="p-8 text-center font-semibold text-gray-500">Searching for Train #${number}...</div>`;
+
+    try {
+        const response = await fetch(getDataPath('trains.json'));
+        const data = await response.json();
+        const train = data.features.find(x => x.properties.number === number);
+
+        if (train) {
+            cardGrid.innerHTML = renderTrainCard(train.properties);
+        } else {
+            cardGrid.innerHTML = `<div class="p-8 text-center text-red-500 font-bold">Train #${number} not found.</div>`;
+        }
+    } catch (err) {
+        console.error("Search error:", err);
+        cardGrid.innerHTML = `<div class="p-8 text-center text-red-500">Error loading train data.</div>`;
+    }
 }
 
-window.bookTrain = function(encodedTrainData) {
-    const jsonString = decodeURIComponent(encodedTrainData);
-    localStorage.setItem('selectedTrain', jsonString);
-    window.location.href = './checkout.html';
+// 3. Route Search Logic
+async function performRouteSearch(source, destination) {
+    const cardGrid = document.querySelector("#result");
+    if (!cardGrid) return;
+
+    cardGrid.innerHTML = `<div class="p-8 text-center font-semibold text-gray-500">Finding trains from ${source} to ${destination}...</div>`;
+
+    try {
+        const response = await fetch(getDataPath('trains.json'));
+        const data = await response.json();
+        const s = source.toUpperCase();
+        const d = destination.toUpperCase();
+
+        const results = data.features.filter(x => {
+            const props = x.properties;
+            const from = (props.from_station_name || "").toUpperCase();
+            const to = (props.to_station_name || "").toUpperCase();
+            return from.includes(s) && to.includes(d);
+        });
+
+        if (results.length > 0) {
+            cardGrid.innerHTML = results.map(r => renderTrainCard(r.properties)).join('');
+        } else {
+            cardGrid.innerHTML = `<div class="p-8 text-center text-red-500 font-bold">No trains found for this route.</div>`;
+        }
+    } catch (err) {
+        console.error("Search error:", err);
+        cardGrid.innerHTML = `<div class="p-8 text-center text-red-500">Error loading train data.</div>`;
+    }
+}
+
+// 4. UI Rendering Helper
+function renderTrainCard(props) {
+    const trainData = encodeURIComponent(JSON.stringify({
+        name: props.name,
+        number: props.number,
+        departureTime: props.departure,
+        arrivalTime: props.arrival,
+        duration: `${props.duration_h}h ${props.duration_m}m`,
+        source: props.from_station_name,
+        destination: props.to_station_name,
+        date: new Date().toLocaleDateString()
+    }));
+
+    return `
+        <div class="flex flex-col bg-white shadow-lg w-full max-w-4xl p-6 rounded-2xl mx-auto border border-gray-100 text-gray-800 mb-6 transition-transform hover:scale-[1.01]">
+            <div class="flex flex-row gap-3 items-center mb-6 w-full">
+                <div class="bg-blue-600 text-white rounded-lg py-1 px-3 font-bold text-sm tracking-wide shadow-sm">
+                    ${props.number}
+                </div>
+                <div class="font-extrabold text-xl text-gray-900">
+                    ${props.name}
+                </div>
+            </div>
+            <div class="relative flex flex-row justify-between items-center w-full py-2 mb-6">
+                <hr class="absolute w-full h-[2px] bg-gray-200 border-0 top-1/2 -z-0">
+                <div class="bg-white px-4 font-bold text-gray-800 z-10 flex flex-col items-center">
+                    <span class="text-sm text-gray-500 mb-1">Departure</span>
+                    <span class="text-lg">${props.departure}</span>
+                    <span class="text-xs font-normal text-gray-400 mt-1">${props.from_station_name}</span>
+                </div>
+                <div class="bg-white px-4 text-sm font-bold text-blue-600 z-10 py-1 border border-blue-100 rounded-full shadow-sm">
+                    ${props.duration_h}h ${props.duration_m}m
+                </div>
+                <div class="bg-white px-4 font-bold text-gray-800 z-10 flex flex-col items-center">
+                    <span class="text-sm text-gray-500 mb-1">Arrival</span>
+                    <span class="text-lg">${props.arrival}</span>
+                    <span class="text-xs font-normal text-gray-400 mt-1">${props.to_station_name}</span>
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:justify-between items-center gap-6 pt-4 border-t border-gray-50">
+                <div class="flex gap-3 text-xs font-black text-gray-300 tracking-widest">
+                    <span class="${props.runs_on_sun === 'Y' ? 'text-green-500' : ''}">S</span>
+                    <span class="${props.runs_on_mon === 'Y' ? 'text-green-500' : ''}">M</span>
+                    <span class="${props.runs_on_tue === 'Y' ? 'text-green-500' : ''}">T</span>
+                    <span class="${props.runs_on_wed === 'Y' ? 'text-green-500' : ''}">W</span>
+                    <span class="${props.runs_on_thu === 'Y' ? 'text-green-500' : ''}">T</span>
+                    <span class="${props.runs_on_fri === 'Y' ? 'text-green-500' : ''}">F</span>
+                    <span class="${props.runs_on_sat === 'Y' ? 'text-green-500' : ''}">S</span>
+                </div>
+                <button onclick="bookTrain('${trainData}')" class="bg-blue-600 hover:bg-blue-700 transition-all text-white px-10 py-3 rounded-xl font-bold text-md shadow-lg shadow-blue-200 active:scale-95">
+                    Book Ticket
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+// 5. Booking Action
+window.bookTrain = function(encodedData) {
+    localStorage.setItem('selectedTrain', decodeURIComponent(encodedData));
+    const isPage = window.location.pathname.includes('/pages/');
+    window.location.href = isPage ? "./checkout.html" : "./pages/checkout.html";
 };
+
+// 6. Initialization Logic
+function initSearch() {
+    // Attach listeners to input elements if they exist
+    const searchBtn = document.querySelector("#search"); // PNR/Number search button
+    const pnrInput = document.querySelector('#pnr');   // PNR/Number input
+    const findBtn = document.querySelector("#Find");     // Route search button (wheremytrain)
+
+    if (searchBtn && pnrInput) {
+        searchBtn.onclick = () => {
+            const val = pnrInput.value.trim();
+            if (val) searchByNumber(val);
+        };
+        pnrInput.onkeypress = (e) => {
+            if (e.key === 'Enter') searchBtn.onclick();
+        };
+    }
+
+    if (findBtn) {
+        findBtn.onclick = () => {
+            const s = document.querySelector('#Source')?.value;
+            const d = document.querySelector('#Destination')?.value;
+            if (s && d) performRouteSearch(s, d);
+        };
+    }
+
+    // Handle incoming search from other pages
+    const pendingSearch = localStorage.getItem('pendingSearch');
+    if (pendingSearch && window.location.pathname.includes('searchresult.html')) {
+        const { source, destination } = JSON.parse(pendingSearch);
+        localStorage.removeItem('pendingSearch'); // Clear so it doesn't re-run on refresh
+        performRouteSearch(source, destination);
+    }
+}
+
+// Launch initialization
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSearch);
+} else {
+    initSearch();
+}

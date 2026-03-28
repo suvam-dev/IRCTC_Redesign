@@ -1,88 +1,95 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Where is my train</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="../style/footer.css">
-    <link rel="stylesheet" href="../style/navbar.css">
-    <script src="../style/navbar.js" defer></script>
-  </head>
-  <body class="bg-slate-50 text-slate-800 font-sans min-h-screen">
-    <nav class="navbar">
-        <div class="logo-container">
-            <img src="../assets/new_logo.jpeg" alt="Bharat Rail Logo" class="logo">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Where is my train - BharatRail</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="../style/navbar.css">
+  <link rel="stylesheet" href="../style/footer.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen">
+  <nav class="navbar"></nav>
+
+  <!-- Header for the app -->
+  <header class="bg-blue-600 text-white pt-6 pb-20 px-4 rounded-b-[2.5rem] shadow-md relative z-0">
+    <div class="max-w-md mx-auto flex items-center justify-center">
+      <h1 class="text-xl font-bold tracking-wide">
+        <i data-lucide="train" class="mr-2 inline-block align-middle"></i> Where is my Train
+      </h1>
+    </div>
+  </header>
+
+  <!-- Main Div for searching -->
+  <main class="max-w-3xl mx-auto px-4 -mt-14 relative z-10 pb-12">
+    <div class="bg-white rounded-2xl shadow-xl shadow-blue-900/5 border border-slate-100 p-5 w-full flex flex-col gap-4">
+      <div class="flex items-center gap-4 group">
+        <div class="w-10 h-10 shrink-0 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center">
+          <i data-lucide="map-pin"></i>
         </div>
-        <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="login.html" id="nav-login-link">Login</a></li>
-            <li><a href="#">Bookings</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="w-full border-b border-slate-200 pb-2 group-focus-within:border-blue-500 transition-colors">
+          <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">From Station</label>
+          <input type="text" id="Source" value="Howrah"
+            class="w-full text-lg font-bold text-slate-800 bg-transparent outline-none placeholder-slate-300 capitalize"
+            placeholder="Enter Source">
         </div>
-    </nav>
-    
-    <!-- Header for the app -->
-    <header class="bg-blue-600 text-white pt-6 pb-20 px-4 rounded-b-[2.5rem] shadow-md relative z-0">
-      <div class="max-w-md mx-auto flex items-center justify-center">
-        <h1 class="text-xl font-bold tracking-wide">
-          <i class="fa-solid fa-train-subway mr-2"></i> Where is my Train
-        </h1>
       </div>
-    </header>
-      
-    <!-- Main Div for searching -->
-    <main class="max-w-3xl mx-auto px-4 -mt-14 relative z-10 pb-12">
-      
-      <div class="bg-white rounded-2xl shadow-xl shadow-blue-900/5 border border-slate-100 p-5 w-full flex flex-col gap-4">        
-        <div class="flex items-center gap-4 group">
-          <div class="w-10 h-10 shrink-0 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center">
-            <i class="fa-solid fa-location-dot"></i>
-          </div>
-          <div class="w-full border-b border-slate-200 pb-2 group-focus-within:border-blue-500 transition-colors">
-            <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">From Station</label>
-            <input type="text"  id="Source" value="Howrah" class="w-full text-lg font-bold text-slate-800 bg-transparent outline-none placeholder-slate-300 capitalize" placeholder="Enter Source">
-          </div>
-        </div>
 
-        <div class="relative py-2 flex justify-end pr-2 -my-2 z-10">
-          <button class="bg-white border border-slate-100 shadow-sm w-9 h-9 rounded-full flex items-center justify-center text-blue-600 hover:bg-blue-50 transition-colors active:rotate-180 cursor-pointer">
-             <i class="fa-solid fa-arrow-right-arrow-left rotate-90"></i>
-          </button>
-        </div>
-
-        <div class="flex items-center gap-4 group">
-          <div class="w-10 h-10 shrink-0 bg-red-50 text-red-500 rounded-full flex items-center justify-center">
-            <i class="fa-solid fa-location-dot"></i>
-          </div>
-          <div class="w-full border-b border-slate-200 pb-2 group-focus-within:border-red-500 transition-colors">
-            <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">To Station</label>
-            <input type="text" id="Destination" value="Burdwan" class="w-full text-lg font-bold text-slate-800 bg-transparent outline-none placeholder-slate-300 capitalize" placeholder="Enter Destination">
-          </div>
-        </div>
-
-        <button id="Find" class="mt-4 bg-blue-500 hover:bg-green-600 text-white w-full py-3.5 rounded-xl font-bold text-lg flex items-center justify-center gap-2 shadow-lg shadow-green-500/30 transition-all active:scale-[0.98] cursor-pointer">
-          <i class="fa-solid fa-magnifying-glass"></i> Find trains
+      <div class="relative py-2 flex justify-end pr-2 -my-2 z-10">
+        <button
+          class="bg-white border border-slate-100 shadow-sm w-9 h-9 rounded-full flex items-center justify-center text-blue-600 hover:bg-blue-50 transition-colors active:rotate-180 cursor-pointer">
+          <i data-lucide="arrow-left-right" class="rotate-90"></i>
         </button>
+      </div>
 
+      <div class="flex items-center gap-4 group">
+        <div class="w-10 h-10 shrink-0 bg-red-50 text-red-500 rounded-full flex items-center justify-center">
+          <i data-lucide="map-pin"></i>
+        </div>
+        <div class="w-full border-b border-slate-200 pb-2 group-focus-within:border-red-500 transition-colors">
+          <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">To Station</label>
+          <input type="text" id="Destination" value="Burdwan"
+            class="w-full text-lg font-bold text-slate-800 bg-transparent outline-none placeholder-slate-300 capitalize"
+            placeholder="Enter Destination">
+        </div>
       </div>
-      <div class="trainNumber relative mt-2.5 h-16">
-        <label  class=" absolute top-0 z-10 font-sans text-[10px] font-extrabold -translate-y-1.5 left-4 p-0.5 px-1 bg-gray-50 shadow-2xl shadow-gray-500 rounded-md text-gray-500" for="pnr">Train Search:</label>
-        <input type="text" value="" id="pnr"  placeholder="Enter train number" class="text-gray-600  w-full h-12 place-content-center px-4 absolute shadow-2xl shadow-gray-300 top-0  rounded-full border-0 font-extrabold "/>
-        <div id="search" class="search absolute top-0  my-1 h-10 w-10 z-10 right-1 rounded-full p-5 bg-green-500 flex justify-center items-center hover:bg-green-600 "> <i class="fa-solid fa-magnifying-glass fa-lg text-gray-100 "></i> </div>
+
+      <button id="Find"
+        class="mt-4 bg-blue-500 hover:bg-green-600 text-white w-full py-3.5 rounded-xl font-bold text-lg flex items-center justify-center gap-2 shadow-lg shadow-green-500/30 transition-all active:scale-[0.98] cursor-pointer">
+        <i data-lucide="search"></i> Find trains
+      </button>
+
+    </div>
+    <div class="trainNumber relative mt-4 h-16">
+      <label
+        class="absolute top-0 z-10 font-sans text-[10px] font-extrabold -translate-y-1.5 left-4 p-0.5 px-1 bg-gray-50 shadow-2xl shadow-gray-500 rounded-md text-gray-500"
+        for="pnr">Train Search:</label>
+      <input type="text" value="" id="pnr" placeholder="Enter train number"
+        class="text-gray-600 w-full h-12 place-content-center px-4 absolute shadow-2xl shadow-gray-300 top-0 rounded-full border-0 font-extrabold " />
+      <div id="search"
+        class="search absolute top-1 my-0 h-10 w-10 z-10 right-1 rounded-full p-5 bg-green-500 flex justify-center items-center hover:bg-green-600 ">
+        <i data-lucide="search" class="text-gray-100 "></i>
       </div>
-      <div id="result" class="bg-gray-100 h-32"></div>
-    </main> 
-    
-   <!-- <script src="../src/navbar.js" type="module"></script> -->
-   <script src="../src/search.js" type="module" ></script>
-   <!-- <script src="../src/footer.js" type="module"></script> -->
-  </body>
+    </div>
+    <div id="result" class="mt-8"></div>
+  </main>
+
+  <footer class="footer"></footer>
+
+  <!-- Scripts -->
+  <script src="../src/navbar.js"></script>
+  <script src="../src/search.js" type="module"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+
 </html>
-

@@ -1,213 +1,136 @@
-body{
-    width:100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../assets/trainbackground.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
+/* ─── CSS Reset / Normalize ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
 }
-.backbutton{
-    width:2rem;
-    background-color:#022752;
-    border-radius:0.6rem;
-    margin:20px;
-    
-    transition: all 0.3s ease;
-    box-sizing: border-box;
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/trainbackground.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
-.backbutton:hover{
-    border:2px solid #07274a;
-    transform:scale(1.07);
-}
-.backl{
-   fill:rgb(236, 236, 241);
-   stroke-width:1.2px;
- 
-}
-h1{
-    margin:0px;
-    color:#002D62;
-    font-size:3.5rem;
-}
-.heading{
-    padding:10px;
-}
-form{
-    width:100%;
-    
-}
-label{
-    display:block;
-    height:2rem;
-    
-    width:80%;
-    
-    background:rgba(0, 45, 98, 0.7);
+img, svg { display: block; max-width: 100%; }
+button, input { font: inherit; }
+ul { list-style: none; }
+a { text-decoration: none; color: inherit; }
 
-    margin:10px auto;
-    padding:0.5rem;
-    border-radius:0.9rem ;
-    border: 2.5px solid rgb(0,45,98); /* Match palette */
-    box-shadow: none; /* Removed grey shadow */
-    transition: all 0.3s ease;
+/* ─── Back Button ────────────────────────────────────────────────────────── */
+.backbutton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: white;
+  border-radius: 8px;
+  margin: 20px;
+  color: #002D62;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  width: fit-content;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  user-select: none;
 }
-label:hover{
-    transform: scale(1.05);
-    border: 2.5px solid #042db6;
-}
-.l2{
-    width:100%;
-    margin:10px -0.65rem;
-}
-input{
-    display:inline-block;
-    border:none;
-    color:rgb(217, 219, 227);
-    height:20px;
-    background:rgba(151, 150, 150, 0);
-    margin:auto;
-    margin-bottom:10px;
-    position: relative;
-    top:-10px;
-    left:10px;
-    width:70%;
-}
-input:focus{
-    border: none;
-    outline: none;
-}
+.backbutton-icon { display: flex; align-items: center; }
+.backl { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+.back { color: inherit; font-weight: 700; }
+.backbutton:hover { background: #002D62; color: white; transform: translateX(-5px); }
 
-a{
-    text-decoration:none;
-    color:#002D62;
-}
-.fpa{
-    text-align:right;
-}
-form{
-    margin-top:5rem;
-}
-.texa{
-    width:80%;
-    margin:10px auto;
-    padding:0rem;
-    
+/* ─── Card ───────────────────────────────────────────────────────────────── */
+.cont { background: white; padding: 24px 20px; border-radius: 20px; margin: 20px; }
+.heading { padding: 10px; }
+h1 { color: #002D62; font-size: 3rem; line-height: 1.1; }
 
+/* ─── Form ───────────────────────────────────────────────────────────────── */
+form { width: 100%; margin-top: 2rem; }
+label {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  width: 85%;
+  margin: 15px auto;
+  padding: 0 1rem;
+  border-radius: 12px;
+  border: 1.5px solid #e2e8f0;
+  background: rgba(0,45,98,0.04);
+  cursor: text;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
-::placeholder {
-  color: rgb(156, 171, 223);
-  opacity: 1; /* Firefox */
+label:focus-within {
+  border-color: #042db6;
+  box-shadow: 0 0 0 3px rgba(4,45,182,0.1);
 }
-button{
-    display:block;
-    margin:0 auto;
-    border: none;
-    height:2rem;
-    width:30%;
-    border:3px solid #07274a;
-    background-color:#002D62;
-    color:white;
-    border-radius: 0.8rem;
-    transition: all 0.3s ease;
+input {
+  flex: 1;
+  border: none;
+  outline: none;
+  color: #1e293b;
+  font-size: 1rem;
+  background: transparent;
+  padding-left: 10px;
 }
-button:hover{
-    border:2px solid #075ccb;
-    background-color: #001F44;
-    transform:scale(1.1);
+::placeholder { color: #94a3b8; opacity: 1; }
+.back2 { width: 20px; height: 20px; flex-shrink: 0; color: rgb(19,48,99); }
+.fpa { text-align: right; width: 85%; margin: 4px auto 0; }
+.fpa a { color: #042db6; font-size: 0.85rem; }
+button[type="submit"] {
+  display: block;
+  margin: 1.5rem auto 0;
+  height: 2.5rem;
+  width: 60%;
+  border: none;
+  background: #002D62;
+  color: white;
+  border-radius: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
 }
-hr{
-    width:40%;
-    border:1px solid #021e5b ;
-    height:0px;
-}
-.orlogin{
-    display:flex;
-    margin-top:3rem;
-}
-span{
-    width:18%;
-    text-align: center;
-}
-.logos{
-    display :flex;
-    justify-content: space-evenly;
-    margin-top:1.5rem;
-        margin-bottom:3rem;
-        padding:1px;
+button[type="submit"]:hover { background: #001F44; transform: scale(1.05); }
 
-}
-.logo svg{
-    height:2rem;
-    margin:auto;
-    width:100%;
+/* ─── Divider ────────────────────────────────────────────────────────────── */
+hr { flex: 1; border: none; border-top: 1px solid #cbd5e1; }
+.orlogin { display: flex; align-items: center; gap: 12px; margin: 2rem 1rem 0; }
+.orlogin span { white-space: nowrap; font-size: 0.85rem; color: #64748b; }
 
+/* ─── Social Logos ───────────────────────────────────────────────────────── */
+.logos { display: flex; justify-content: space-evenly; align-items: center; margin: 1.5rem 0 2rem; padding: 0 1rem; }
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 48px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s, background-color 0.2s;
+}
+.logo:hover { background: #f8fafc; border-color: #94a3b8; transform: translateY(-3px); }
 
-}
-.bac{
-    display: none;
-}
-.logo{
-    width:20%; 
-    box-shadow:1px 3px 3px 1px rgb(163, 161, 161) ;
-    border-radius: 0.8rem;
-    text-align: center;
+/* ─── Register Link ──────────────────────────────────────────────────────── */
+.last { text-align: center; margin: 1rem; font-size: 0.9rem; color: #475569; }
+.last a { color: #042db6; font-weight: 600; }
 
-}
-.bac {
-   
-    color:rgb(249, 246, 246);
-}
-.last{
-    margin:2rem;
-    padding:1px;
-}
-.back2{
-    height:2rem;
-}
-
-
-.cont {
-    background-color: #ffffff; /* White background for untouched look */
-    padding: 20px;
-    border-radius: 20px;
-    margin: 20px;
-}
-@media screen and (min-width:600px){
-    .cont{
-       
-        width:50%;
-        margin:auto;
-        border: 3px solid #002D62;
-        padding:20 30px;
-        box-sizing: border-box;
-        border-radius: 30px;
-        max-width:400px;
-        box-shadow: 2px 2px 3px 2px rgb(132, 132, 135);
-    }
-    .backbutton{
-        width:10%;
-        height:2rem;
-        color:rgb(243, 245, 247);
-    }
-    .backl{
-        height:2rem;
-        margin:auto;
-        width:40%;
-    }
-    .link{
-        color:black;
-        font-size:1.2rem;
-    }
-    .bac{
-        display:inline-block;
-        position: relative;
-       top:-10px;
-       left:-5px;
-        font-weight: 800;
-    }
-    h1{
-        font-size: 2.5rem;
-    }
-    
-
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+@media screen and (min-width: 600px) {
+  .cont {
+    width: 420px;
+    margin: 40px auto;
+    border: 3px solid #002D62;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.2);
+  }
+  h1 { font-size: 2.5rem; }
+  .backbutton { margin: 20px 40px; }
 }

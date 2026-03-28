@@ -8,8 +8,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color:#07274a; /* Navy background */
+    background-color: rgba(7, 39, 74, 0.85); /* Semi-transparent navy */
     padding: 10px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(12px); /* Glassmorphism effect */
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .navbar .logo-container {

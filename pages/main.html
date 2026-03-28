@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main</title>
+    <title>Main - BharatRail</title>
+    <!-- CSS -->
     <link rel="stylesheet" href="../style/main.css">
     <link rel="stylesheet" href="../style/navbar.css">
     <link rel="stylesheet" href="../style/footer.css">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar" id="navbar">
-    </nav>
-
+    <nav class="navbar"></nav>
 
     <div class="way">
         <div class="w sel">One way</div>
@@ -24,34 +27,34 @@
             <fieldset class="from">
                 <legend>From</legend>     
             <div class="inner">
-                <img src="../assets/right.png" alt="Train from" class="Rail">       
+                <i data-lucide="arrow-right" class="Rail"></i>
                 <div class="st">
                     <div class="place">
-                    <p class="m">Chennai</p> 
-                    <p class="sh">CHE</p>
-                </div>
-                    <p>Central Railway Station</p>
+                        <input type="text" id="Source" value="Chennai" class="m bg-transparent border-none outline-none font-bold text-lg w-full" placeholder="From Station">
+                        <p class="sh text-xs text-gray-400">CHE</p>
+                    </div>
+                    <p class="text-xs text-gray-500">Central Railway Station</p>
                 </div>
             </div>
             </fieldset>
         <fieldset class="to">
             <legend>To</legend>
             <div class="inner">
-                 <img src="../assets/left.png" alt="Train from" class="Rail"> 
+                 <i data-lucide="arrow-left" class="Rail"></i>
                  <div class="st">
                     <div class="place">
-                        <p class="m">Kerala</p>
-                        <p class="sh">KL</p>
+                        <input type="text" id="Destination" value="Kerala" class="m bg-transparent border-none outline-none font-bold text-lg w-full" placeholder="To Station">
+                        <p class="sh text-xs text-gray-400">KL</p>
                      </div>
-                    <p>Thiruvananthapuram Central Station</p>
+                    <p class="text-xs text-gray-500">Thiruvananthapuram Central Station</p>
                  </div>
             </div>
         </fieldset>
         </div>
         <div class="dr">
-            <fieldset class="depart">
+             <fieldset class="depart">
                 <legend>Departure</legend>
-                <img src="../assets/cal.png" alt="Train from" class="cal"> 
+                <i data-lucide="calendar" class="cal"></i>
                 <p class="text">26/May/2026</p>
             </fieldset>
             <fieldset class="ret">
@@ -71,8 +74,14 @@
         </div>
     </div>
 
-    <div class="search">
+    <div class="search" onclick="triggerSearch()">
         <p>Search Train</p>
-    <script src="../src/navbar.js" type="module"></script>
+    </div>
+
+    <footer class="footer"></footer>
+
+    <!-- Scripts -->
+    <script src="../src/navbar.js"></script>
+    <script src="../src/search.js"></script>
 </body>
 </html>

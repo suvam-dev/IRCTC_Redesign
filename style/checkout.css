@@ -55,6 +55,7 @@ body {
 .train-info {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     color: #8c98a4;
     font-size: 0.95rem;
@@ -129,10 +130,12 @@ body {
 
 .journey-meta {
     display: flex;
+    justify-content: center;
     gap: 30px;
     color: #444;
     font-size: 0.95rem;
     margin-bottom: 25px;
+    width: 100%;
 }
 
 .meta-item {
@@ -160,7 +163,10 @@ body {
 .summary-header {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f1f5f9;
 }
 
 .ticket-icon {

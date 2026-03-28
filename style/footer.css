@@ -1,11 +1,13 @@
 /* Footer Styles */
 .footer {
-    background-color: #07274a; /* Deep Blue palette matching navbar */
+    background-color: rgba(7, 39, 74, 0.85); /* Semi-transparent navy */
     color: #e0e0e0;
     padding: 40px 20px 20px;
     font-family: Arial, sans-serif;
-    border-top: 3px solid #00A89D; /* Teal border for branding */
+    border-top: 3px solid rgba(0, 168, 157, 0.6); /* Slightly transparent teal */
     margin-top: 50px;
+    backdrop-filter: blur(12px); /* Glassmorphism effect */
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .footer-container {
