@@ -1,15 +1,9 @@
-/**
- * BharatRail Search System
- * Handles train number search, route search, and cross-page data propagation.
- */
 
-// Helper to get the correct path to data files regardless of current page location
 function getDataPath(filename) {
     const isPage = window.location.pathname.includes('/pages/');
     return (isPage ? "../data/" : "./data/") + filename;
 }
 
-// 1. Initial Search Trigger (Used on Main/Home page)
 window.triggerSearch = function() {
     const source = document.querySelector('#Source')?.value || document.querySelector('.from .m')?.innerText;
     const destination = document.querySelector('#Destination')?.value || document.querySelector('.to .m')?.innerText;
@@ -19,19 +13,16 @@ window.triggerSearch = function() {
         return;
     }
 
-    // Save search criteria to localStorage
     localStorage.setItem('pendingSearch', JSON.stringify({
         source: source.trim(),
         destination: destination.trim(),
         type: 'route'
     }));
 
-    // Redirect to search results page
     const isRoot = !window.location.pathname.includes('/pages/');
     window.location.href = isRoot ? "./pages/searchresult.html" : "./searchresult.html";
 };
 
-// 2. Train Number / PNR Search
 async function searchByNumber(number) {
     const cardGrid = document.querySelector("#result");
     if (!cardGrid) return;
@@ -54,7 +45,6 @@ async function searchByNumber(number) {
     }
 }
 
-// 3. Route Search Logic
 async function performRouteSearch(source, destination) {
     const cardGrid = document.querySelector("#result");
     if (!cardGrid) return;
@@ -85,7 +75,6 @@ async function performRouteSearch(source, destination) {
     }
 }
 
-// 4. UI Rendering Helper
 function renderTrainCard(props) {
     const trainData = encodeURIComponent(JSON.stringify({
         name: props.name,
@@ -142,19 +131,16 @@ function renderTrainCard(props) {
     `;
 }
 
-// 5. Booking Action
 window.bookTrain = function(encodedData) {
     localStorage.setItem('selectedTrain', decodeURIComponent(encodedData));
     const isPage = window.location.pathname.includes('/pages/');
     window.location.href = isPage ? "./checkout.html" : "./pages/checkout.html";
 };
 
-// 6. Initialization Logic
 function initSearch() {
-    // Attach listeners to input elements if they exist
-    const searchBtn = document.querySelector("#search"); // PNR/Number search button
-    const pnrInput = document.querySelector('#pnr');   // PNR/Number input
-    const findBtn = document.querySelector("#Find");     // Route search button (wheremytrain)
+    const searchBtn = document.querySelector("#search");
+    const pnrInput = document.querySelector('#pnr');
+    const findBtn = document.querySelector("#Find");
 
     if (searchBtn && pnrInput) {
         searchBtn.onclick = () => {
@@ -174,16 +160,14 @@ function initSearch() {
         };
     }
 
-    // Handle incoming search from other pages
     const pendingSearch = localStorage.getItem('pendingSearch');
     if (pendingSearch && window.location.pathname.includes('searchresult.html')) {
         const { source, destination } = JSON.parse(pendingSearch);
-        localStorage.removeItem('pendingSearch'); // Clear so it doesn't re-run on refresh
+        localStorage.removeItem('pendingSearch');
         performRouteSearch(source, destination);
     }
 }
 
-// Launch initialization
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initSearch);
 } else {

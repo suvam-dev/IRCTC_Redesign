@@ -1,12 +1,11 @@
-/* Footer Styles */
 .footer {
-    background-color: rgba(7, 39, 74, 0.85); /* Semi-transparent navy */
+    background-color: rgba(7, 39, 74, 0.85);
     color: #e0e0e0;
     padding: 40px 20px 20px;
     font-family: Arial, sans-serif;
-    border-top: 3px solid rgba(0, 168, 157, 0.6); /* Slightly transparent teal */
+    border-top: 3px solid rgba(0, 168, 157, 0.6);
     margin-top: 50px;
-    backdrop-filter: blur(12px); /* Glassmorphism effect */
+    backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 }
 
@@ -38,20 +37,20 @@
 }
 
 .footer-logo-img {
-    height: 70px; /* Default desktop height */
+    height: 70px;
     width: auto;
 }
 
 .brand-col p {
     font-size: 0.9rem;
     line-height: 1.5;
-    color: #b0c4de; /* Light blue/gray */
+    color: #b0c4de;
 }
 
 .footer-col h3 {
     font-size: 1.1rem;
     margin-bottom: 15px;
-    color: #00A89D; /* Teal headings */
+    color: #00A89D; 
 }
 
 .footer-col ul {
@@ -78,17 +77,18 @@
 .social-icons {
     display: flex;
     gap: 15px;
+    align-items: center;
 }
 
 .social-icons a {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 3rem;
+    padding: 10px;
     height: 3rem;
-    border-radius: 20%;
-    
+    border-radius: 9999px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    text-align: center;
-    line-height: 30px;
     color: #001F44;
     text-decoration: none;
     font-weight: bold;
@@ -97,7 +97,8 @@
 .nflogo{
     height:3rem;
     width:3rem;
-    border-radius: 50%;
+    border-radius: 9999px;
+    padding: 10px;
 }
 
 .social-icons a:hover {
@@ -115,7 +116,6 @@
     color: #8da3b8;
 }
 
-/* Responsiveness */
 @media screen and (max-width: 768px) {
     .footer-container {
         flex-direction: column;
@@ -136,13 +136,12 @@
     }
 
     .footer-logo-img {
-        height: 100px; /* Increase size in mobile */
+        height: 100px;
+        border-radius: 9999px;
     }
-
     .brand-col p {
-        display: none; /* Remove text below logo in mobile */
+        display: none;
     }
-    
     .footer-col h3 {
         padding-bottom: 10px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -161,7 +160,6 @@
         content: '-';
     }
     
-    /* Hover to show list items on mobile */
     .footer-col ul {
         display: none;
         padding-top: 10px;

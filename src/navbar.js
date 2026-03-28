@@ -1,8 +1,3 @@
-/**
- * Unified UI Component System for BharatRail
- * Handles dynamic injection of the Header (Navbar) and Footer across all pages.
- */
-
 function initUI() {
     const isPage = window.location.pathname.includes('/pages/');
     const basePath = isPage ? "../" : "./";
@@ -11,7 +6,7 @@ function initUI() {
     injectNavbar(basePath, pagesPath);
     injectFooter(basePath, pagesPath);
     
-    // Initialize Lucide icons after injection
+
     if (window.lucide) {
         window.lucide.createIcons();
     }
@@ -22,8 +17,8 @@ function injectNavbar(basePath, pagesPath) {
     if (!nav) return;
 
     nav.innerHTML = `
-        <div class="logo-container">
-            <img src="${basePath}assets/new_logo.jpeg" alt="Bharat Rail Logo" class="logo">
+        <div class="logo-container ">
+            <img class="rounded-full" src="${basePath}assets/logo.png" alt="Bharat Rail Logo" class="logo">
         </div>
         <ul class="nav-links">
             <li><a href="${basePath}index.html">Home</a></li>
@@ -38,7 +33,6 @@ function injectNavbar(basePath, pagesPath) {
         </div>
     `;
 
-    // Hamburger Toggle Logic
     const hamburger = nav.querySelector(".hamburger");
     const navLinks = nav.querySelector(".nav-links");
     if (hamburger && navLinks) {
@@ -56,8 +50,8 @@ function injectFooter(basePath, pagesPath) {
     footer.innerHTML = `
         <div class="footer-container">
             <div class="footer-col brand-col">
-                <h2 class="footer-logo">
-                    <img src="${basePath}assets/new_logo.jpeg" alt="Bharat Rail Logo" class="footer-logo-img">
+                <h2 class="footer-logo rounded-full">
+                    <img src="${basePath}assets/logo.png" alt="Bharat Rail Logo" class="footer-logo-img rounded-full">
                 </h2>
                 <p>BharatRail.com is an official partner of IRCTC to book train tickets and railway inquiries.</p>
             </div>
@@ -101,11 +95,10 @@ function injectFooter(basePath, pagesPath) {
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
+        <div class="footer-bottom flex justify-center">
             <p>© 2026 BharatRail.com. All Rights Reserved.</p>
         </div>
     `;
 }
 
-// Automatically initialize when the script loads
 document.addEventListener("DOMContentLoaded", initUI);

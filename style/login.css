@@ -1,7 +1,14 @@
-/* ─── CSS Reset / Normalize ──────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
   font-size: 16px;
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
@@ -9,18 +16,31 @@ html {
 body {
   width: 100%;
   min-height: 100vh;
-  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../assets/trainbackground.jpg);
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../assets/trainbackground.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
-img, svg { display: block; max-width: 100%; }
-button, input { font: inherit; }
-ul { list-style: none; }
-a { text-decoration: none; color: inherit; }
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+button,
+input {
+  font: inherit;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-/* ─── Back Button ────────────────────────────────────────────────────────── */
 .backbutton {
   display: flex;
   align-items: center;
@@ -29,27 +49,56 @@ a { text-decoration: none; color: inherit; }
   background: white;
   border-radius: 8px;
   margin: 20px;
-  color: #002D62;
+  color: #002d62;
   font-weight: 700;
   font-size: 0.95rem;
   cursor: pointer;
   width: fit-content;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   user-select: none;
 }
-.backbutton-icon { display: flex; align-items: center; }
-.backl { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2.5; }
-.back { color: inherit; font-weight: 700; }
-.backbutton:hover { background: #002D62; color: white; transform: translateX(-5px); }
+.backbutton-icon {
+  display: flex;
+  align-items: center;
+}
+.backl {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.5;
+}
+.back {
+  color: inherit;
+  font-weight: 700;
+}
+.backbutton:hover {
+  background: #002d62;
+  color: white;
+  transform: translateX(-5px);
+}
 
-/* ─── Card ───────────────────────────────────────────────────────────────── */
-.cont { background: white; padding: 24px 20px; border-radius: 20px; margin: 20px; }
-.heading { padding: 10px; }
-h1 { color: #002D62; font-size: 3rem; line-height: 1.1; }
+.cont {
+  background: rgba(255, 255, 255, 0.497);
+  backdrop-filter: blur(10px);
+  padding: 24px 20px;
+  border-radius: 20px;
+  margin: 20px;
+}
+.heading {
+  padding: 10px;
+}
+h1 {
+  color: #002d62;
+  font-size: 3rem;
+  line-height: 1.1;
+}
 
-/* ─── Form ───────────────────────────────────────────────────────────────── */
-form { width: 100%; margin-top: 2rem; }
+form {
+  width: 100%;
+  margin-top: 2rem;
+}
 label {
   display: flex;
   align-items: center;
@@ -59,50 +108,89 @@ label {
   padding: 0 1rem;
   border-radius: 12px;
   border: 1.5px solid #e2e8f0;
-  background: rgba(0,45,98,0.04);
+  background: rgba(0, 45, 98, 0.04);
   cursor: text;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 label:focus-within {
   border-color: #042db6;
-  box-shadow: 0 0 0 3px rgba(4,45,182,0.1);
+  box-shadow: 0 0 0 3px rgba(4, 45, 182, 0.1);
 }
 input {
   flex: 1;
   border: none;
   outline: none;
-  color: #1e293b;
+  color: #ffffff;
   font-size: 1rem;
   background: transparent;
   padding-left: 10px;
 }
-::placeholder { color: #94a3b8; opacity: 1; }
-.back2 { width: 20px; height: 20px; flex-shrink: 0; color: rgb(19,48,99); }
-.fpa { text-align: right; width: 85%; margin: 4px auto 0; }
-.fpa a { color: #042db6; font-size: 0.85rem; }
+::placeholder {
+  color: #fcfcfcf1;
+  opacity: 1;
+}
+.back2 {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: rgb(19, 48, 99);
+}
+.fpa {
+  text-align: right;
+  width: 85%;
+  margin: 4px auto 0;
+}
+.fpa a {
+  color: #042db6;
+  font-size: 0.85rem;
+}
 button[type="submit"] {
   display: block;
   margin: 1.5rem auto 0;
   height: 2.5rem;
   width: 60%;
   border: none;
-  background: #002D62;
+  background: #002d62;
   color: white;
   border-radius: 0.8rem;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.2s;
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
 }
-button[type="submit"]:hover { background: #001F44; transform: scale(1.05); }
+button[type="submit"]:hover {
+  background: #001f44;
+  transform: scale(1.05);
+}
 
-/* ─── Divider ────────────────────────────────────────────────────────────── */
-hr { flex: 1; border: none; border-top: 1px solid #cbd5e1; }
-.orlogin { display: flex; align-items: center; gap: 12px; margin: 2rem 1rem 0; }
-.orlogin span { white-space: nowrap; font-size: 0.85rem; color: #64748b; }
+hr {
+  flex: 1;
+  border: none;
+  border-top: 1px solid #cbd5e1;
+}
+.orlogin {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 2rem 1rem 0;
+}
+.orlogin span {
+  white-space: nowrap;
+  font-size: 0.85rem;
+  color: #64748b;
+}
 
-/* ─── Social Logos ───────────────────────────────────────────────────────── */
-.logos { display: flex; justify-content: space-evenly; align-items: center; margin: 1.5rem 0 2rem; padding: 0 1rem; }
+.logos {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 1.5rem 0 2rem;
+  padding: 0 1rem;
+}
 .logo {
   display: flex;
   align-items: center;
@@ -113,24 +201,41 @@ hr { flex: 1; border: none; border-top: 1px solid #cbd5e1; }
   border-radius: 12px;
   font-size: 1.4rem;
   cursor: pointer;
-  transition: border-color 0.2s, transform 0.2s, background-color 0.2s;
+  transition:
+    border-color 0.2s,
+    transform 0.2s,
+    background-color 0.2s;
 }
-.logo:hover { background: #f8fafc; border-color: #94a3b8; transform: translateY(-3px); }
+.logo:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  transform: translateY(-3px);
+}
 
-/* ─── Register Link ──────────────────────────────────────────────────────── */
-.last { text-align: center; margin: 1rem; font-size: 0.9rem; color: #475569; }
-.last a { color: #042db6; font-weight: 600; }
+.last {
+  text-align: center;
+  margin: 1rem;
+  font-size: 0.9rem;
+  color: #475569;
+}
+.last a {
+  color: #042db6;
+  font-weight: 600;
+}
 
-/* ─── Responsive ─────────────────────────────────────────────────────────── */
 @media screen and (min-width: 600px) {
   .cont {
-    width: 420px;
+    width: 600px;
     margin: 40px auto;
-    border: 3px solid #002D62;
+    border: 3px solid #002d62;
     padding: 30px;
     border-radius: 30px;
-    box-shadow: 2px 2px 12px rgba(0,0,0,0.2);
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
   }
-  h1 { font-size: 2.5rem; }
-  .backbutton { margin: 20px 40px; }
+  h1 {
+    font-size: 2.5rem;
+  }
+  .backbutton {
+    margin: 20px 40px;
+  }
 }

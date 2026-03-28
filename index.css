@@ -4,20 +4,21 @@
   --color-secondary: #10b981;
   --color-accent: #f59e0b;
 
-  --bg-main: #ffffff;
-  --bg-card: #1e293b;
-  --bg-light: #f8fafc;
+  --bg-main: #f9fafb;
+  --bg-card: #ffffff;
+  --bg-light: #f3f4f6;
 
-  --text-main: #100f0fb2;
-  --text-muted: #94a3b8;
+  --text-main: #0f172a;
+  --text-muted: #475569;
 
-  --border-color: #334155;
+  --border-color: #e2e8f0;
 
   --font-main: Times,"Inter", sans-serif;
 }
 
-div{
-    margin:2%;
+div {
+    margin: 2%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 * {
   margin: 0;
@@ -28,10 +29,11 @@ div{
 
 body {
   font-family: var(--font-main);
-  background: var(--bg-main);
+  background: #f9fafb;
   color: var(--text-main);
   line-height: 1.6;
-  font-weight: 600;
+  font-weight: 500;
+  min-height: 100vh;
 }
 
 

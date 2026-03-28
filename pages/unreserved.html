@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unreserved Ticket</title>
+    <link rel="stylesheet" href="../style/navbar.css">
+    <link rel="stylesheet" href="../style/footer.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></script>
+</head>
+<body>
+     <nav class="navbar"></nav>
+    <div class="form flex flex-col gap-2 m-auto mt-10 w-[400px] bg-white p-4 border-2 border-gray-200">
+        <input type="text" class="border-2 border-gray-200" placeholder="From">
+        <input type="text" class="border-2 border-gray-200" placeholder="To">
+        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg">Book Ticket</button>
+    </div>
+    <footer class="footer"></footer>
+    <div id="qrcode"> hi</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+    var qrcode = new QRCode(document.getElementById("qrcode"), {
+        text: "https://example.com",
+        width: 128,
+        height: 128,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
+</script>
+</body>
+<script src="../src/navbar.js"></script>
+<script src="../src/search.js" type="module"></script>
+</html>

@@ -1,4 +1,3 @@
-/* Checkout specific styles container */
 
 body{
     width:100%;
@@ -19,10 +18,9 @@ body{
 }
 
 body {
-    background-color: #f6f8fb; /* Very subtle blue-grey background */
+    background-color: #f6f8fb;
 }
 
-/* Base Card Style */
 .card {
     background: #ffffff;
     border-radius: 12px;
@@ -42,7 +40,6 @@ body {
     min-width: 300px;
 }
 
-/* Card Headers */
 .card h2 {
     margin-top: 0;
     margin-bottom: 25px;
@@ -51,7 +48,6 @@ body {
     font-weight: 600;
 }
 
-/* Journey Details Styles */
 .train-info {
     display: flex;
     align-items: center;
@@ -65,7 +61,7 @@ body {
 .train-icon {
     width: 18px;
     height: 18px;
-    fill: #3b82f6; /* matching blue */
+    fill: #3b82f6;
 }
 
 .time-location {
@@ -159,7 +155,6 @@ body {
     font-weight: 500;
 }
 
-/* Order Summary Styles */
 .summary-header {
     display: flex;
     align-items: center;
@@ -241,7 +236,6 @@ body {
     font-size: 1.6rem;
 }
 
-/* Form Styles */
 .passenger-form {
     display: flex;
     flex-direction: column;
@@ -332,7 +326,6 @@ input:focus, select:focus {
     background-color: #2563eb;
 }
 
-/* Responsive Styles */
 @media screen and (max-width: 992px) {
     .checkout-container {
         flex-direction: column;
