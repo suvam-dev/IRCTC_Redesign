@@ -1,47 +1,48 @@
 @import "tailwindcss";
+
 :root {
-  --color-primary: #2563eb;
-  --color-secondary: #10b981;
-  --color-accent: #f59e0b;
+  --color-primary: var(--bw-black);
+  --color-secondary: var(--bw-gray-700);
+  --color-accent: var(--bw-gray-500);
 
-  --bg-main: #f9fafb;
-  --bg-card: #ffffff;
-  --bg-light: #f3f4f6;
+  --bg-main: var(--bw-gray-100);
+  --bg-card: var(--bw-white);
+  --bg-light: var(--bw-gray-200);
 
-  --text-main: #0f172a;
-  --text-muted: #475569;
+  --text-main: var(--bw-black);
+  --text-muted: var(--bw-gray-700);
 
-  --border-color: #e2e8f0;
+  --border-color: var(--bw-gray-300);
 
-  --font-main: Times,"Inter", sans-serif;
+  --font-main: Times, "Inter", sans-serif;
 }
 
 div {
-    margin: 2%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 2%;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
 body {
   font-family: var(--font-main);
-  background: #f9fafb;
+  background: var(--bg-main);
   color: var(--text-main);
   line-height: 1.6;
   font-weight: 500;
   min-height: 100vh;
 }
 
-
 a {
   text-decoration: none;
   color: var(--color-primary);
 }
-
 
 .container {
   width: 90%;
@@ -49,14 +50,12 @@ a {
   margin: auto;
 }
 
-
 .card {
-  background: var(--bg-card);
+  background: var(--bw-white);
   padding: 20px;
   border-radius: 10px;
   border: 1px solid var(--border-color);
 }
-
 
 .button {
   background: var(--color-primary);
@@ -69,11 +68,11 @@ a {
 }
 
 .button:hover {
-  background: #1d4ed8;
+  background: var(--bw-gray-700);
 }
 
 .text-muted {
-  color: var(--text-muted);
+  color: var(--bw-gray-500);
 }
 
 .flex {

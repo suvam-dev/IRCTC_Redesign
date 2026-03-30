@@ -17,8 +17,8 @@ body {
   width: 100%;
   min-height: 100vh;
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(../assets/trainbackground.jpg);
+    linear-gradient(var(--overlay-60), var(--overlay-60)),
+    url(../assets/trainbackground.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -46,15 +46,15 @@ a {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: white;
+  background: var(--bw-white);
   border-radius: 8px;
   margin: 20px;
-  color: #002d62;
+  color: var(--bw-black);
   font-weight: 700;
   font-size: 0.95rem;
   cursor: pointer;
   width: fit-content;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
   user-select: none;
 }
@@ -74,13 +74,13 @@ a {
   font-weight: 700;
 }
 .backbutton:hover {
-  background: #002d62;
-  color: white;
+  background: var(--bw-black);
+  color: var(--bw-white);
   transform: translateX(-5px);
 }
 
 .cont {
-  background: rgba(255, 255, 255, 0.497);
+  background: var(--glass-white);
   backdrop-filter: blur(10px);
   padding: 24px 20px;
   border-radius: 20px;
@@ -90,7 +90,7 @@ a {
   padding: 10px;
 }
 h1 {
-  color: #002d62;
+  color: var(--bw-black);
   font-size: 3rem;
   line-height: 1.1;
 }
@@ -107,35 +107,35 @@ label {
   margin: 15px auto;
   padding: 0 1rem;
   border-radius: 12px;
-  border: 1.5px solid #e2e8f0;
-  background: rgba(0, 45, 98, 0.04);
+  border: 1.5px solid var(--bw-gray-300);
+  background: var(--field-bg);
   cursor: text;
   transition:
     border-color 0.2s,
     box-shadow 0.2s;
 }
 label:focus-within {
-  border-color: #042db6;
-  box-shadow: 0 0 0 3px rgba(4, 45, 182, 0.1);
+  border-color: var(--bw-black);
+  box-shadow: var(--focus-ring);
 }
 input {
   flex: 1;
   border: none;
   outline: none;
-  color: #ffffff;
+  color: var(--bw-white);
   font-size: 1rem;
   background: transparent;
   padding-left: 10px;
 }
 ::placeholder {
-  color: #fcfcfcf1;
+  color: var(--bw-white);
   opacity: 1;
 }
 .back2 {
   width: 20px;
   height: 20px;
   flex-shrink: 0;
-  color: rgb(19, 48, 99);
+  color: var(--bw-black);
 }
 .fpa {
   text-align: right;
@@ -143,7 +143,7 @@ input {
   margin: 4px auto 0;
 }
 .fpa a {
-  color: #042db6;
+  color: var(--bw-black);
   font-size: 0.85rem;
 }
 button[type="submit"] {
@@ -152,8 +152,8 @@ button[type="submit"] {
   height: 2.5rem;
   width: 60%;
   border: none;
-  background: #002d62;
-  color: white;
+  background: var(--bw-black);
+  color: var(--bw-white);
   border-radius: 0.8rem;
   font-size: 1rem;
   font-weight: 600;
@@ -163,14 +163,14 @@ button[type="submit"] {
     transform 0.2s;
 }
 button[type="submit"]:hover {
-  background: #001f44;
+  background: var(--bw-black);
   transform: scale(1.05);
 }
 
 hr {
   flex: 1;
   border: none;
-  border-top: 1px solid #cbd5e1;
+  border-top: 1px solid var(--bw-gray-300);
 }
 .orlogin {
   display: flex;
@@ -181,7 +181,7 @@ hr {
 .orlogin span {
   white-space: nowrap;
   font-size: 0.85rem;
-  color: #64748b;
+  color: var(--bw-gray-500);
 }
 
 .logos {
@@ -197,7 +197,7 @@ hr {
   justify-content: center;
   width: 60px;
   height: 48px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--bw-gray-300);
   border-radius: 12px;
   font-size: 1.4rem;
   cursor: pointer;
@@ -207,8 +207,8 @@ hr {
     background-color 0.2s;
 }
 .logo:hover {
-  background: #f8fafc;
-  border-color: #94a3b8;
+  background: var(--bw-gray-100);
+  border-color: var(--bw-gray-500);
   transform: translateY(-3px);
 }
 
@@ -216,10 +216,10 @@ hr {
   text-align: center;
   margin: 1rem;
   font-size: 0.9rem;
-  color: #475569;
+  color: var(--bw-gray-700);
 }
 .last a {
-  color: #042db6;
+  color: var(--bw-black);
   font-weight: 600;
 }
 
@@ -227,10 +227,10 @@ hr {
   .cont {
     width: 600px;
     margin: 40px auto;
-    border: 3px solid #002d62;
+    border: 3px solid var(--bw-black);
     padding: 30px;
     border-radius: 30px;
-    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-md);
   }
   h1 {
     font-size: 2.5rem;

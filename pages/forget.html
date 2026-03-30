@@ -1,49 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/variables.css" />
+    <title>BharatRail – Forgot Password</title>
+    <meta name="description" content="Forgot password page of BharatRail" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BharatRail – Forgot Password</title>
-  <meta name="description" content="Forgot password page of BharatRail">
-  
-  <link rel="stylesheet" href="../style/forget.css">
-  <link rel="stylesheet" href="../style/navbar.css">
-  <link rel="stylesheet" href="../style/footer.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <script src="https://unpkg.com/lucide@latest"></script>
-</head>
+    <link rel="stylesheet" href="../style/forget.css" />
+    <link rel="stylesheet" href="../style/navbar.css" />
+    <link rel="stylesheet" href="../style/footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
-<body>
-  <nav class="navbar"></nav>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
 
-  <div class="backbutton" onclick="window.history.back()">
-    <div class="backbutton-icon">
-      <i data-lucide="chevron-left" class="backl"></i>
-    </div>
-    <div class="back">Back</div>
-  </div>
+  <body>
+    <nav class="navbar"></nav>
 
-  <div class="cont">
-    <div class="heading">
-      <h1>Forgot</h1>
-      <h1>Password</h1>
+    <div class="backbutton" onclick="window.history.back()">
+      <div class="backbutton-icon">
+        <i data-lucide="chevron-left" class="backl"></i>
+      </div>
+      <div class="back">Back</div>
     </div>
 
-    <form>
-      <label for="email">
-        <i data-lucide="mail" class="back2"></i>
-        <input id="email" name="email" type="email" placeholder="your@email.com">
-      </label>
-      <p class="msp">* We will send you a message to reset your password</p>
-      <button type="submit">Get OTP</button>
-    </form>
-  </div>
+    <div class="cont">
+      <div class="heading">
+        <h1>Forgot</h1>
+        <h1>Password</h1>
+      </div>
 
-  <footer class="footer"></footer>
+      <form>
+        <label for="email">
+          <i data-lucide="mail" class="back2"></i>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="your@email.com"
+          />
+        </label>
+        <p class="msp">* We will send you a message to reset your password</p>
+        <button type="submit">Get OTP</button>
+      </form>
+    </div>
 
-  <script src="../src/navbar.js"></script>
-</body>
+    <footer class="footer"></footer>
 
+    <script src="../src/navbar.js"></script>
+  </body>
 </html>

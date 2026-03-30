@@ -1,72 +1,84 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/variables.css" />
+    <title>BharatRail – Login</title>
+    <meta name="description" content="Login to BharatRail" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BharatRail – Login</title>
-  <meta name="description" content="Login to BharatRail">
-  
-  <link rel="stylesheet" href="../style/login.css">
-  <link rel="stylesheet" href="../style/navbar.css">
-  <link rel="stylesheet" href="../style/footer.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <script src="https://unpkg.com/lucide@latest"></script>
-</head>
+    <link rel="stylesheet" href="../style/login.css" />
+    <link rel="stylesheet" href="../style/navbar.css" />
+    <link rel="stylesheet" href="../style/footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
-<body>
-  <nav class="navbar"></nav>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
 
-  <div class="backbutton" onclick="window.location.href='../index.html'">
-    <div class="backbutton-icon">
-      <i data-lucide="chevron-left" class="backl"></i>
-    </div>
-    <div class="back">BACK</div>
-  </div>
+  <body>
+    <nav class="navbar"></nav>
 
-  <div class="cont">
-    <div class="heading">
-      <h1>Welcome</h1>
-      <h1>Back!</h1>
+    <div class="backbutton" onclick="window.location.href = '../index.html'">
+      <div class="backbutton-icon">
+        <i data-lucide="chevron-left" class="backl"></i>
+      </div>
+      <div class="back">BACK</div>
     </div>
 
-    <form>
-      <label for="username">
-        <i data-lucide="user" class="back2"></i>
-        <input id="username" name="username" type="text" placeholder="Username or Email">
-      </label>
+    <div class="cont">
+      <div class="heading">
+        <h1>Welcome</h1>
+        <h1>Back!</h1>
+      </div>
 
-      <label for="password">
-        <i data-lucide="lock" class="back2"></i>
-        <input id="password" name="password" type="password" placeholder="Password">
-      </label>
+      <form>
+        <label for="username">
+          <i data-lucide="user" class="back2"></i>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            placeholder="Username or Email"
+          />
+        </label>
 
-      <p class="fpa"><a href="./forget.html">Forgot password?</a></p>
+        <label for="password">
+          <i data-lucide="lock" class="back2"></i>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Password"
+          />
+        </label>
 
-      <button type="submit">Login</button>
-    </form>
+        <p class="fpa"><a href="./forget.html">Forgot password?</a></p>
 
-    <div class="orlogin">
-      <hr>
-      <span>Or login with</span>
-      <hr>
+        <button type="submit">Login</button>
+      </form>
+
+      <div class="orlogin">
+        <hr />
+        <span>Or login with</span>
+        <hr />
+      </div>
+
+      <div class="logos">
+        <div class="logo"><i class="fa-brands fa-google"></i></div>
+        <div class="logo"><i class="fa-brands fa-apple"></i></div>
+        <div class="logo"><i class="fa-brands fa-x-twitter"></i></div>
+        <div class="logo"><i class="fa-brands fa-facebook"></i></div>
+      </div>
+
+      <p class="last">Don't have an account? <a href="#">Register Now</a></p>
     </div>
 
-    <div class="logos">
-      <div class="logo"><i class="fa-brands fa-google" style="color:#DB4437;"></i></div>
-      <div class="logo"><i class="fa-brands fa-apple"></i></div>
-      <div class="logo"><i class="fa-brands fa-x-twitter"></i></div>
-      <div class="logo"><i class="fa-brands fa-facebook" style="color:#1877F2;"></i></div>
-    </div>
+    <footer class="footer"></footer>
 
-    <p class="last">Don't have an account? <a href="#">Register Now</a></p>
-  </div>
-
-  <footer class="footer"></footer>
-
-  <script src="../src/navbar.js"></script>
-  <script src="../src/search.js" type="module"></script>
-</body>
-
+    <script src="../src/navbar.js"></script>
+    <script src="../src/search.js" type="module"></script>
+  </body>
 </html>
