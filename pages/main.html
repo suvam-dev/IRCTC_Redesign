@@ -71,10 +71,10 @@
                     <label for="class"
                         class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">
                         Class</label>
-                    <input type="list" list="train-class" value="" placeholder="Sleeper" name="class" id="class"
+                    <input type="text" list="train-class" value="" name="class" id="class"
                         class="appearance-none bg-transparent text-gray-800 border-2 border-gray-200 rounded-md px-3 py-2 focus:outline-none focus:ring-0 focus:border-gray-800 selection:bg-transparent selection:text-inherit flex-1 max-sm:w-[20rem] h-12"
                         placeholder="Choose a Class" />
-                    <datalist id="train-class">
+                    <datalist class="bg-amber-300" id="train-class">
                         <option value="All Classes"></option>
                         <option value="AC First Class (1A)"></option>
                         <option value="AC 2 Tier (2A)"></option>
@@ -106,7 +106,6 @@
     </main>
 
     <footer class="footer"></footer>
-
     <script src="../src/navbar.js"></script>
     <script src="../src/search.js" type="module"></script>
     <script>

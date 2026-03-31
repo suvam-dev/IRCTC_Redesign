@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
 }
+
 html {
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
@@ -13,42 +14,46 @@ html {
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
 }
+
 body {
   width: 100%;
   min-height: 100vh;
-  background-image:
-    linear-gradient(var(--overlay-60), var(--overlay-60)),
-    url(../assets/trainbackground.png);
+  background-image: url(../assets/loginbg.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
+
 img,
 svg {
   display: block;
   max-width: 100%;
 }
+
 button,
 input {
   font: inherit;
 }
+
 ul {
   list-style: none;
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
 
 .backbutton {
+  margin-top: 100px;
+  margin-left: 20px;
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
   background: var(--bw-white);
   border-radius: 8px;
-  margin: 20px;
   color: var(--bw-black);
   font-weight: 700;
   font-size: 0.95rem;
@@ -58,10 +63,12 @@ a {
   transition: all 0.3s ease;
   user-select: none;
 }
+
 .backbutton-icon {
   display: flex;
   align-items: center;
 }
+
 .backl {
   width: 20px;
   height: 20px;
@@ -69,25 +76,32 @@ a {
   fill: none;
   stroke-width: 2.5;
 }
+
 .back {
   color: inherit;
   font-weight: 700;
 }
+
 .backbutton:hover {
   background: var(--bw-black);
   color: var(--bw-white);
   transform: translateX(-5px);
 }
 
+
 .cont {
-  background: white;
+  background: rgba(255, 255, 255, 0.377);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   padding: 24px 20px;
-  border-radius: 20px;
+  border-radius: 30px;
   margin: 20px;
 }
+
 .heading {
   padding: 10px;
 }
+
 h1 {
   color: var(--bw-black);
   font-size: 3rem;
@@ -98,6 +112,7 @@ form {
   width: 100%;
   margin-top: 2rem;
 }
+
 label {
   display: flex;
   align-items: center;
@@ -113,10 +128,12 @@ label {
     border-color 0.2s,
     box-shadow 0.2s;
 }
+
 label:focus-within {
   border-color: var(--bw-black);
   box-shadow: var(--focus-ring);
 }
+
 input {
   flex: 1;
   border: none;
@@ -126,10 +143,12 @@ input {
   background: transparent;
   padding-left: 10px;
 }
+
 ::placeholder {
   color: var(--bw-gray-500);
   opacity: 1;
 }
+
 .back2 {
   width: 20px;
   height: 20px;
@@ -160,6 +179,7 @@ button[type="submit"] {
     background-color 0.2s,
     transform 0.2s;
 }
+
 button[type="submit"]:hover {
   background: var(--bw-black);
   transform: scale(1.05);
@@ -169,15 +189,18 @@ button[type="submit"]:hover {
   .cont {
     width: 420px;
     margin: 40px auto;
-    border: 3px solid var(--bw-black);
+    /* border: 3px solid var(--bw-black); */
     padding: 30px;
     border-radius: 30px;
     box-shadow: var(--shadow-md);
   }
+
   h1 {
     font-size: 2.5rem;
   }
+
   .backbutton {
-    margin: 20px 40px;
+    margin-top: 100px;
+    margin-left: 20px;
   }
 }

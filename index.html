@@ -19,6 +19,7 @@
     <style>
         body {
             font-family: "Inter", sans-serif;
+            background-color: black;
         }
 
         .hero {
@@ -62,24 +63,60 @@
                 </a>
             </div>
         </div>
-        <div class="offerings">
-            <div class="flex flex-row items-center justify-centre p-7">
-                <h1 class="text-2xl font-bold">More Offerings</h1>
+        <div
+            class="offerings bg-[url(./assets/offerings.jpeg)] bg-cover bg-center bg-no-repeat bg-gray-950/70 bg-blend-multiply pb-8 sm:pb-10 px-3 sm:px-6">
+            <div class="flex items-center justify-center pt-8 pb-4 sm:pt-10 sm:pb-5">
+                <h1 class="text-xl sm:text-2xl font-bold text-white mx-auto">More Offerings</h1>
             </div>
-            <hr class="w-full border-gray-200">
-            <div class="grid grid-cols-4">
-                <div class="flex flex-col items-center justify-center bg-gray-200">hi</div>
-                <div class="flex flex-col items-center justify-center bg-gray-200"> hello</div>
-                <div class="flex flex-col items-center justify-center bg-gray-200">hello</div>
-                <div class="flex flex-col items-center justify-center bg-gray-200">hi</div>
-                <div class="flex flex-col items-center justify-center bg-gray-200">hi</div>
-                <div class="flex flex-col items-center justify-center bg-gray-200">hi</div>
+            <hr class="w-[90%] sm:w-[80%] mx-auto border-gray-200/70">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 mt-4 sm:mt-5">
+                <div
+                    class="group flex flex-col items-center justify-center h-28 sm:h-44 rounded-xl gap-2 sm:gap-3 p-2 sm:p-4 bg-white/10 border border-white/20 text-white shadow-lg shadow-black/20 hover:bg-white/20 hover:border-white/40 hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300">
+                    <iframe title="Hotels Logo" class="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white" frameborder="0"
+                        scrolling="no"
+                        srcdoc="<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='32' fill='#111'/><path d='M18 18h8v12h12V18h8v28h-8v-8H26v8h-8z' fill='#fff'/></svg>"></iframe>
+                    <span class="text-sm sm:text-base">Hotels</span>
+                </div>
+                <div
+                    class="group flex flex-col items-center justify-center h-28 sm:h-44 rounded-xl gap-2 sm:gap-3 p-2 sm:p-4 bg-white/10 border border-white/20 text-white shadow-lg shadow-black/20 hover:bg-white/20 hover:border-white/40 hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300">
+                    <iframe title="E-Catering Logo" class="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white"
+                        frameborder="0" scrolling="no"
+                        srcdoc="<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='32' fill='#111'/><path d='M18 26h28v6H18zm0 10h20v6H18zM44 18h4v8h-4z' fill='#fff'/></svg>"></iframe>
+                    <span class="text-sm sm:text-base">E-Catering</span>
+                </div>
+                <div
+                    class="group flex flex-col items-center justify-center h-28 sm:h-44 rounded-xl gap-2 sm:gap-3 p-2 sm:p-4 bg-white/10 border border-white/20 text-white shadow-lg shadow-black/20 hover:bg-white/20 hover:border-white/40 hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300">
+                    <iframe title="PNR Status Logo" class="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white"
+                        frameborder="0" scrolling="no"
+                        srcdoc="<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='32' fill='#111'/><path d='M22 18h20v28H22z' fill='none' stroke='#fff' stroke-width='4'/><path d='M26 26h12M26 34h8' stroke='#fff' stroke-width='4' stroke-linecap='round'/></svg>"></iframe>
+                    <span class="text-sm sm:text-base">PNR Status</span>
+                </div>
+                <div
+                    class="group flex flex-col items-center justify-center h-28 sm:h-44 rounded-xl gap-2 sm:gap-3 p-2 sm:p-4 bg-white/10 border border-white/20 text-white shadow-lg shadow-black/20 hover:bg-white/20 hover:border-white/40 hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300">
+                    <iframe title="Running Status Logo" class="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white"
+                        frameborder="0" scrolling="no"
+                        srcdoc="<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='32' fill='#111'/><circle cx='32' cy='32' r='12' fill='none' stroke='#fff' stroke-width='4'/><path d='M32 32l8-6' stroke='#fff' stroke-width='4' stroke-linecap='round'/></svg>"></iframe>
+                    <span class="text-sm sm:text-base">Running Status</span>
+                </div>
+                <div
+                    class="group flex flex-col items-center justify-center h-28 sm:h-44 rounded-xl gap-2 sm:gap-3 p-2 sm:p-4 bg-white/10 border border-white/20 text-white shadow-lg shadow-black/20 hover:bg-white/20 hover:border-white/40 hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300">
+                    <iframe title="Seat Availability Logo" class="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white"
+                        frameborder="0" scrolling="no"
+                        srcdoc="<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='32' fill='#111'/><path d='M20 24h10v10H20zM34 24h10v10H34zM20 38h24v6H20z' fill='#fff'/></svg>"></iframe>
+                    <span class="text-sm sm:text-base">Seat Availability</span>
+                </div>
+                <div
+                    class="group flex flex-col items-center justify-center h-28 sm:h-44 rounded-xl gap-2 sm:gap-3 p-2 sm:p-4 bg-white/10 border border-white/20 text-white shadow-lg shadow-black/20 hover:bg-white/20 hover:border-white/40 hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300">
+                    <iframe title="Rail Madad Logo" class="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white"
+                        frameborder="0" scrolling="no"
+                        srcdoc="<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='32' fill='#111'/><path d='M32 18l14 24H18z' fill='none' stroke='#fff' stroke-width='4'/><circle cx='32' cy='36' r='2.5' fill='#fff'/><path d='M32 26v6' stroke='#fff' stroke-width='4' stroke-linecap='round'/></svg>"></iframe>
+                    <span class="text-sm sm:text-base">Rail Madad</span>
+                </div>
             </div>
         </div>
     </main>
 
     <footer class="footer"></footer>
-
     <script src="./src/navbar.js"></script>
     <script src="./src/search.js" type="module"></script>
 </body>

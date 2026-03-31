@@ -1,21 +1,21 @@
 function initUI() {
-  const isPage = window.location.pathname.includes("/pages/");
-  const basePath = isPage ? "../" : "./";
-  const pagesPath = isPage ? "./" : "./pages/";
+    const isPage = window.location.pathname.includes("/pages/");
+    const basePath = isPage ? "../" : "./";
+    const pagesPath = isPage ? "./" : "./pages/";
 
-  injectNavbar(basePath, pagesPath);
-  injectFooter(basePath, pagesPath);
+    injectNavbar(basePath, pagesPath);
+    injectFooter(basePath, pagesPath);
 
-  if (window.lucide) {
-    window.lucide.createIcons();
-  }
+    if (window.lucide) {
+        window.lucide.createIcons();
+    }
 }
 
 function injectNavbar(basePath, pagesPath) {
-  const nav = document.querySelector(".navbar");
-  if (!nav) return;
+    const nav = document.querySelector(".navbar");
+    if (!nav) return;
 
-  nav.innerHTML = `
+    nav.innerHTML = `
         <div class="logo-container ">
             <img class="rounded-full" src="${basePath}assets/logo.png" alt="Bharat Rail Logo" class="logo">
         </div>
@@ -30,21 +30,22 @@ function injectNavbar(basePath, pagesPath) {
         </div>
     `;
 
-  const hamburger = nav.querySelector(".hamburger");
-  const navLinks = nav.querySelector(".nav-links");
-  if (hamburger && navLinks) {
-    hamburger.onclick = () => {
-      hamburger.classList.toggle("active");
-      navLinks.classList.toggle("active");
-    };
-  }
+    const hamburger = nav.querySelector(".hamburger");
+    const navLinks = nav.querySelector(".nav-links");
+    if (hamburger && navLinks) {
+        hamburger.onclick = () => {
+            hamburger.classList.toggle("active");
+            navLinks.classList.toggle("active");
+        };
+    }
 }
 
 function injectFooter(basePath, pagesPath) {
-  const footer = document.querySelector(".footer");
-  if (!footer) return;
+    const footer = document.querySelector(".footer");
+    if (!footer) return;
 
-  footer.innerHTML = `
+    footer.innerHTML = `
+      
         <div class="footer-container">
             <div class="footer-col brand-col">
                 <h2 class="footer-logo rounded-full">
