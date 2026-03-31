@@ -1,67 +1,46 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../style/variables.css" />
-    <title>Unreserved Ticket</title>
-    <link rel="stylesheet" href="../style/navbar.css" />
-    <link rel="stylesheet" href="../style/footer.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></script>
-  </head>
-  <body>
-    <nav class="navbar"></nav>
-    <div
-      class="form flex flex-col m-auto my-10 w-[400px] bg-white p-10 border-2 rounded-[10px] border-gray-200"
-    >
-      <div class="text-center text-2xl font-bold">Unreserved Ticket</div>
-      <label>from</label>
-      <input
-        type="text"
-        class="border-b-2 border-gray-200 placeholder:pl-0.5 py-1"
-        placeholder="From"
-      />
-      <label class="mt-2.5">to</label>
-      <input
-        type="text"
-        class="border-b-2 border-gray-200 placeholder:pl-0.5 py-1"
-        placeholder="To"
-      />
-      <div class="flex flex-row justify-between">
-        <label>Adults</label>
-        <input
-          type="number"
-          class="border-b-2 border-gray-200 placeholder:pl-0.5 py-1"
-          placeholder="Adults"
-        />
-      </div>
-      <div class="flex flex-row justify-between">
-        <label>Children</label>
-        <input
-          type="number"
-          class="border-b-2 border-gray-200 placeholder:pl-0.5 py-1"
-          placeholder="Children"
-        />
-      </div>
-      <button class="bg-black text-white mt-2.5 px-4 py-2 rounded-[10px]">
-        Book Ticket
-      </button>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../style/variables.css" />
+  <title>Unreserved Ticket</title>
+  <link rel="stylesheet" href="../style/navbar.css" />
+  <link rel="stylesheet" href="../style/footer.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></script>
+</head>
+
+<body>
+  <nav class="navbar"></nav>
+  <div class="form flex flex-col m-auto my-10 w-[400px] bg-white p-10 border-2 rounded-[10px] border-gray-200">
+    <div class="text-center text-2xl font-bold">Unreserved Ticket</div>
+    <label>from</label>
+    <input type="text" class="border-b-2 border-gray-200 placeholder:pl-0.5 py-1" placeholder="From" />
+    <label class="mt-2.5">to</label>
+    <input type="text" class="border-b-2 border-gray-200 placeholder:pl-0.5 py-1" placeholder="To" />
+    <div class="flex flex-row justify-between">
+      <label>Adults</label>
+      <input type="number" class="border-b-2 border-gray-200 placeholder:pl-0.5 py-1" placeholder="Adults" />
     </div>
-    <div
-      class="fare m-auto w-[400px] bg-white p-4 border-2 border-gray-200 rounded-[10px]"
-    >
-      <div class="flex flex-row justify-between">
-        <p>Fare(Inc. all taxes)</p>
-        <p>₹0</p>
-      </div>
+    <div class="flex flex-row justify-between">
+      <label>Children</label>
+      <input type="number" class="border-b-2 border-gray-200 placeholder:pl-0.5 py-1" placeholder="Children" />
     </div>
-    <footer class="footer"></footer>
-    <!-- <div id="qrcode"> hi</div>
+    <button class="bg-black text-white mt-2.5 px-4 py-2 rounded-[10px]">
+      Book Ticket
+    </button>
+  </div>
+  <div class="fare m-auto w-[400px] bg-white p-4 border-2 border-gray-200 rounded-[10px]">
+    <div class="flex flex-row justify-between">
+      <p>Fare(Inc. all taxes)</p>
+      <p>₹0</p>
+    </div>
+  </div>
+  <footer class="footer"></footer>
+  <!-- <div id="qrcode"> hi</div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
     var qrcode = new QRCode(document.getElementById("qrcode"), {
@@ -73,7 +52,8 @@
     correctLevel : QRCode.CorrectLevel.H
     });
     </script> -->
-  </body>
-  <script src="../src/navbar.js"></script>
-  <script src="../src/search.js" type="module"></script>
+</body>
+<script src="../src/navbar.js"></script>
+<script src="../src/search.js" type="module"></script>
+
 </html>

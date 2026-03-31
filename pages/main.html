@@ -19,7 +19,7 @@
     <nav class="navbar"></nav>
 
     <header>
-        <div class="flex justify-center items-center mt-5">
+        <div class="flex justify-center items-center mt-[100px]">
             <h1 class="text-xl font-bold tracking-wide">Lets Plan Your Trip</h1>
         </div>
     </header>
@@ -34,9 +34,11 @@
                 <div class="w-full border-b border-slate-200 pb-2 group-focus-within:border-gray-800 transition-colors">
                     <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">From
                         Station</label>
-                    <input type="text" id="Source" value="Howrah"
+                    <input type="text" list="stations" id="Source" value="Howrah"
                         class="w-full text-lg font-bold text-slate-800 bg-transparent outline-none placeholder-slate-300 capitalize"
                         placeholder="Enter Source" />
+                    <datalist id="stations">
+                    </datalist>
                 </div>
             </div>
 
@@ -54,7 +56,7 @@
                 <div class="w-full border-b border-slate-200 pb-2 group-focus-within:border-gray-800 transition-colors">
                     <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">To
                         Station</label>
-                    <input type="text" id="Destination" value="Burdwan"
+                    <input type="text" list="stations" id="Destination" value="Burdwan"
                         class="w-full text-lg font-bold text-slate-800 bg-transparent outline-none placeholder-slate-300 capitalize"
                         placeholder="Enter Destination" />
                 </div>
@@ -64,15 +66,15 @@
                     <label for="Date" class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">
                         Departure Date</label>
                     <input type="date" name="datetime" id="datetime"
-                        class="appearance-none bg-transparent text-gray-800 border-2 border-gray-200 rounded-md px-3 py-2 focus:outline-none focus:ring-0 focus:border-gray-800 selection:bg-transparent selection:text-inherit flex-1 max-sm:w-[20rem]  h-12"
+                        class="appearance-none bg-transparent text-gray-800 border-2 border-gray-200 rounded-md px-3 py-2 focus:outline-none focus:ring-0 focus:border-gray-800 selection:bg-transparent selection:text-inherit flex-1 max-sm:w-[20rem]  "
                         placeholder="Choose a Date" />
                 </div>
                 <div class="flex flex-col pd-1">
                     <label for="class"
-                        class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">
+                        class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1 ">
                         Class</label>
                     <input type="text" list="train-class" value="" name="class" id="class"
-                        class="appearance-none bg-transparent text-gray-800 border-2 border-gray-200 rounded-md px-3 py-2 focus:outline-none focus:ring-0 focus:border-gray-800 selection:bg-transparent selection:text-inherit flex-1 max-sm:w-[20rem] h-12"
+                        class="appearance-none bg-transparent text-gray-800 border-2 border-gray-200 rounded-md px-3 py-3 focus:outline-none focus:ring-0 focus:border-gray-800 selection:bg-transparent selection:text-inherit flex-1 max-sm:w-[20rem]"
                         placeholder="Choose a Class" />
                     <datalist class="bg-amber-300" id="train-class">
                         <option value="All Classes"></option>
@@ -107,7 +109,7 @@
 
     <footer class="footer"></footer>
     <script src="../src/navbar.js"></script>
-    <script src="../src/search.js" type="module"></script>
+    <script src="../src/SearchEngine.js"></script>
     <script>
         lucide.createIcons();
     </script>
