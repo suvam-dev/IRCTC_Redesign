@@ -129,5 +129,35 @@ function formatTrainResponse(train, startStop, destStop) {
         price: (destStop.distance - startStop.distance) * train.price_per_km,
         t1: startStop.time,
         t2: destStop.time,
+        time: (destStop.time - startStop.time),
+        start: startStop.station_code,
+        dest: destStop.station_code,
+        day: train.runs_on,       
     };
+}
+
+function sortByFastest(availableTrains){
+    for(let i=0;i<availableTrains.length-1;i++){
+        for(let j=0;j<availableTrains.length-1-i;j++){
+            if(availableTrains[j].time > availableTrains[j+1].time){
+                let temp = availableTrains[j];
+                availableTrains[j] = availableTrains[j+1];
+                availableTrains[j+1] = temp;
+            }
+        }   
+    }
+    return availableTrains;
+}
+
+function sortByCheapest(availableTrains){
+    for(let i=0;i<availableTrains.length-1;i++){
+        for(let j=0;j<availableTrains.length-1-i;j++){
+            if(availableTrains[j].price > availableTrains[j+1].price){
+                let temp = availableTrains[j];
+                availableTrains[j] = availableTrains[j+1];
+                availableTrains[j+1] = temp;
+            }
+        }   
+    }
+    return availableTrains;
 }
