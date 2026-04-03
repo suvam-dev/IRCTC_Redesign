@@ -185,50 +185,50 @@ generateOptions();
 //making the component for the pnr search
 const UIcomponentsPNR = (train) => {
     return `
-    <div class="flex flex-col bg-white shadow-lg w-full max-w-4xl p-6 rounded-2xl mx-auto border border-gray-100 text-gray-800 mb-6 transition-transform hover:scale-[1.01]">
+    <div class="flex flex-col bg-white shadow-2xl shadow-indigo-900/5 ring-1 ring-slate-100 w-full max-w-4xl p-6 sm:p-8 rounded-[2rem] mx-auto border border-white text-slate-800 mb-8 transition-transform hover:scale-[1.01] hover:shadow-indigo-900/10">
 
-      <div class="flex flex-row gap-3 items-center mb-6 w-full">
-        <div class="bg-black text-white rounded-lg py-1 px-3 font-bold text-sm tracking-wide shadow-sm">
+      <div class="flex flex-row gap-4 items-center mb-6 w-full">
+        <div class="bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-xl py-1 px-3 font-bold text-sm tracking-widest shadow-md shadow-orange-500/20">
           ${train.train_id}
         </div>
-        <div class="font-extrabold text-xl text-gray-900">
+        <div class="font-extrabold text-2xl text-indigo-950">
           ${train.train_name}
         </div>
       </div>
 
-      <div class="relative flex flex-row justify-between items-center w-full py-2 mb-6">
-        <hr class="absolute w-full h-[2px] bg-gray-200 border-0 top-1/2 -z-0">
+      <div class="relative flex flex-row justify-between items-center w-full py-4 mb-6">
+        <hr class="absolute w-full h-[2px] bg-indigo-50 border-0 top-1/2 -z-0">
 
-        <div class="bg-white px-4 font-bold text-gray-800 z-10 flex flex-col items-center">
-          <span class="text-sm text-gray-500 mb-1">Departure</span>
-          <span class="text-lg">${train.schedule[0].time}</span>
-          <span class="text-xs font-normal text-gray-400 mt-1">${train.schedule[0].station_code}</span>
+        <div class="bg-white px-4 font-bold text-slate-800 z-10 flex flex-col items-center">
+          <span class="text-[11px] font-bold uppercase tracking-widest text-indigo-400 mb-1">Departure</span>
+          <span class="text-xl text-indigo-950">${train.schedule[0].time}</span>
+          <span class="text-xs font-medium text-slate-500 mt-1">${train.schedule[0].station_code}</span>
         </div>
 
-        <div class="bg-white px-4 text-sm font-bold text-gray-900 z-10 py-1 border border-gray-200 rounded-full shadow-sm">
+        <div class="bg-white px-6 text-sm font-bold text-indigo-600 z-10 py-1.5 border border-indigo-100 rounded-full shadow-sm bg-indigo-50/50">
            ${TimeDiff(train.schedule[0].time, train.schedule[train.schedule.length - 1].time)}
         </div>
 
-        <div class="bg-white px-4 font-bold text-gray-800 z-10 flex flex-col items-center">
-          <span class="text-sm text-gray-500 mb-1">Arrival</span>
-          <span class="text-lg">${train.schedule[train.schedule.length - 1].time}</span>
-          <span class="text-xs font-normal text-gray-400 mt-1">${train.schedule[train.schedule.length - 1].station_code}</span>
+        <div class="bg-white px-4 font-bold text-slate-800 z-10 flex flex-col items-center">
+          <span class="text-[11px] font-bold uppercase tracking-widest text-indigo-400 mb-1">Arrival</span>
+          <span class="text-xl text-indigo-950">${train.schedule[train.schedule.length - 1].time}</span>
+          <span class="text-xs font-medium text-slate-500 mt-1">${train.schedule[train.schedule.length - 1].station_code}</span>
         </div>
       </div>
 
-      <div class="flex flex-col sm:flex-row sm:justify-between items-center gap-6 pt-4 border-t border-gray-50">
+      <div class="flex flex-col sm:flex-row sm:justify-between items-center gap-6 pt-5 border-t-2 border-slate-50">
 
         <div class="flex gap-3 text-xs font-black tracking-widest">
-          <span class=${train.runs_on.includes("Sun") ? "text-black" : "text-gray-300"}>S</span>
-          <span class=${train.runs_on.includes("Mon") ? "text-black" : "text-gray-300"}>M</span>
-          <span class=${train.runs_on.includes("Tue") ? "text-black" : "text-gray-300"}>T</span>
-          <span class=${train.runs_on.includes("Wed") ? "text-black" : "text-gray-300"}>W</span>
-          <span class=${train.runs_on.includes("Thu") ? "text-black" : "text-gray-300"}>T</span>
-          <span class=${train.runs_on.includes("Fri") ? "text-black" : "text-gray-300"}>F</span>
-          <span class=${train.runs_on.includes("Sat") ? "text-black" : "text-gray-300"}>S</span>
+          <span class="\${train.runs_on.includes('Sun') ? 'text-indigo-900' : 'text-slate-300'}">S</span>
+          <span class="\${train.runs_on.includes('Mon') ? 'text-indigo-900' : 'text-slate-300'}">M</span>
+          <span class="\${train.runs_on.includes('Tue') ? 'text-indigo-900' : 'text-slate-300'}">T</span>
+          <span class="\${train.runs_on.includes('Wed') ? 'text-indigo-900' : 'text-slate-300'}">W</span>
+          <span class="\${train.runs_on.includes('Thu') ? 'text-indigo-900' : 'text-slate-300'}">T</span>
+          <span class="\${train.runs_on.includes('Fri') ? 'text-indigo-900' : 'text-slate-300'}">F</span>
+          <span class="\${train.runs_on.includes('Sat') ? 'text-indigo-900' : 'text-slate-300'}">S</span>
         </div>
 
-        <button onclick="bookTrain('dummy-train-data')" class="bg-black hover:bg-gray-800 transition-all text-white px-10 py-3 rounded-xl font-bold text-md shadow-lg shadow-black/20 active:scale-95">
+        <button onclick="bookTrain('dummy-train-data')" class="bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 transition-all text-white px-10 py-3.5 rounded-[1rem] font-bold text-md shadow-lg shadow-indigo-600/25 active:scale-95 cursor-pointer">
           Book Ticket
         </button>
       </div>
@@ -254,50 +254,50 @@ function formatTrainResponse(train, startStop, destStop) {
 //main search ui component
 const UIcomponentsSearch = (train) => {
     return `
-       <div class="flex flex-col bg-white shadow-lg w-full max-w-4xl p-6 rounded-2xl mx-auto border border-gray-100 text-gray-800 mb-6 transition-transform hover:scale-[1.01]">
+       <div class="flex flex-col bg-white shadow-2xl shadow-indigo-900/5 ring-1 ring-slate-100 w-full max-w-4xl p-6 sm:p-8 rounded-[2rem] mx-auto border border-white text-slate-800 mb-8 transition-transform hover:scale-[1.01] hover:shadow-indigo-900/10">
 
-      <div class="flex flex-row gap-3 items-center mb-6 w-full">
-        <div class="bg-black text-white rounded-lg py-1 px-3 font-bold text-sm tracking-wide shadow-sm">
+      <div class="flex flex-row gap-4 items-center mb-6 w-full">
+        <div class="bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-xl py-1 px-3 font-bold text-sm tracking-widest shadow-md shadow-orange-500/20">
           ${train.id}
         </div>
-        <div class="font-extrabold text-xl text-gray-900">
+        <div class="font-extrabold text-2xl text-indigo-950">
           ${train.name}
         </div>
       </div>
 
-      <div class="relative flex flex-row justify-between items-center w-full py-2 mb-6">
-        <hr class="absolute w-full h-[2px] bg-gray-200 border-0 top-1/2 -z-0">
+      <div class="relative flex flex-row justify-between items-center w-full py-4 mb-6">
+        <hr class="absolute w-full h-[2px] bg-indigo-50 border-0 top-1/2 -z-0">
 
-        <div class="bg-white px-4 font-bold text-gray-800 z-10 flex flex-col items-center">
-          <span class="text-sm text-gray-500 mb-1">Departure</span>
-          <span class="text-lg">${train.t1}</span>
-          <span class="text-xs font-normal text-gray-400 mt-1">${train.start}</span>
+        <div class="bg-white px-4 font-bold text-slate-800 z-10 flex flex-col items-center">
+          <span class="text-[11px] font-bold uppercase tracking-widest text-indigo-400 mb-1">Departure</span>
+          <span class="text-xl text-indigo-950">${train.t1}</span>
+          <span class="text-xs font-medium text-slate-500 mt-1">${train.start}</span>
         </div>
 
-        <div class="bg-white px-4 text-sm font-bold text-gray-900 z-10 py-1 border border-gray-200 rounded-full shadow-sm">
+        <div class="bg-white px-6 text-sm font-bold text-indigo-600 z-10 py-1.5 border border-indigo-100 rounded-full shadow-sm bg-indigo-50/50">
           ${train.time}
         </div>
 
-        <div class="bg-white px-4 font-bold text-gray-800 z-10 flex flex-col items-center">
-          <span class="text-sm text-gray-500 mb-1">Arrival</span>
-          <span class="text-lg">${train.t2}</span>
-          <span class="text-xs font-normal text-gray-400 mt-1"></span>
+        <div class="bg-white px-4 font-bold text-slate-800 z-10 flex flex-col items-center">
+          <span class="text-[11px] font-bold uppercase tracking-widest text-indigo-400 mb-1">Arrival</span>
+          <span class="text-xl text-indigo-950">${train.t2}</span>
+          <span class="text-xs font-medium text-slate-500 mt-1"></span>
         </div>
       </div>
 
-      <div class="flex flex-col sm:flex-row sm:justify-between items-center gap-6 pt-4 border-t border-gray-50">
+      <div class="flex flex-col sm:flex-row sm:justify-between items-center gap-6 pt-5 border-t-2 border-slate-50">
 
         <div class="flex gap-3 text-xs font-black tracking-widest">
-          <span class="${train.day.includes("Sun") ? "text-black" : "text-gray-300"}">S</span>
-          <span class="${train.day.includes("Mon") ? "text-black" : "text-gray-300"}">M</span>
-          <span class="${train.day.includes("Tue") ? "text-black" : "text-gray-300"}">T</span>
-          <span class="${train.day.includes("Wed") ? "text-black" : "text-gray-300"}">W</span>
-          <span class="${train.day.includes("Thu") ? "text-black" : "text-gray-300"}">T</span>
-          <span class="${train.day.includes("Fri") ? "text-black" : "text-gray-300"}">F</span>
-          <span class="text-gray-300">S</span>
+          <span class="\${train.day.includes('Sun') ? 'text-indigo-900' : 'text-slate-300'}">S</span>
+          <span class="\${train.day.includes('Mon') ? 'text-indigo-900' : 'text-slate-300'}">M</span>
+          <span class="\${train.day.includes('Tue') ? 'text-indigo-900' : 'text-slate-300'}">T</span>
+          <span class="\${train.day.includes('Wed') ? 'text-indigo-900' : 'text-slate-300'}">W</span>
+          <span class="\${train.day.includes('Thu') ? 'text-indigo-900' : 'text-slate-300'}">T</span>
+          <span class="\${train.day.includes('Fri') ? 'text-indigo-900' : 'text-slate-300'}">F</span>
+          <span class="\${train.day.includes('Sat') ? 'text-indigo-900' : 'text-slate-300'}">S</span>
         </div>
 
-        <button onclick="bookTrain('dummy-train-data')" class="bg-black hover:bg-gray-800 transition-all text-white px-10 py-3 rounded-xl font-bold text-md shadow-lg shadow-black/20 active:scale-95">
+        <button onclick="bookTrain('dummy-train-data')" class="bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 transition-all text-white px-10 py-3.5 rounded-[1rem] font-bold text-md shadow-lg shadow-indigo-600/25 active:scale-95 cursor-pointer">
           Book Ticket
         </button>
       </div>
@@ -315,3 +315,11 @@ const TimeDiff = (t1, t2) => {
     const minutes = diff % 60;
     return `${hours}h ${minutes}m`;
 }
+
+document.getElementById("swap").addEventListener("click", () => {
+    const source = document.getElementById("source");
+    const destination = document.getElementById("destination");
+    const temp = source.value;
+    source.value = destination.value;
+    destination.value = temp;
+});
