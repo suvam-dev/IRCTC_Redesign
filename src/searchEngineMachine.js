@@ -73,9 +73,88 @@ const SearchEngine = () => {
             "<div class='flex justify-center text-red-500 font-bond'>Error in input,change the input</div>";
         return;
     }
-    const valiTrains = findTrains(source, destination, day);
+    const validTrains = strains(source, destination, day);
     console.log(validTrains);
 };
 
 document.querySelector("#Search").addEventListener("click", SearchEngine);
 
+
+function doesTrainRunOnDay(train, day) {
+    return train.runs_on.includes(day);
+}
+
+function getStation(train, stationCode) {
+    for (let stop of train.schedule) {
+        if (stop.station_code.includes(stationCode)) {
+            return stop;
+        }
+    }
+
+    return null;
+}
+
+function isValidJourney(startStop, destStop) {
+    if (startStop === null || destStop === null) return false;
+
+    return startStop.distance < destStop.distance;
+}
+
+function strains(start, dest, day) {
+    console.log("Working strains");
+    const availableTrains = [];
+
+    for (const train of trains_df) {
+
+        if (!doesTrainRunOnDay(train, day)) continue;
+
+        const startStop = getStation(train, start);
+        const destStop = getStation(train, dest);
+
+        if (isValidJourney(startStop, destStop)) {
+            availableTrains.push(formatTrainResponse(train, startStop, destStop));
+        }
+    }
+
+    return availableTrains;
+}
+
+function formatTrainResponse(train, startStop, destStop) {
+    return {
+        id: train.train_id,
+        name: train.train_name,
+        price: (destStop.distance - startStop.distance) * train.price_per_km,
+        t1: startStop.time,
+        t2: destStop.time,
+        time: (destStop.time - startStop.time),
+        start: startStop.station_code,
+        dest: destStop.station_code,
+        day: train.runs_on,
+    };
+}
+
+function sortByFastest(availableTrains) {
+    for (let i = 0; i < availableTrains.length - 1; i++) {
+        for (let j = 0; j < availableTrains.length - 1 - i; j++) {
+            if (availableTrains[j].time > availableTrains[j + 1].time) {
+                let temp = availableTrains[j];
+                availableTrains[j] = availableTrains[j + 1];
+                availableTrains[j + 1] = temp;
+            }
+        }
+    }
+    return availableTrains;
+}
+
+function sortByCheapest(availableTrains) {
+    for (let i = 0; i < availableTrains.length - 1; i++) {
+        for (let j = 0; j < availableTrains.length - 1 - i; j++) {
+            if (availableTrains[j].price > availableTrains[j + 1].price) {
+                let temp = availableTrains[j];
+                availableTrains[j] = availableTrains[j + 1];
+                availableTrains[j + 1] = temp;
+            }
+        }
+    }
+    return availableTrains;
+}
