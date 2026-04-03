@@ -73,11 +73,16 @@ const SearchEngine = () => {
             "<div class='flex justify-center text-red-500 font-bond'>Error in input,change the input</div>";
         return;
     }
-    const validTrains = strains(source, destination, day);
+    const validTrains = sTrains(source, destination, day);
+    for (let i = 0; i < validTrains.length; i++) {
+        result.innerHTML += UIcomponentsSearch(validTrains[i]);
+    }
     console.log(validTrains);
 };
 
 document.querySelector("#Search").addEventListener("click", SearchEngine);
+
+
 
 
 function doesTrainRunOnDay(train, day) {
@@ -100,11 +105,11 @@ function isValidJourney(startStop, destStop) {
     return startStop.distance < destStop.distance;
 }
 
-function strains(start, dest, day) {
-    console.log("Working strains");
+function sTrains(start, dest, day) {
+    console.log("Working seraching Trains");
     const availableTrains = [];
 
-    for (const train of trains_df) {
+    for (let train of trains_df) {
 
         if (!doesTrainRunOnDay(train, day)) continue;
 
@@ -119,19 +124,6 @@ function strains(start, dest, day) {
     return availableTrains;
 }
 
-function formatTrainResponse(train, startStop, destStop) {
-    return {
-        id: train.train_id,
-        name: train.train_name,
-        price: (destStop.distance - startStop.distance) * train.price_per_km,
-        t1: startStop.time,
-        t2: destStop.time,
-        time: (destStop.time - startStop.time),
-        start: startStop.station_code,
-        dest: destStop.station_code,
-        day: train.runs_on,
-    };
-}
 
 function sortByFastest(availableTrains) {
     for (let i = 0; i < availableTrains.length - 1; i++) {
@@ -157,4 +149,169 @@ function sortByCheapest(availableTrains) {
         }
     }
     return availableTrains;
+}
+
+//Linear Search to search the data using pnr
+const pnrSearch = (pnr) => {
+    pnr = pnr.trim();
+    if (pnr.length != 4) {
+        return "Invalid PNR";
+    }
+    pnr = pnr.toUpperCase();
+    for (var x of trains_df) if (x.train_id == pnr) return x;
+    return "Invalid PNR";
+};
+
+//searching the data using pnr
+document.querySelector("#pnrSearch").addEventListener("click", () => {
+    const pnr = document.querySelector("#pnr").value;
+    const result = document.querySelector("#result");
+    result.innerHTML = UIcomponentsPNR(pnrSearch(pnr));
+});
+
+//test case
+console.log(pnrSearch("L001"));
+
+//generating options for the pnr search
+const generateOptions = () => {
+    const pnrlist = document.querySelector("#pnrList");
+    pnrlist.innerHTML = "";
+    trains_df.forEach((element) => {
+        pnrlist.innerHTML += `<option value="${element.train_id}">${element.train_name}</option>`;
+    });
+};
+generateOptions();
+
+//making the component for the pnr search
+const UIcomponentsPNR = (train) => {
+    return `
+    <div class="flex flex-col bg-white shadow-lg w-full max-w-4xl p-6 rounded-2xl mx-auto border border-gray-100 text-gray-800 mb-6 transition-transform hover:scale-[1.01]">
+
+      <div class="flex flex-row gap-3 items-center mb-6 w-full">
+        <div class="bg-black text-white rounded-lg py-1 px-3 font-bold text-sm tracking-wide shadow-sm">
+          ${train.train_id}
+        </div>
+        <div class="font-extrabold text-xl text-gray-900">
+          ${train.train_name}
+        </div>
+      </div>
+
+      <div class="relative flex flex-row justify-between items-center w-full py-2 mb-6">
+        <hr class="absolute w-full h-[2px] bg-gray-200 border-0 top-1/2 -z-0">
+
+        <div class="bg-white px-4 font-bold text-gray-800 z-10 flex flex-col items-center">
+          <span class="text-sm text-gray-500 mb-1">Departure</span>
+          <span class="text-lg">${train.schedule[0].time}</span>
+          <span class="text-xs font-normal text-gray-400 mt-1">${train.schedule[0].station_code}</span>
+        </div>
+
+        <div class="bg-white px-4 text-sm font-bold text-gray-900 z-10 py-1 border border-gray-200 rounded-full shadow-sm">
+           ${TimeDiff(train.schedule[0].time, train.schedule[train.schedule.length - 1].time)}
+        </div>
+
+        <div class="bg-white px-4 font-bold text-gray-800 z-10 flex flex-col items-center">
+          <span class="text-sm text-gray-500 mb-1">Arrival</span>
+          <span class="text-lg">${train.schedule[train.schedule.length - 1].time}</span>
+          <span class="text-xs font-normal text-gray-400 mt-1">${train.schedule[train.schedule.length - 1].station_code}</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row sm:justify-between items-center gap-6 pt-4 border-t border-gray-50">
+
+        <div class="flex gap-3 text-xs font-black tracking-widest">
+          <span class=${train.runs_on.includes("Sun") ? "text-black" : "text-gray-300"}>S</span>
+          <span class=${train.runs_on.includes("Mon") ? "text-black" : "text-gray-300"}>M</span>
+          <span class=${train.runs_on.includes("Tue") ? "text-black" : "text-gray-300"}>T</span>
+          <span class=${train.runs_on.includes("Wed") ? "text-black" : "text-gray-300"}>W</span>
+          <span class=${train.runs_on.includes("Thu") ? "text-black" : "text-gray-300"}>T</span>
+          <span class=${train.runs_on.includes("Fri") ? "text-black" : "text-gray-300"}>F</span>
+          <span class=${train.runs_on.includes("Sat") ? "text-black" : "text-gray-300"}>S</span>
+        </div>
+
+        <button onclick="bookTrain('dummy-train-data')" class="bg-black hover:bg-gray-800 transition-all text-white px-10 py-3 rounded-xl font-bold text-md shadow-lg shadow-black/20 active:scale-95">
+          Book Ticket
+        </button>
+      </div>
+    </div>
+  `;
+};
+
+
+function formatTrainResponse(train, startStop, destStop) {
+    return {
+        id: train.train_id,
+        name: train.train_name,
+        price: (destStop.distance - startStop.distance) * train.price_per_km,
+        t1: startStop.time,
+        t2: destStop.time,
+        time: TimeDiff(startStop.time, destStop.time),
+        start: startStop.station_code,
+        dest: destStop.station_code,
+        day: train.runs_on,
+    };
+}
+
+//main search ui component
+const UIcomponentsSearch = (train) => {
+    return `
+       <div class="flex flex-col bg-white shadow-lg w-full max-w-4xl p-6 rounded-2xl mx-auto border border-gray-100 text-gray-800 mb-6 transition-transform hover:scale-[1.01]">
+
+      <div class="flex flex-row gap-3 items-center mb-6 w-full">
+        <div class="bg-black text-white rounded-lg py-1 px-3 font-bold text-sm tracking-wide shadow-sm">
+          ${train.id}
+        </div>
+        <div class="font-extrabold text-xl text-gray-900">
+          ${train.name}
+        </div>
+      </div>
+
+      <div class="relative flex flex-row justify-between items-center w-full py-2 mb-6">
+        <hr class="absolute w-full h-[2px] bg-gray-200 border-0 top-1/2 -z-0">
+
+        <div class="bg-white px-4 font-bold text-gray-800 z-10 flex flex-col items-center">
+          <span class="text-sm text-gray-500 mb-1">Departure</span>
+          <span class="text-lg">${train.t1}</span>
+          <span class="text-xs font-normal text-gray-400 mt-1">${train.start}</span>
+        </div>
+
+        <div class="bg-white px-4 text-sm font-bold text-gray-900 z-10 py-1 border border-gray-200 rounded-full shadow-sm">
+          ${train.time}
+        </div>
+
+        <div class="bg-white px-4 font-bold text-gray-800 z-10 flex flex-col items-center">
+          <span class="text-sm text-gray-500 mb-1">Arrival</span>
+          <span class="text-lg">${train.t2}</span>
+          <span class="text-xs font-normal text-gray-400 mt-1"></span>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row sm:justify-between items-center gap-6 pt-4 border-t border-gray-50">
+
+        <div class="flex gap-3 text-xs font-black tracking-widest">
+          <span class="${train.day.includes("Sun") ? "text-black" : "text-gray-300"}">S</span>
+          <span class="${train.day.includes("Mon") ? "text-black" : "text-gray-300"}">M</span>
+          <span class="${train.day.includes("Tue") ? "text-black" : "text-gray-300"}">T</span>
+          <span class="${train.day.includes("Wed") ? "text-black" : "text-gray-300"}">W</span>
+          <span class="${train.day.includes("Thu") ? "text-black" : "text-gray-300"}">T</span>
+          <span class="${train.day.includes("Fri") ? "text-black" : "text-gray-300"}">F</span>
+          <span class="text-gray-300">S</span>
+        </div>
+
+        <button onclick="bookTrain('dummy-train-data')" class="bg-black hover:bg-gray-800 transition-all text-white px-10 py-3 rounded-xl font-bold text-md shadow-lg shadow-black/20 active:scale-95">
+          Book Ticket
+        </button>
+      </div>
+    </div>`
+}
+
+
+const TimeDiff = (t1, t2) => {
+    const [h1, m1] = t1.split(":");
+    const [h2, m2] = t2.split(":");
+    const t1InMinutes = parseInt(h1) * 60 + parseInt(m1);
+    const t2InMinutes = parseInt(h2) * 60 + parseInt(m2);
+    let diff = t2InMinutes - t1InMinutes;
+    const hours = Math.floor(diff / 60);
+    const minutes = diff % 60;
+    return `${hours}h ${minutes}m`;
 }
