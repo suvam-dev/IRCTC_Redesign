@@ -34,10 +34,10 @@
                 <div class="w-full border-b border-slate-200 pb-2 group-focus-within:border-gray-800 transition-colors">
                     <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">From
                         Station</label>
-                    <input type="text" list="stations" id="Source" value="Howrah"
+                    <input type="text" list="list-container" id="source" value="Howrah"
                         class="w-full text-lg font-bold text-slate-800 bg-transparent outline-none placeholder-slate-300 capitalize"
                         placeholder="Enter Source" />
-                    <datalist id="stations">
+                    <datalist id="list-container">
                     </datalist>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                 <div class="w-full border-b border-slate-200 pb-2 group-focus-within:border-gray-800 transition-colors">
                     <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">To
                         Station</label>
-                    <input type="text" list="stations" id="Destination" value="Burdwan"
+                    <input type="text" list="list-container" id="destination" value="Burdwan"
                         class="w-full text-lg font-bold text-slate-800 bg-transparent outline-none placeholder-slate-300 capitalize"
                         placeholder="Enter Destination" />
                 </div>
@@ -65,7 +65,7 @@
                 <div class="flex flex-col ">
                     <label for="Date" class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">
                         Departure Date</label>
-                    <input type="date" name="datetime" id="datetime"
+                    <input type="date" name="date" id="date"
                         class="appearance-none bg-transparent text-gray-800 border-2 border-gray-200 rounded-md px-3 py-2 focus:outline-none focus:ring-0 focus:border-gray-800 selection:bg-transparent selection:text-inherit flex-1 max-sm:w-[20rem]  "
                         placeholder="Choose a Date" />
                 </div>
@@ -88,7 +88,7 @@
                 </div>
             </div>
 
-            <button id="Find"
+            <button id="Search"
                 class="mt-4 bg-black hover:bg-gray-800 text-white w-full py-3.5 rounded-xl font-bold text-lg flex items-center justify-center gap-2 shadow-lg shadow-black/25 transition-all active:scale-[0.98] cursor-pointer">
                 <i data-lucide="search"></i> Find trains
             </button>
@@ -109,10 +109,10 @@
 
     <footer class="footer"></footer>
     <script src="../src/navbar.js"></script>
-    <script src="../src/SearchEngine.js"></script>
-    <script>
+    <script src="../src/searchEngineMachine.js" type="module"></script>
+    <!-- <script>
         lucide.createIcons();
-    </script>
+    </script> -->
 </body>
 
 </html>

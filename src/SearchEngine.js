@@ -13,6 +13,7 @@ function escapeHtml(value) {
     .replace(/\"/g, "&quot;")
     .replace(/'/g, "&#39;");
 }
+console.log("working");
 
 // Loads both station and train datasets from data-2.
 async function loadDataSets() {
