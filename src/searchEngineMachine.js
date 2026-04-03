@@ -21,7 +21,7 @@ const station_code_map = ((code) => {
         if (x.includes(code))
             return x;
 })
-console.log(station_code_map("HWH"))
+console.log(station_code_map("KGP"))
 const trains_df = trainsData.map(t => {
     return {
         train_id: t.train_id,
@@ -56,7 +56,8 @@ options();
 const SearchEngine = (() => {
     //date inputing logic
     const date = document.querySelector("#date").value;
-    let day = new Date(date).getDay();
+    const a = new Date(date);
+    let day = a.getDay();
     day = ["Sun",
         "Mon",
         "Tue",
@@ -72,7 +73,7 @@ const SearchEngine = (() => {
     console.log(destination);
     const result = document.querySelector("#result")
     if (source == destination || source == "" || destination == "" || day === undefined) {
-        result.innerHTML = "Please select different source and destination"
+        result.innerHTML = "<div class='flex justify-center text-red-500 font-bond'>Error in input,change the input</div>"
         return;
     }
     const valiTrains = findTrains(source, destination, day);
