@@ -76,8 +76,58 @@ const SearchEngine = (() => {
         result.innerHTML = "<div class='flex justify-center text-red-500 font-bond'>Error in input,change the input</div>"
         return;
     }
-    const valiTrains = findTrains(source, destination, day);
+    const validTrains = strains(source, destination, day);
     console.log(validTrains);
 })
 
 document.querySelector("#Search").addEventListener("click", SearchEngine);
+
+
+function doesTrainRunOnDay(train, day) {
+    return train.runs_on.includes(day);
+}
+
+function getStation(train, stationCode) {
+    for (let stop of train.schedule) {
+        if (stop.station_code.includes(stationCode)) {
+            return stop; 
+        }
+    }
+    
+    return null; 
+}
+
+function isValidJourney(startStop, destStop) {
+    if (startStop === null || destStop === null) return false;
+    
+    return startStop.distance < destStop.distance;
+}
+
+function strains(start, dest, day) {
+    console.log("Working strains");
+    const availableTrains = [];
+
+    for (const train of trains_df) {
+
+        if (!doesTrainRunOnDay(train, day)) continue;
+
+        const startStop = getStation(train, start);
+        const destStop = getStation(train, dest);
+
+        if (isValidJourney(startStop, destStop)) {
+            availableTrains.push(formatTrainResponse(train, startStop, destStop));
+        }
+    }
+
+    return availableTrains;
+}
+
+function formatTrainResponse(train, startStop, destStop) {
+    return {
+        id: train.train_id,
+        name: train.train_name,
+        price: (destStop.distance - startStop.distance) * train.price_per_km,
+        t1: startStop.time,
+        t2: destStop.time,
+    };
+}
