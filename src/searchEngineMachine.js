@@ -54,6 +54,7 @@ const SearchEngine = () => {
     //date inputing logic
     const date = document.querySelector("#date").value;
     const a = new Date(date);
+    const classTrain = document.querySelector("#class").value;
     let day = a.getDay();
     day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][day];
     console.log(day);
@@ -67,17 +68,20 @@ const SearchEngine = () => {
         source == destination ||
         source == "" ||
         destination == "" ||
-        day === undefined
+        day === undefined ||
+        classTrain === ""
     ) {
         result.innerHTML =
-            "<div class='flex justify-center text-red-500 font-bond'>Error in input,change the input</div>";
+            "<div class='flex justify-center text-red-500 font-bond'>Error in input or Some feild are not filled ,change the input</div>";
         return;
     }
+    result.innerHTML = "";
     const validTrains = sTrains(source, destination, day);
     for (let i = 0; i < validTrains.length; i++) {
         result.innerHTML += UIcomponentsSearch(validTrains[i]);
     }
     console.log(validTrains);
+    return validTrains;
 };
 
 document.querySelector("#Search").addEventListener("click", SearchEngine);
@@ -225,13 +229,13 @@ const UIcomponentsPNR = (train) => {
       <div class="flex flex-col sm:flex-row sm:justify-between items-center gap-6 pt-5 border-t-2 border-slate-50">
 
         <div class="flex gap-3 text-xs font-black tracking-widest">
-          <span class="\${train.runs_on.includes('Sun') ? 'text-indigo-900' : 'text-slate-300'}">S</span>
-          <span class="\${train.runs_on.includes('Mon') ? 'text-indigo-900' : 'text-slate-300'}">M</span>
-          <span class="\${train.runs_on.includes('Tue') ? 'text-indigo-900' : 'text-slate-300'}">T</span>
-          <span class="\${train.runs_on.includes('Wed') ? 'text-indigo-900' : 'text-slate-300'}">W</span>
-          <span class="\${train.runs_on.includes('Thu') ? 'text-indigo-900' : 'text-slate-300'}">T</span>
-          <span class="\${train.runs_on.includes('Fri') ? 'text-indigo-900' : 'text-slate-300'}">F</span>
-          <span class="\${train.runs_on.includes('Sat') ? 'text-indigo-900' : 'text-slate-300'}">S</span>
+          <span class="${train.runs_on.includes('Sun') ? 'text-indigo-900' : 'text-slate-300'}">S</span>
+          <span class="${train.runs_on.includes('Mon') ? 'text-indigo-900' : 'text-slate-300'}">M</span>
+          <span class="${train.runs_on.includes('Tue') ? 'text-indigo-900' : 'text-slate-300'}">T</span>
+          <span class="${train.runs_on.includes('Wed') ? 'text-indigo-900' : 'text-slate-300'}">W</span>
+          <span class="${train.runs_on.includes('Thu') ? 'text-indigo-900' : 'text-slate-300'}">T</span>
+          <span class="${train.runs_on.includes('Fri') ? 'text-indigo-900' : 'text-slate-300'}">F</span>
+          <span class="${train.runs_on.includes('Sat') ? 'text-indigo-900' : 'text-slate-300'}">S</span>
         </div>
 
         <a href="../pages/checkout.html?trainName=${train.train_name}&train=${train.train_id}&start=${train.schedule[0].station_code}&dest=${train.schedule[train.schedule.length - 1].station_code}&t1=${train.schedule[0].time}&t2=${train.schedule[train.schedule.length - 1].time}&time=${timeDiff}&price=${price}"><button  class="bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 transition-all text-white px-10 py-3.5 rounded-[1rem] font-bold text-md shadow-lg shadow-indigo-600/25 active:scale-95 cursor-pointer">
@@ -294,18 +298,23 @@ const UIcomponentsSearch = (train) => {
       <div class="flex flex-col sm:flex-row sm:justify-between items-center gap-6 pt-5 border-t-2 border-slate-50">
 
         <div class="flex gap-3 text-xs font-black tracking-widest">
-          <span class="\${train.day.includes('Sun') ? 'text-indigo-900' : 'text-slate-300'}">S</span>
-          <span class="\${train.day.includes('Mon') ? 'text-indigo-900' : 'text-slate-300'}">M</span>
-          <span class="\${train.day.includes('Tue') ? 'text-indigo-900' : 'text-slate-300'}">T</span>
-          <span class="\${train.day.includes('Wed') ? 'text-indigo-900' : 'text-slate-300'}">W</span>
-          <span class="\${train.day.includes('Thu') ? 'text-indigo-900' : 'text-slate-300'}">T</span>
-          <span class="\${train.day.includes('Fri') ? 'text-indigo-900' : 'text-slate-300'}">F</span>
-          <span class="\${train.day.includes('Sat') ? 'text-indigo-900' : 'text-slate-300'}">S</span>
+          <span class="${train.day.includes('Sun') ? 'text-indigo-900' : 'text-slate-300'}">S</span>
+          <span class="${train.day.includes('Mon') ? 'text-indigo-900' : 'text-slate-300'}">M</span>
+          <span class="${train.day.includes('Tue') ? 'text-indigo-900' : 'text-slate-300'}">T</span>
+          <span class="${train.day.includes('Wed') ? 'text-indigo-900' : 'text-slate-300'}">W</span>
+          <span class="${train.day.includes('Thu') ? 'text-indigo-900' : 'text-slate-300'}">T</span>
+          <span class="${train.day.includes('Fri') ? 'text-indigo-900' : 'text-slate-300'}">F</span>
+          <span class="${train.day.includes('Sat') ? 'text-indigo-900' : 'text-slate-300'}">S</span>
         </div>
-
-        <a href="../pages/checkout.html?trainName=${train.name}&train=${train.id}&start=${train.start}&dest=${train.dest}&t1=${train.t1}&t2=${train.t2}&time=${train.time}&price=${train.price}"><button  class="bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 transition-all text-white px-10 py-3.5 rounded-[1rem] font-bold text-md shadow-lg shadow-indigo-600/25 active:scale-95 cursor-pointer">
+        <div class="flex flex-row items-center gap-2">
+             <div class=" text-gray-700 font-extrabold text-center text-md mx-4">
+                Rs.${train.price.toFixed(2)}
+             </div>
+        <a href="../pages/checkout.html?trainName=${train.name}&train=${train.id}&start=${train.start}&dest=${train.dest}&t1=${train.t1}&t2=${train.t2}&time=${train.time}&price=${train.price}">
+        <button  class="bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 transition-all text-white px-10 py-3.5 rounded-[1rem] font-bold text-md shadow-lg shadow-indigo-600/25 active:scale-95 cursor-pointer">
           Book Ticket
         </button></a>
+        <div>
       </div>
     </div>`
 }
@@ -356,3 +365,52 @@ function sortDescendingTime(availableTrains) {
     }
     return availableTrains;
 }
+
+
+
+document.querySelector("#sortingInput").addEventListener("keydown", (e) => {
+    console.log(e.key)
+    if (e.key == "Enter") {
+        const sort = document.querySelector("#sortingInput").value;
+        if (sort == "Cheapest First") {
+            const availableTrains = SearchEngine()
+            result.innerHTML = "";
+            sortByCheapest(availableTrains);
+            for (let i = 0; i < availableTrains.length; i++) {
+                result.innerHTML += UIcomponentsSearch(availableTrains[i]);
+            }
+        }
+        else if (sort == "Fastest First") {
+            const availableTrains = SearchEngine()
+            result.innerHTML = "";
+            sortDescendingTime(availableTrains);
+            for (let i = 0; i < availableTrains.length; i++) {
+                result.innerHTML += UIcomponentsSearch(availableTrains[i]);
+            }
+        }
+        else if (sort == "Slowest First") {
+            const availableTrains = SearchEngine()
+            result.innerHTML = "";
+            sortAscendingTime(availableTrains);
+            for (let i = 0; i < availableTrains.length; i++) {
+                result.innerHTML += UIcomponentsSearch(availableTrains[i]);
+            }
+        }
+        else if (sort == "Expensive First") {
+            const availableTrains = SearchEngine()
+            result.innerHTML = "";
+            sortDescendingPrice(availableTrains);
+            for (let i = 0; i < availableTrains.length; i++) {
+                result.innerHTML += UIcomponentsSearch(availableTrains[i]);
+            }
+        }
+        else {
+            const availableTrains = sTrains(document.querySelector("#source").value, document.querySelector("#destination").value, document.querySelector("#date").value);
+            const result = document.querySelector("#result");
+            result.innerHTML = "";
+            for (let i = 0; i < availableTrains.length; i++) {
+                result.innerHTML += `<div>Error</div>`
+            }
+        }
+    }
+});

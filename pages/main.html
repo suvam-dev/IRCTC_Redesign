@@ -63,7 +63,7 @@
                     class="w-full border-b-2 border-slate-100 pb-2 group-focus-within:border-indigo-500 transition-colors">
                     <label class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1">To
                         Station</label>
-                    <input type="text" list="list-container" id="destination" value="Burdwan"
+                    <input type="text" list="list-container" id="destination" value="Kharagpur"
                         class="w-full text-xl font-bold text-slate-800 bg-transparent outline-none placeholder-slate-300 capitalize"
                         placeholder="Enter Destination" />
                 </div>
@@ -95,7 +95,7 @@
             </div>
 
             <button id="Search"
-                class="mt-4 bg-gradient-to-r from-blue-500 to-blue-6f pn searc00 hover:from-blue-600 hover:to-blue-700 text-white w-full py-4 rounded-[1rem] font-bold text-lg flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 transition-all active:scale-[0.98] cursor-pointer">
+                class="mt-4 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-900 hover:to-blue-900 text-white w-full py-4 rounded-[1rem] font-bold text-lg flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 transition-all active:scale-[0.98] cursor-pointer">
                 <i data-lucide="search" class="w-5 h-5"></i> Find trains
             </button>
         </div>
@@ -116,12 +116,12 @@
             </datalist>
         </div>
         <div class="sort">
-            
+
             <div class="list">
                 <div class="label">
-                Sort by:
-            </div>
-                <input type="text" list="sortoptions" placeholder="Choose sorting">
+                    Sort by:
+                </div>
+                <input type="text" id="sortingInput" list="sortoptions" placeholder="Choose sorting">
             </div>
             <datalist id="sortoptions">
                 <option value="Cheapest First"></option>
