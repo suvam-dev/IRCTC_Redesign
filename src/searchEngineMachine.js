@@ -125,7 +125,7 @@ function sTrains(start, dest, day) {
 }
 
 
-function sortByFastest(availableTrains) {
+function sortAscendingTime(availableTrains) {
     for (let i = 0; i < availableTrains.length - 1; i++) {
         for (let j = 0; j < availableTrains.length - 1 - i; j++) {
             if (availableTrains[j].time > availableTrains[j + 1].time) {
@@ -323,3 +323,29 @@ document.getElementById("swap").addEventListener("click", () => {
     source.value = destination.value;
     destination.value = temp;
 });
+
+function sortDescendingPrice(availableTrains) {
+    for (let i = 0; i < availableTrains.length - 1; i++) {
+        for (let j = 0; j < availableTrains.length - 1 - i; j++) {
+            if (availableTrains[j].price < availableTrains[j + 1].price) {
+                let temp = availableTrains[j];
+                availableTrains[j] = availableTrains[j + 1];
+                availableTrains[j + 1] = temp;
+            }
+        }
+    }
+    return availableTrains;
+}
+
+function sortDescendingTime(availableTrains) {
+    for (let i = 0; i < availableTrains.length - 1; i++) {
+        for (let j = 0; j < availableTrains.length - 1 - i; j++) {
+            if (availableTrains[j].time < availableTrains[j + 1].time) {
+                let temp = availableTrains[j];
+                availableTrains[j] = availableTrains[j + 1];
+                availableTrains[j + 1] = temp;
+            }
+        }
+    }
+    return availableTrains;
+}
