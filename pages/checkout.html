@@ -33,9 +33,9 @@
         </div>
         <div class="time-location">
           <div class="time-point">
-            <div class="time">09:30</div>
-            <div class="location">New York</div>
-            <div class="duration">Duration: 5h 15m</div>
+            <div class="time" id="t1">09:30</div>
+            <div class="location" id="start">New York</div>
+            <div class="duration" id="time">Duration: 5h 15m</div>
           </div>
           <div class="arrow-container">
             <div class="arrow-line"></div>
@@ -43,8 +43,8 @@
             <div class="arrow-line"></div>
           </div>
           <div class="time-point text-right">
-            <div class="time">14:45</div>
-            <div class="location">Boston</div>
+            <div class="time" id="t2">14:45</div>
+            <div class="location" id="end">Boston</div>
           </div>
         </div>
         <hr class="divider" />
@@ -68,18 +68,18 @@
         <form class="passenger-form">
           <div class="form-group">
             <label for="num-passengers">No. of Passengers</label>
-            <input type="number" id="num-passengers" name="num-passengers" min="1" max="6" value="1" required />
+            <input type="number" id="num-passengers" name="num-passengers" min="1" max="6" value="1" required style="padding: 10px;"/>
           </div>
 
           <div id="passengers-container"></div>
 
           <div class="form-group mt-15">
             <label for="contact-email">Contact Email</label>
-            <input type="email" id="contact-email" name="contact-email" placeholder="Enter email address" required />
+            <input type="email" id="contact-email" name="contact-email" placeholder="Enter email address" required style="padding: 10px;" />
           </div>
           <div class="form-group">
             <label for="contact-phone">Contact Phone</label>
-            <input type="tel" id="contact-phone" name="contact-phone" placeholder="Enter phone number" required />
+            <input type="tel" id="contact-phone" name="contact-phone" placeholder="Enter phone number" required style="padding: 10px;" />
           </div>
 
           <button type="submit" class="submit-btn" onclick="
@@ -103,7 +103,7 @@
             <h4>Train Ticket</h4>
             <p id="summary-count">1 &times; Adults</p>
           </div>
-          <div class="item-value" id="summary-ticket-price">Rs.149.00</div>
+          <div class="item-value" id="price">Rs.149.00</div>
         </div>
         <div class="line-item">
           <div class="item-text">
@@ -123,7 +123,7 @@
         <hr class="divider" />
         <div class="sub-item">
           <span class="label">Subtotal</span>
-          <span class="value" id="summary-subtotal">Rs.170.00</span>
+          <span class="value" id="subtotal">Rs.170.00</span>
         </div>
         <div class="sub-item">
           <span class="label">Service Fee</span>
@@ -131,12 +131,12 @@
         </div>
         <div class="sub-item">
           <span class="label">Tax</span>
-          <span class="value" id="summary-tax">Rs.13.60</span>
+          <span class="value" id="tax">Rs.13.60</span>
         </div>
         <hr class="divider" />
         <div class="total-row">
           <span class="total-label">Total</span>
-          <span class="total-value" id="summary-total">Rs.192.10</span>
+          <span class="total-value" id="total">Rs.192.10</span>
         </div>
       </div>
     </div>
@@ -223,15 +223,15 @@
                             <div class="form-row">
                                 <div class="form-group name-group">
                                     <label for="p${i}-name">Full Name</label>
-                                    <input type="text" id="p${i}-name" name="p${i}-name" placeholder="Enter full name" required>
+                                    <input type="text" id="p${i}-name" name="p${i}-name" placeholder="Enter full name" required style="padding: 10px;">
                                 </div>
                                 <div class="form-group age-group">
                                     <label for="p${i}-age">Age</label>
-                                    <input type="number" id="p${i}-age" name="p${i}-age" min="1" max="150" placeholder="Age" required>
+                                    <input type="number" id="p${i}-age" name="p${i}-age" min="1" max="150" placeholder="Age" required style="padding: 10px;">
                                 </div>
-                                <div class="form-group gender-group">
+                                <div class="form-group gender-group ">
                                     <label for="p${i}-gender">Gender</label>
-                                    <select id="p${i}-gender" name="p${i}-gender" required>
+                                    <select id="p${i}-gender" name="p${i}-gender" required style="padding: 10px;">
                                         <option value="" disabled selected>Select</option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
@@ -294,6 +294,7 @@
 
     lucide.createIcons();
   </script>
+  <script src="../src/checkout.js"></script>
 </body>
 
 </html>

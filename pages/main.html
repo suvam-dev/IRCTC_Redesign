@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="../style/navbar.css" />
     <link rel="stylesheet" href="../style/footer.css" />
+    <link rel="stylesheet" href="../style/main.css" />
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -112,6 +113,21 @@
             </button>
             <datalist id="pnrList">
 
+            </datalist>
+        </div>
+        <div class="sort">
+            
+            <div class="list">
+                <div class="label">
+                Sort by:
+            </div>
+                <input type="text" list="sortoptions" placeholder="Choose sorting">
+            </div>
+            <datalist id="sortoptions">
+                <option value="Cheapest First"></option>
+                <option value="Expensive First"></option>
+                <option value="Fastest First"></option>
+                <option value="Slowest First"></option>
             </datalist>
         </div>
         <div id="result" class="mt-10 space-y-6">

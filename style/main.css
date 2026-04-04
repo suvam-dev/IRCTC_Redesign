@@ -1,242 +1,33 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-.nav {
-  display: flex;
-  justify-content: space-evenly;
-}
-.way {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  border: 2px var(--bw-black) solid;
-  border-radius: 30px;
-  height: 7vh;
-  overflow: hidden;
-  margin-left: 3vmax;
-  margin-right: 3vmax;
-}
-
-.w {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  flex: 1;
-}
-.sel {
-  background-color: var(--bw-black);
-  color: var(--bw-white);
-  border: 4px var(--bw-white) solid;
-  border-radius: 30px;
-  height: 85%;
-}
-
-.main {
+.sort{
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  margin: 4vh;
-  background-color: var(--bw-black);
-  border: 2px var(--bw-black) solid;
-  border-radius: 30px;
-  height: 53vh;
-  color: var(--bw-white);
-  padding: 4px;
-}
-
-.inner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-.Rail {
-  width: 40px;
-  height: 40px;
-  color: var(--bw-white);
-}
-.cal {
-  width: 30px;
-  height: 30px;
-  color: var(--bw-white);
-}
-.ft {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
-}
-
-.from legend,
-.to legend,
-.depart legend,
-.ret legend {
-  font-size: 15px;
-  color: var(--bw-white);
-  padding: 0 8px;
-  margin-left: 10px;
-}
-
-.t legend,
-.quota legend {
-  font-size: medium;
-  color: var(--bw-white);
-  padding: 0 8px;
-}
-
-.from,
-.to,
-.depart,
-.ret {
-  border: 1.5px var(--bw-white) solid;
-  width: 30vw;
-  border-radius: 10px;
-  padding: 12px;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-.depart {
-  width: 20vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-}
-
-.ret {
-  width: 20vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.t {
-  border: 1.5px var(--bw-white) solid;
-  border-radius: 10px;
-  padding: 12px;
-  padding-left: 30px;
-  padding-right: 30px;
-  width: 10vw;
-  display: flex;
-  justify-content: center;
-}
-
-.quota {
-  border: 1.5px var(--bw-white) solid;
-  border-radius: 10px;
-  padding: 15px;
-  padding-left: 30px;
-  padding-right: 30px;
-  width: 10vw;
-  display: flex;
-  justify-content: center;
-}
-
-.dr {
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-}
-
-.tquota {
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-}
-
-.m {
-  font-size: xx-large;
+  margin-top: 30px;
+  color: #000;
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
   font-weight: bolder;
-  margin-right: 10px;
+  position:relative;
+  border-radius:5000px;
 }
+.sort .label{
+  position:absolute;
+  top:-15px;
+  margin-left: 10px;
+  padding: 1px 10px;
+  border-radius:5000px;
+  font-size:13px;
+  font-weight: bold;
+  color: rgb(67 56 202 / var(--tw-text-opacity, 1));
+  background-color: rgb(238 242 255 / var(--tw-bg-opacity, 1));
+}
+.list input{
+  width:100%;
+  height:3.5rem;
+  padding: 2px 20px;
+  border-radius:5000px;
+  border:1px solid #000;
+  border:none;
 
-.place {
-  display: flex;
-  align-items: baseline;
-}
-
-.sh {
-  font-size: large;
-}
-
-.text {
-  font-size: large;
-}
-
-.search {
-  height: 7vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--bw-black);
-  margin-left: 25vw;
-  margin-right: 25vw;
-  border: 2px var(--bw-black) solid;
-  border-radius: 30px;
-  color: var(--bw-white);
-  font-size: x-large;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
-
-.w:hover {
-  background-color: var(--bw-gray-500);
-  color: var(--bw-black);
-  transform: scale(1.05);
-  transition: all 0.5s ease;
-}
-
-.from:hover,
-.to:hover,
-.depart:hover,
-.ret:hover,
-.t:hover,
-.quota:hover {
-  border-color: var(--bw-gray-500);
-  box-shadow: var(--shadow-md);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.search:hover {
-  background-color: var(--bw-gray-700);
-  color: var(--bw-black);
-  transform: scale(1.03);
-  box-shadow: var(--shadow-lg);
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.search:active {
-  transform: scale(0.95);
-}
-@media screen and (max-width: 768px) {
-  .from,
-  .to {
-    width: 65vw;
-  }
-  .quota,
-  .t {
-    width: 25vw;
-  }
-  .ft {
-    flex-direction: column;
-    gap: 20px;
-  }
-  .main {
-    height: 60vh;
-  }
-  .t {
-    align-items: center;
-  }
-  .text {
-    padding: 10px;
-  }
-  .m {
-    font-weight: medium;
-  }
+  font-size: 16px;
 }
