@@ -15,28 +15,63 @@
 
 <body>
     <div class="h-20 bg-gray-500">
-        <nav class="navbar"></nav>1qq
+        <nav class="navbar"></nav>
     </div>
     <div
-        class="flex flex-col justify-center items-center mt-2 bg-gray-100 h-[50vh] m-3 rounded-lg max-w-[550px] mx-auto">
-        <span class="text-teal-700 text-2xl font-bold">Thank You for Booking from BharatRail ....
+        class="flex flex-col justify-center items-center mt-[80px] bg-white shadow-xl h-auto p-10 m-3 rounded-2xl max-w-[650px] mx-auto border border-gray-100">
+        <span class="text-teal-700 text-3xl font-extrabold mb-2">Booking Confirmed! 🎉
         </span>
-        <div class="backbutton flex items-center bg-gray-800 mt-5 ml-3 rounded-full cursor-pointer p-3 "
-            onclick="window.location.href = '../index.html'">
-            <div class="backbutton-icon bg-gray-800">
-                <i data-lucide="chevron-left" class="text-white"></i>
-            </div>
-            <div class="back text-white">BACK</div>
+        <span class="text-gray-500 text-md font-medium text-center mb-8" id="booking-details">Here is your digital ticket.</span>
+        
+        <!-- QR Code Container -->
+        <div class="mt-4 mb-8 h-[220px] w-[220px] bg-white border-4 border-dashed border-gray-200 rounded-xl flex items-center justify-center p-2 shadow-sm">
+            <img id="qr-code" src="" alt="Ticket QR Code" class="w-full h-full object-contain hidden" />
         </div>
-        <div class=" mt-10 h-[200px] w-[200px] bg-gray-500"></div>
+
+        <div class="backbutton flex items-center bg-gray-900 hover:bg-gray-800 transition-all text-white rounded-full cursor-pointer px-6 py-3 shadow-lg hover:-translate-y-0.5 active:scale-95"
+            onclick="window.location.href = '../index.html'">
+            <div class="backbutton-icon bg-transparent mr-2">
+                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+            </div>
+            <div class="back font-bold text-sm tracking-wide">RETURN TO HOME</div>
+        </div>
     </div>
-    <div class="relative w-full h-[50vh]">
+    <div class="relative w-full h-[30vh]">
         <footer class="footer w-full bottom-0">
         </footer>
     </div>
 
     <script src="../src/navbar.js"></script>
-    <script src="../src/search.js" type="module"></script>
+    <script>
+        lucide.createIcons();
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // Read URL Params sent from the checkout page
+            const params = new URLSearchParams(window.location.search);
+            const trainName = params.get('trainName') || 'Train';
+            const from = params.get('start') || '';
+            const to = params.get('dest') || '';
+            const numPassengers = params.get('num-passengers') || '1';
+
+            // Update subtext slightly to personalize
+            if (from && to) {
+                document.getElementById("booking-details").innerText = `Your journey from ${from} to ${to} on ${trainName} for ${numPassengers} passenger(s) is secure.`;
+            }
+
+            // Generate a shareable version of the current link for the QR Code
+            // We use api.qrserver.com which is widely backed by edge CDNs like Cloudflare
+            const ticketDataUrl = encodeURIComponent(window.location.href);
+            const qrImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${ticketDataUrl}`;
+
+            const qrCodeEl = document.getElementById("qr-code");
+            qrCodeEl.src = qrImageUrl;
+            
+            // Show image once loaded
+            qrCodeEl.onload = () => {
+                qrCodeEl.classList.remove("hidden");
+            };
+        });
+    </script>
 </body>
 
 </html>

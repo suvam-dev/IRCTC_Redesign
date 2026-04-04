@@ -45,3 +45,14 @@ taxElement.innerHTML=`Rs.${tax.toFixed(2)}`;
 const total = document.getElementById("total");
 let numTotal = parseInt(num, 10) + tax + 8.50;
 total.innerHTML=`Rs.${numTotal}`;
+
+document.querySelector(".passenger-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const currentParams = new URLSearchParams(window.location.search);
+    const formData = new FormData(e.target);
+    for (let [key, value] of formData.entries()) {
+        currentParams.append(key, value);
+    }
+    // Convert to a shareable link structure with all info preserved
+    window.location.href = `confirm.html?${currentParams.toString()}`;
+});
