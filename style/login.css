@@ -90,9 +90,9 @@ a {
 }
 
 .cont {
-  background: rgba(255, 255, 255, 0.386);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.433);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   padding: 24px 20px;
   border-radius: 20px;
   margin: 20px;
@@ -160,7 +160,7 @@ input {
 
 ::placeholder {
   color: var(--bw-white);
-  opacity: 1;
+  opacity: 0.5;
 }
 
 .back2 {
@@ -177,7 +177,7 @@ input {
 }
 
 .fpa:hover {
-  color: burlywood;
+  color: rgb(42, 120, 228);
 }
 
 .fpa a {
@@ -186,7 +186,7 @@ input {
 }
 
 .fpa a:hover {
-  color: burlywood;
+  color: rgb(42, 120, 228);
 }
 
 button[type="submit"] {
@@ -217,13 +217,14 @@ hr {
   display: flex;
   align-items: center;
   gap: 12px;
+  color: white;
   margin: 2rem 1rem 0;
 }
 
 .orlogin span {
   white-space: nowrap;
   font-size: 0.85rem;
-  color: var(--bw-gray-500);
+  color: white;
 }
 
 .logos {
@@ -269,7 +270,7 @@ hr {
 }
 
 .last a:hover {
-  color: burlywood;
+  color: rgb(21, 99, 224);
 }
 
 @media screen and (min-width: 600px) {
@@ -280,7 +281,7 @@ hr {
     padding: 30px;
     border-radius: 30px;
     box-shadow: var(--shadow-md);
-    background: transparent;
+    /* background: transparent; */
   }
 
   h1 {

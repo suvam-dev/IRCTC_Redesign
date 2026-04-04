@@ -2,12 +2,13 @@ body {
   width: 100%;
   background-image:
     linear-gradient(var(--overlay-60), var(--overlay-60)),
-    url(../assets/trainbackground.png);
+    url(../assets/loginbg.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
+
 .checkout-container {
   display: flex;
   flex-wrap: wrap;
@@ -25,13 +26,22 @@ body {
   background-color: var(--bw-gray-100);
 }
 
+input::placeholder {
+  color: black;
+  opacity: 0.5;
+  font-weight: normal;
+
+}
+
 .card {
-  background: var(--bw-white);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 12px;
   padding: 30px;
   margin-bottom: 20px;
-  border: 1px solid var(--bw-gray-300);
-  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .left-column {
@@ -57,7 +67,8 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  color: var(--bw-gray-500);
+  color: var(--bw-gray-700);
+  font-weight: 600;
   font-size: 0.95rem;
   margin-bottom: 20px;
 }
@@ -92,6 +103,7 @@ body {
 .time-point .location {
   font-size: 1.05rem;
   color: var(--bw-gray-700);
+  font-weight: 500;
   margin-bottom: 8px;
 }
 
@@ -112,7 +124,7 @@ body {
   flex: 1;
   height: 1px;
   background-color: var(--bw-black);
-  opacity: 0.5;
+  opacity: 0.9;
 }
 
 .arrow-icon {
@@ -133,6 +145,7 @@ body {
   justify-content: center;
   gap: 30px;
   color: var(--bw-gray-700);
+  font-weight: 500;
   font-size: 0.95rem;
   margin-bottom: 25px;
   width: 100%;
@@ -273,7 +286,7 @@ body {
 label {
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--bw-gray-700);
+  color: black;
 }
 
 input,
@@ -282,10 +295,11 @@ select {
   border: 1px solid var(--bw-gray-300);
   border-radius: 6px;
   font-size: 0.95rem;
-  color: var(--bw-black);
+  color: black;
   outline: none;
   transition: border-color 0.2s;
-  background-color: var(--bw-white);
+  background-color: rgba(169, 166, 166, 0.831);
+  opacity: 0.9;
   font-family: inherit;
 }
 
@@ -296,8 +310,11 @@ select:focus {
 }
 
 .passenger-details-section {
-  background-color: var(--bw-gray-100);
+  /* background-color: var(--bw-gray-100); */
+  background-color: rgb(224, 223, 223);
   padding: 20px;
+  font-weight: 500;
+  color: black;
   border-radius: 8px;
   border: 1px solid var(--bw-gray-200);
 }
@@ -306,7 +323,7 @@ select:focus {
   margin-top: 0;
   margin-bottom: 15px;
   font-size: 1rem;
-  color: var(--bw-gray-700);
+  color: black;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--bw-gray-200);
 }
@@ -317,7 +334,8 @@ select:focus {
 
 .submit-btn {
   background-color: var(--bw-black);
-  color: var(--bw-white);
+  color: gray;
+  opacity: 0.9;
   border: none;
   padding: 14px 20px;
   border-radius: 8px;
@@ -330,7 +348,9 @@ select:focus {
 }
 
 .submit-btn:hover {
-  background-color: var(--bw-gray-700);
+  background-color: whitesmoke;
+  font-weight: 500;
+  ;
 }
 
 @media screen and (max-width: 992px) {

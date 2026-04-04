@@ -12,39 +12,49 @@ const t1 = searchParams.get("t1");
 const t2 = searchParams.get("t2");
 const price = searchParams.get("price");
 const durationValue = searchParams.get("time");
+//printing all params
+console.log("id :" + id);
+console.log("name :" + name);
+console.log("from :" + from);
+console.log("to :" + to);
+console.log("date :" + date);
+console.log("t1 :" + t1);
+console.log("t2 :" + t2);
+console.log("price :" + price);
+console.log("durationValue :" + durationValue);
 
 const trainName = document.getElementById("trainname");
-trainName.innerHTML=` <i data-lucide="train" class="train-icon"></i> ${train} - ${name}`;
+trainName.innerHTML = ` <i data-lucide="train" class="train-icon"></i> ${train} - ${name}`;
 
 const start = document.getElementById("start");
-start.innerHTML=`${from}`;
+start.innerHTML = `${from}`;
 
 const end = document.getElementById("end");
-end.innerHTML=`${to}`;
+end.innerHTML = `${to}`;
 
 const time1 = document.getElementById("t1");
-time1.innerHTML=`${t1}`;
+time1.innerHTML = `${t1}`;
 
 const time2 = document.getElementById("t2");
-time2.innerHTML=`${t2}`;
+time2.innerHTML = `${t2}`;
 
 const duration = document.getElementById("time");
-duration.innerHTML=`Duration: ${durationValue}`;
+duration.innerHTML = `Duration: ${durationValue}`;
 
 const priceElement = document.getElementById("price");
-priceElement.innerHTML=`Rs.${price}`;
+priceElement.innerHTML = `Rs.${price}`;
 
 const subtotal = document.getElementById("subtotal");
 let num = parseInt(price, 10) + 21;
-subtotal.innerHTML=`Rs.${num}`;
+subtotal.innerHTML = `Rs.${num}`;
 
 const taxElement = document.getElementById("tax");
 let tax = 0.05 * num;
-taxElement.innerHTML=`Rs.${tax.toFixed(2)}`;
+taxElement.innerHTML = `Rs.${tax.toFixed(2)}`;
 
 const total = document.getElementById("total");
 let numTotal = parseInt(num, 10) + tax + 8.50;
-total.innerHTML=`Rs.${numTotal}`;
+total.innerHTML = `Rs.${numTotal}`;
 
 document.querySelector(".passenger-form").addEventListener("submit", (e) => {
     e.preventDefault();

@@ -1,14 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Route Search - BharatRail</title>
+  <meta
+    name="description"
+    content="Search any BharatRail train number and view a structured stop-by-stop train schedule."
+  />
+  <link rel="stylesheet" href="../style/variables.css" />
+  <link rel="stylesheet" href="../style/navbar.css" />
+  <link rel="stylesheet" href="../style/footer.css" />
+  <link rel="stylesheet" href="../style/searchresult.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-  Error not found
+  <nav class="navbar"></nav>
+
+  <main class="route-shell">
+    <section class="search-hero">
+      <p class="eyebrow">Train Schedule Search</p>
+      <h1>Route Search</h1>
+      <p class="hero-copy">
+        Enter a train number or part of a train name to view a clean, structured schedule with all stops.
+      </p>
+    </section>
+
+    <section class="search-panel">
+      <form id="train-search-form" class="train-search-form">
+        <label for="train-query">Train Number or Name</label>
+        <div class="search-row">
+          <input
+            id="train-query"
+            name="train-query"
+            type="text"
+            autocomplete="off"
+            placeholder="Try L001 or Kolkata Local 1"
+          />
+          <button type="submit">View Schedule</button>
+        </div>
+        <p class="search-hint">
+          Search by exact number for the fastest result. Partial train names also work.
+        </p>
+      </form>
+
+      <div id="route-context" class="route-context" hidden></div>
+    </section>
+
+    <section id="feedback" class="feedback" aria-live="polite">
+      Enter a train number to begin.
+    </section>
+
+    <section id="route-results" class="route-results" hidden></section>
+
+    <section id="schedule-root" class="schedule-root"></section>
+  </main>
+
+  <footer class="footer"></footer>
+
+  <script src="../src/navbar.js"></script>
+  <script src="../src/searchresult.js" type="module"></script>
 </body>
 
 </html>

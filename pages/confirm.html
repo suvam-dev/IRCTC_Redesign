@@ -13,18 +13,20 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body>
-    <div class="h-20 bg-gray-500">
+<body class="bg-gray-100 bg-[url('../assets/loginbg.png')] bg-cover bg-center bg-no-repeat">
+    <div class="h-20 ">
         <nav class="navbar"></nav>
     </div>
     <div
-        class="flex flex-col justify-center items-center mt-[80px] bg-white shadow-xl h-auto p-10 m-3 rounded-2xl max-w-[650px] mx-auto border border-gray-100">
+        class="flex flex-col justify-center items-center mt-[80px] bg-white/70shadow-xl h-auto p-10 m-3 rounded-2xl max-w-[650px] mx-auto border border-gray-100">
         <span class="text-teal-700 text-3xl font-extrabold mb-2">Booking Confirmed! 🎉
         </span>
-        <span class="text-gray-500 text-md font-medium text-center mb-8" id="booking-details">Here is your digital ticket.</span>
-        
+        <span class="text-gray-500 text-md font-medium text-center mb-8" id="booking-details">Here is your digital
+            ticket.</span>
+
         <!-- QR Code Container -->
-        <div class="mt-4 mb-8 h-[220px] w-[220px] bg-white border-4 border-dashed border-gray-200 rounded-xl flex items-center justify-center p-2 shadow-sm">
+        <div
+            class="mt-4 mb-8 h-[220px] w-[220px] bg-white border-4 border-dashed border-gray-200 rounded-xl flex items-center justify-center p-2 shadow-sm">
             <img id="qr-code" src="" alt="Ticket QR Code" class="w-full h-full object-contain hidden" />
         </div>
 
@@ -58,14 +60,28 @@
                 document.getElementById("booking-details").innerText = `Your journey from ${from} to ${to} on ${trainName} for ${numPassengers} passenger(s) is secure.`;
             }
 
-            // Generate a shareable version of the current link for the QR Code
-            // We use api.qrserver.com which is widely backed by edge CDNs like Cloudflare
-            const ticketDataUrl = encodeURIComponent(window.location.href);
-            const qrImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${ticketDataUrl}`;
+            // Generate a readable text block for the QR Code
+            let ticketText = `TICKET CONFIRMATION\n-------------------\n`;
+            ticketText += `Train: ${trainName} (${params.get('train') || ''})\n`;
+            ticketText += `Route: ${from} to ${to}\n`;
+            ticketText += `Time: ${params.get('t1') || ''} - ${params.get('t2') || ''}\n`;
+            ticketText += `Passengers (${numPassengers}):\n`;
+
+            for (let i = 1; i <= parseInt(numPassengers); i++) {
+                let pName = params.get(`p${i}-name`);
+                let pAge = params.get(`p${i}-age`);
+                let pGender = params.get(`p${i}-gender`);
+                if (pName) {
+                    ticketText += `- ${pName} (${pAge}/${pGender})\n`;
+                }
+            }
+
+            const encodedTicketText = encodeURIComponent(ticketText);
+            const qrImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodedTicketText}`;
 
             const qrCodeEl = document.getElementById("qr-code");
             qrCodeEl.src = qrImageUrl;
-            
+
             // Show image once loaded
             qrCodeEl.onload = () => {
                 qrCodeEl.classList.remove("hidden");

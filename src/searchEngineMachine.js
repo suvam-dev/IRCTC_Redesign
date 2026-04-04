@@ -198,7 +198,7 @@ const UIcomponentsPNR = (train) => {
     <div class="flex flex-col bg-white shadow-2xl shadow-indigo-900/5 ring-1 ring-slate-100 w-full max-w-4xl p-6 sm:p-8 rounded-[2rem] mx-auto border border-white text-slate-800 mb-8 transition-transform hover:scale-[1.01] hover:shadow-indigo-900/10">
 
       <div class="flex flex-row gap-4 items-center mb-6 w-full">
-        <div class="bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-xl py-1 px-3 font-bold text-sm tracking-widest shadow-md shadow-orange-500/20">
+        <div class="bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-xl py-1 px-3 font-bold text-sm tracking-widest shadow-md shadow-orange-500/20">
           ${train.train_id}
         </div>
         <div class="font-extrabold text-2xl text-indigo-950">
@@ -264,10 +264,10 @@ function formatTrainResponse(train, startStop, destStop) {
 //main search ui component
 const UIcomponentsSearch = (train) => {
     return `
-       <div class="flex flex-col bg-white shadow-2xl shadow-indigo-900/5 ring-1 ring-slate-100 w-full max-w-4xl p-6 sm:p-8 rounded-[2rem] mx-auto border border-white text-slate-800 mb-8 transition-transform hover:scale-[1.01] hover:shadow-indigo-900/10">
+       <div class="flex flex-col bg-white shadow-2xl shadow-indigo-900/5 ring-1 ring-slate-100 w-full max-w-4xl p-6 sm:p-8 rounded-[2rem] mx-auto border border-white text-slate-800 mb-8 transition-transform hover:scale-[1.01] hover:shadow-cyan-500/10">
 
       <div class="flex flex-row gap-4 items-center mb-6 w-full">
-        <div class="bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-xl py-1 px-3 font-bold text-sm tracking-widest shadow-md shadow-orange-500/20">
+        <div class="bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-xl py-1 px-3 font-bold text-sm tracking-widest shadow-md shadow-cyan-500/20">
           ${train.id}
         </div>
         <div class="font-extrabold text-2xl text-indigo-950">
