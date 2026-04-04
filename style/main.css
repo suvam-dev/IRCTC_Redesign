@@ -1,3 +1,7 @@
+body{
+  background: #020217;
+background: linear-gradient(90deg,rgba(2, 2, 23, 1) 8%, rgba(9, 9, 121, 1) 76%, rgba(0, 212, 255, 1) 100%);
+}
 .sort{
   display: flex;
   flex-direction: column;
