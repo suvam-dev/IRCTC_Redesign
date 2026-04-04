@@ -4,7 +4,7 @@ const searchParams = new URLSearchParams(url.search);
 const train = searchParams.get("train");
 
 const id = searchParams.get("id");
-const name = searchParams.get("name");
+const name = searchParams.get("trainName");
 const from = searchParams.get("start");
 const to = searchParams.get("dest");
 const date = searchParams.get("date");
@@ -14,7 +14,7 @@ const price = searchParams.get("price");
 const durationValue = searchParams.get("time");
 
 const trainName = document.getElementById("trainname");
-trainName.innerHTML=` <i data-lucide="train" class="train-icon"></i> ${train}`;
+trainName.innerHTML=` <i data-lucide="train" class="train-icon"></i> ${train} - ${name}`;
 
 const start = document.getElementById("start");
 start.innerHTML=`${from}`;

@@ -184,6 +184,12 @@ generateOptions();
 
 //making the component for the pnr search
 const UIcomponentsPNR = (train) => {
+    console.log(train);
+    const timeDiff = TimeDiff(train.schedule[0].time, train.schedule[train.schedule.length - 1].time);
+    console.log(timeDiff);
+    const price = (train.schedule[train.schedule.length - 1].distance - train.schedule[0].distance) * train.price_per_km;
+    console.log(price);
+
     return `
     <div class="flex flex-col bg-white shadow-2xl shadow-indigo-900/5 ring-1 ring-slate-100 w-full max-w-4xl p-6 sm:p-8 rounded-[2rem] mx-auto border border-white text-slate-800 mb-8 transition-transform hover:scale-[1.01] hover:shadow-indigo-900/10">
 
@@ -206,7 +212,7 @@ const UIcomponentsPNR = (train) => {
         </div>
 
         <div class="bg-white px-6 text-sm font-bold text-indigo-600 z-10 py-1.5 border border-indigo-100 rounded-full shadow-sm bg-indigo-50/50">
-           ${TimeDiff(train.schedule[0].time, train.schedule[train.schedule.length - 1].time)}
+           ${timeDiff}
         </div>
 
         <div class="bg-white px-4 font-bold text-slate-800 z-10 flex flex-col items-center">
@@ -228,7 +234,7 @@ const UIcomponentsPNR = (train) => {
           <span class="\${train.runs_on.includes('Sat') ? 'text-indigo-900' : 'text-slate-300'}">S</span>
         </div>
 
-        <a href="../pages/checkout.html?train=${train.id}&start=${train.start}&dest=${train.dest}&t1=${train.t1}&t2=${train.t2}&time=${train.time}&price=${train.price}"><button  class="bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 transition-all text-white px-10 py-3.5 rounded-[1rem] font-bold text-md shadow-lg shadow-indigo-600/25 active:scale-95 cursor-pointer">
+        <a href="../pages/checkout.html?trainName=${train.train_name}&train=${train.train_id}&start=${train.schedule[0].station_code}&dest=${train.schedule[train.schedule.length - 1].station_code}&t1=${train.schedule[0].time}&t2=${train.schedule[train.schedule.length - 1].time}&time=${timeDiff}&price=${price}"><button  class="bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 transition-all text-white px-10 py-3.5 rounded-[1rem] font-bold text-md shadow-lg shadow-indigo-600/25 active:scale-95 cursor-pointer">
           Book Ticket
         </button></a>
       </div>
@@ -297,7 +303,7 @@ const UIcomponentsSearch = (train) => {
           <span class="\${train.day.includes('Sat') ? 'text-indigo-900' : 'text-slate-300'}">S</span>
         </div>
 
-        <a href="../pages/checkout.html?train=${train.id}&start=${train.start}&dest=${train.dest}&t1=${train.t1}&t2=${train.t2}&time=${train.time}&price=${train.price}"><button  class="bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 transition-all text-white px-10 py-3.5 rounded-[1rem] font-bold text-md shadow-lg shadow-indigo-600/25 active:scale-95 cursor-pointer">
+        <a href="../pages/checkout.html?trainName=${train.name}&train=${train.id}&start=${train.start}&dest=${train.dest}&t1=${train.t1}&t2=${train.t2}&time=${train.time}&price=${train.price}"><button  class="bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 transition-all text-white px-10 py-3.5 rounded-[1rem] font-bold text-md shadow-lg shadow-indigo-600/25 active:scale-95 cursor-pointer">
           Book Ticket
         </button></a>
       </div>
