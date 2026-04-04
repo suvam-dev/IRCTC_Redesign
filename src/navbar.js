@@ -22,7 +22,7 @@ function injectNavbar(basePath, pagesPath) {
         <ul class="nav-links">
             <li><a href="${basePath}index.html">Home</a></li>
             <li><a href="${pagesPath}login.html" id="nav-login-link">Login</a></li>
-            <li><a href="${pagesPath}wheremytrain.html">Bookings</a></li>
+            <li><a href="${pagesPath}main.html">Bookings</a></li>
             <li><a href="${pagesPath}searchresult.html">Route Search</a></li>
         </ul>
         <div class="hamburger">
