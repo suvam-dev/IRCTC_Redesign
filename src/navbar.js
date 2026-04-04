@@ -23,7 +23,7 @@ function injectNavbar(basePath, pagesPath) {
             <li><a href="${basePath}index.html">Home</a></li>
             <li><a href="${pagesPath}login.html" id="nav-login-link">Login</a></li>
             <li><a href="${pagesPath}main.html">Bookings</a></li>
-            <li><a href="${pagesPath}searchresult.html">Route Search</a></li>
+            <li><span class="nav-link-disabled" aria-disabled="true">Route Search</span></li>
         </ul>
         <div class="hamburger">
             <i class="fa-solid fa-bars"></i>

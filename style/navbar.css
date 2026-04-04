@@ -51,6 +51,15 @@ body {
   transition: color 0.3s ease;
 }
 
+.nav-links li .nav-link-disabled {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 5px 0;
+  cursor: default;
+  user-select: none;
+}
+
 .nav-links li a::after {
   content: "";
   position: absolute;
