@@ -1,257 +1,299 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../style/variables.css" />
-    <title>Checkout - BharatRail</title>
-    <meta
-      name="description"
-      content="Secure checkout and passenger details for your train journey."
-    />
-    <link rel="stylesheet" href="../style/checkout.css" />
-    <link rel="stylesheet" href="../style/navbar.css" />
-    <link rel="stylesheet" href="../style/footer.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-  </head>
-  <body>
-    <nav class="navbar">
-      <div class="logo-container">
-        <img class="rounded-full" src="../assets/logo.png" alt="Bharat Rail Logo" />
-      </div>
-      <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="./login.html">Login</a></li>
-        <li><a href="./wheremytrain.html">Bookings</a></li>
-        <li><a href="./searchresult.html">Route Search</a></li>
-      </ul>
-    </nav>
 
-    <div class="checkout-container">
-      <div class="left-column">
-        <div class="card journey-details">
-          <h2>Journey Details</h2>
-          <div class="train-info" id="trainname">
-            <i class="fa-solid fa-train train-icon"></i>
-            Express Train #1234
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../style/variables.css" />
+  <title>Checkout - BharatRail</title>
+  <meta name="description" content="Secure checkout and passenger details for your train journey." />
+  <link rel="stylesheet" href="../style/checkout.css" />
+  <link rel="stylesheet" href="../style/navbar.css" />
+  <link rel="stylesheet" href="../style/footer.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <div class="flex justify-center items-center mt-[100px] mb-6">
+    <h1
+      class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-800 to-blue-600 tracking-tight">
+      Checkout</h1>
+  </div>
+  <nav class="navbar"></nav>
+
+  <div class="checkout-container">
+    <div class="left-column">
+      <div class="card journey-details">
+        <h2>Journey Details</h2>
+        <div class="train-info" id="trainname">
+          <i data-lucide="train" class="train-icon"></i>
+          Express Train #1234
+        </div>
+        <div class="time-location">
+          <div class="time-point">
+            <div class="time">09:30</div>
+            <div class="location">New York</div>
+            <div class="duration">Duration: 5h 15m</div>
           </div>
-          <div class="time-location">
-            <div class="time-point">
-              <div class="time">09:30</div>
-              <div class="location">New York</div>
-              <div class="duration">Duration: 5h 15m</div>
-            </div>
-            <div class="arrow-container">
-              <div class="arrow-line"></div>
-              <i class="fa-solid fa-arrow-right arrow-icon"></i>
-              <div class="arrow-line"></div>
-            </div>
-            <div class="time-point text-right">
-              <div class="time">14:45</div>
-              <div class="location">Boston</div>
-            </div>
+          <div class="arrow-container">
+            <div class="arrow-line"></div>
+            <i data-lucide="arrow-right" class="arrow-icon"></i>
+            <div class="arrow-line"></div>
           </div>
-          <hr class="divider" />
-          <div class="journey-meta">
-            <div class="meta-item">
-              <i class="fa-solid fa-calendar-days meta-icon"></i>
-              March 25, 2026
-            </div>
-            <div class="meta-item">
-              <i class="fa-solid fa-clock meta-icon"></i>
-              Departure: Platform 7
-            </div>
-          </div>
-          <div class="status-pill">
-            Business Class &bull; 2 Adults &bull; Window Seats
+          <div class="time-point text-right">
+            <div class="time">14:45</div>
+            <div class="location">Boston</div>
           </div>
         </div>
-
-        <div class="card passenger-info">
-          <h2>Passenger Information</h2>
-          <form class="passenger-form">
-            <div class="form-group">
-              <label for="num-passengers">No. of Passengers</label>
-              <input
-                type="number"
-                id="num-passengers"
-                name="num-passengers"
-                min="1"
-                max="6"
-                value="1"
-                required
-              />
-            </div>
-
-            <div class="passenger-details-section">
-              <h3>Passenger 1</h3>
-              <div class="form-row">
-                <div class="form-group name-group">
-                  <label for="p1-name">Full Name</label>
-                  <input
-                    type="text"
-                    id="p1-name"
-                    name="p1-name"
-                    placeholder="Enter full name"
-                    required
-                  />
-                </div>
-                <div class="form-group age-group">
-                  <label for="p1-age">Age</label>
-                  <input
-                    type="number"
-                    id="p1-age"
-                    name="p1-age"
-                    min="1"
-                    max="150"
-                    placeholder="Age"
-                    required
-                  />
-                </div>
-                <div class="form-group gender-group">
-                  <label for="p1-gender">Gender</label>
-                  <select id="p1-gender" name="p1-gender" required>
-                    <option value="" disabled selected>Select</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group mt-15">
-              <label for="contact-email">Contact Email</label>
-              <input
-                type="email"
-                id="contact-email"
-                name="contact-email"
-                placeholder="Enter email address"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="contact-phone">Contact Phone</label>
-              <input
-                type="tel"
-                id="contact-phone"
-                name="contact-phone"
-                placeholder="Enter phone number"
-                required
-              />
-            </div>
-
-            <button type="submit" class="submit-btn">
-              Proceed to Payment
-            </button>
-          </form>
+        <hr class="divider" />
+        <div class="journey-meta">
+          <div class="meta-item">
+            <i data-lucide="calendar" class="meta-icon"></i>
+            March 25, 2026
+          </div>
+          <div class="meta-item">
+            <i data-lucide="clock" class="meta-icon"></i>
+            Departure: Platform 7
+          </div>
+        </div>
+        <div class="status-pill">
+          Business Class &bull; 2 Adults &bull; Window Seats
         </div>
       </div>
 
-      <div class="right-column">
-        <div class="card order-summary">
-          <h2 class="summary-header">
-            <i class="fa-solid fa-ticket ticket-icon"></i>
-            Order Summary
-          </h2>
-          <div class="line-item">
-            <div class="item-text">
-              <h4>Train Ticket</h4>
-              <p id="summary-count">1 &times; Adults</p>
-            </div>
-            <div class="item-value" id="summary-ticket-price">Rs.149.00</div>
+      <div class="card passenger-info">
+        <h2>Passenger Information</h2>
+        <form class="passenger-form">
+          <div class="form-group">
+            <label for="num-passengers">No. of Passengers</label>
+            <input type="number" id="num-passengers" name="num-passengers" min="1" max="6" value="1" required />
           </div>
-          <div class="line-item">
-            <div class="item-text">
-              <h4>Seat Reservation</h4>
-              <p>Window seats</p>
-            </div>
-            <div class="item-value" id="summary-seat-price">Rs.12.00</div>
+
+          <div id="passengers-container"></div>
+
+          <div class="form-group mt-15">
+            <label for="contact-email">Contact Email</label>
+            <input type="email" id="contact-email" name="contact-email" placeholder="Enter email address" required />
           </div>
-          <div class="line-item">
-            <div class="item-text">
-              <h4>
-                Travel Insurance <i class="fa-solid fa-circle-info info-icon"></i>
-              </h4>
-            </div>
-            <div class="item-value" id="summary-insurance-price">Rs.9.00</div>
+          <div class="form-group">
+            <label for="contact-phone">Contact Phone</label>
+            <input type="tel" id="contact-phone" name="contact-phone" placeholder="Enter phone number" required />
           </div>
-          <hr class="divider" />
-          <div class="sub-item">
-            <span class="label">Subtotal</span>
-            <span class="value" id="summary-subtotal">Rs.170.00</span>
-          </div>
-          <div class="sub-item">
-            <span class="label">Service Fee</span>
-            <span class="value" id="summary-service-fee">Rs.8.50</span>
-          </div>
-          <div class="sub-item">
-            <span class="label">Tax</span>
-            <span class="value" id="summary-tax">Rs.13.60</span>
-          </div>
-          <hr class="divider" />
-          <div class="total-row">
-            <span class="total-label">Total</span>
-            <span class="total-value" id="summary-total">Rs.192.10</span>
-          </div>
-        </div>
+
+          <button type="submit" class="submit-btn" onclick="
+                event.preventDefault();
+                alert('Proceeding to payment...');
+              ">
+            Proceed to Payment
+          </button>
+        </form>
       </div>
     </div>
 
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-col brand-col">
-          <h2 class="footer-logo rounded-full">
-            <img src="../assets/logo.png" alt="Bharat Rail Logo" class="footer-logo-img rounded-full" />
-          </h2>
-          <p>BharatRail.com is an official partner of IRCTC to book train tickets and railway inquiries.</p>
-        </div>
-        <div class="footer-col">
-          <h3>Book</h3>
-          <ul>
-            <li><a href="#">IRCTC Tickets</a></li>
-            <li><a href="#">Flights</a></li>
-            <li><a href="#">Hotels</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h3>Features</h3>
-          <ul>
-            <li><a href="./searchresult.html">PNR Status</a></li>
-            <li><a href="./wheremytrain.html">Train Running Status</a></li>
-            <li><a href="./searchresult.html">Train Schedule</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h3>About BharatRail</h3>
-          <ul>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">Media Kit</a></li>
-            <li><a href="#">Alliances</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h3>Legal</h3>
-          <ul>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms & Conditions</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h3>Follow us</h3>
-          <div class="social-icons">
-            <a href="#" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+    <div class="right-column">
+      <div class="card order-summary">
+        <h2 class="summary-header">
+          <i data-lucide="ticket" class="ticket-icon"></i>
+          Order Summary
+        </h2>
+        <div class="line-item">
+          <div class="item-text">
+            <h4>Train Ticket</h4>
+            <p id="summary-count">1 &times; Adults</p>
           </div>
+          <div class="item-value" id="summary-ticket-price">Rs.149.00</div>
+        </div>
+        <div class="line-item">
+          <div class="item-text">
+            <h4>Seat Reservation</h4>
+            <p>Window seats</p>
+          </div>
+          <div class="item-value" id="summary-seat-price">Rs.12.00</div>
+        </div>
+        <div class="line-item">
+          <div class="item-text">
+            <h4>
+              Travel Insurance <i data-lucide="info" class="info-icon"></i>
+            </h4>
+          </div>
+          <div class="item-value" id="summary-insurance-price">Rs.9.00</div>
+        </div>
+        <hr class="divider" />
+        <div class="sub-item">
+          <span class="label">Subtotal</span>
+          <span class="value" id="summary-subtotal">Rs.170.00</span>
+        </div>
+        <div class="sub-item">
+          <span class="label">Service Fee</span>
+          <span class="value" id="summary-service-fee">Rs.8.50</span>
+        </div>
+        <div class="sub-item">
+          <span class="label">Tax</span>
+          <span class="value" id="summary-tax">Rs.13.60</span>
+        </div>
+        <hr class="divider" />
+        <div class="total-row">
+          <span class="total-label">Total</span>
+          <span class="total-value" id="summary-total">Rs.192.10</span>
         </div>
       </div>
-      <div class="footer-bottom flex justify-center">
-        <p>© 2026 BharatRail.com. All Rights Reserved.</p>
-      </div>
-    </footer>
-  </body>
+    </div>
+  </div>
+
+  <footer class="footer"></footer>
+
+  <script src="../src/navbar.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const trainDataJSON = localStorage.getItem("selectedTrain");
+      if (trainDataJSON) {
+        try {
+          const trainData = JSON.parse(trainDataJSON);
+
+          const trainInfo = document.querySelector(".train-info");
+          if (trainInfo) {
+            trainInfo.innerHTML = `<i data-lucide="train" class="train-icon"></i> 
+                        ${trainData.name} #${trainData.number}`;
+            lucide.createIcons();
+          }
+
+          const timePoints = document.querySelectorAll(".time-point");
+          if (timePoints.length >= 2) {
+            timePoints[0].querySelector(".time").textContent =
+              trainData.departureTime;
+            timePoints[0].querySelector(".location").textContent =
+              trainData.source || "Source Station";
+            timePoints[0].querySelector(".duration").textContent =
+              `Duration: ${trainData.duration}`;
+
+            timePoints[1].querySelector(".time").textContent =
+              trainData.arrivalTime;
+            timePoints[1].querySelector(".location").textContent =
+              trainData.destination || "Destination Station";
+          }
+
+          const metaItems = document.querySelectorAll(".meta-item");
+          if (metaItems.length > 0) {
+            metaItems[0].innerHTML = `<i data-lucide="calendar" class="meta-icon"></i>
+                                ${trainData.date || "Today"}`;
+            lucide.createIcons();
+          }
+        } catch (e) {
+          console.error("Error parsing train data", e);
+        }
+      }
+
+      const numInput = document.getElementById("num-passengers");
+      const container = document.getElementById("passengers-container");
+      const summaryCount = document.getElementById("summary-count");
+      const summaryTicketPrice = document.getElementById(
+        "summary-ticket-price",
+      );
+      const summarySeatPrice = document.getElementById("summary-seat-price");
+      const summaryInsurancePrice = document.getElementById(
+        "summary-insurance-price",
+      );
+      const summarySubtotal = document.getElementById("summary-subtotal");
+      const summaryServiceFee = document.getElementById(
+        "summary-service-fee",
+      );
+      const summaryTax = document.getElementById("summary-tax");
+      const summaryTotal = document.getElementById("summary-total");
+
+      const ticketPrice = 149.0;
+      const seatPrice = 12.0;
+      const insurancePrice = 9.0;
+      const serviceFeeBase = 8.5;
+
+      function renderPassengers(count) {
+        const currentForms = container.querySelectorAll(
+          ".passenger-details-section",
+        );
+        const currentCount = currentForms.length;
+
+        if (count > currentCount) {
+          for (let i = currentCount + 1; i <= count; i++) {
+            const section = document.createElement("div");
+            section.className = "passenger-details-section";
+            if (i > 1) section.style.marginTop = "15px";
+            section.innerHTML = `
+                            <h3>Passenger ${i}</h3>
+                            <div class="form-row">
+                                <div class="form-group name-group">
+                                    <label for="p${i}-name">Full Name</label>
+                                    <input type="text" id="p${i}-name" name="p${i}-name" placeholder="Enter full name" required>
+                                </div>
+                                <div class="form-group age-group">
+                                    <label for="p${i}-age">Age</label>
+                                    <input type="number" id="p${i}-age" name="p${i}-age" min="1" max="150" placeholder="Age" required>
+                                </div>
+                                <div class="form-group gender-group">
+                                    <label for="p${i}-gender">Gender</label>
+                                    <select id="p${i}-gender" name="p${i}-gender" required>
+                                        <option value="" disabled selected>Select</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                        `;
+            container.appendChild(section);
+          }
+        } else if (count < currentCount) {
+          for (let i = currentCount; i > count; i--) {
+            if (container.lastElementChild) {
+              container.removeChild(container.lastElementChild);
+            }
+          }
+        }
+        updateOrderSummary(count);
+      }
+
+      function updateOrderSummary(count) {
+        const tPrice = ticketPrice * count;
+        const sPrice = seatPrice * count;
+        const iPrice = insurancePrice * count;
+        const subtotal = tPrice + sPrice + iPrice;
+        const tax = subtotal * 0.08;
+        const total = subtotal + serviceFeeBase + tax;
+
+        if (summaryCount) summaryCount.innerHTML = `${count} &times; Adults`;
+        if (summaryTicketPrice)
+          summaryTicketPrice.innerHTML = "Rs." + tPrice.toFixed(2);
+        if (summarySeatPrice)
+          summarySeatPrice.innerHTML = "Rs." + sPrice.toFixed(2);
+        if (summaryInsurancePrice)
+          summaryInsurancePrice.innerHTML = "Rs." + iPrice.toFixed(2);
+
+        if (summarySubtotal)
+          summarySubtotal.innerHTML = "Rs." + subtotal.toFixed(2);
+        if (summaryServiceFee)
+          summaryServiceFee.innerHTML = "Rs." + serviceFeeBase.toFixed(2);
+        if (summaryTax) summaryTax.innerHTML = "Rs." + tax.toFixed(2);
+        if (summaryTotal) summaryTotal.innerHTML = "Rs." + total.toFixed(2);
+      }
+
+      if (numInput) {
+        renderPassengers(parseInt(numInput.value) || 1);
+
+        numInput.addEventListener("input", (e) => {
+          let val = parseInt(e.target.value);
+          if (isNaN(val) || val < 1) {
+            renderPassengers(1);
+          } else if (val > 6) {
+            renderPassengers(6);
+          } else {
+            renderPassengers(val);
+          }
+        });
+      }
+    });
+
+    lucide.createIcons();
+  </script>
+</body>
+
 </html>

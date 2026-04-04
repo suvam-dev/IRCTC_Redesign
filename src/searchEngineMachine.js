@@ -228,9 +228,9 @@ const UIcomponentsPNR = (train) => {
           <span class="\${train.runs_on.includes('Sat') ? 'text-indigo-900' : 'text-slate-300'}">S</span>
         </div>
 
-        <button onclick="bookTrain('dummy-train-data')" class="bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 transition-all text-white px-10 py-3.5 rounded-[1rem] font-bold text-md shadow-lg shadow-indigo-600/25 active:scale-95 cursor-pointer">
+        <a href="../pages/checkout.html?train=${train.id}&start=${train.start}&dest=${train.dest}&t1=${train.t1}&t2=${train.t2}&time=${train.time}&price=${train.price}"><button  class="bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 transition-all text-white px-10 py-3.5 rounded-[1rem] font-bold text-md shadow-lg shadow-indigo-600/25 active:scale-95 cursor-pointer">
           Book Ticket
-        </button>
+        </button></a>
       </div>
     </div>
   `;
@@ -297,9 +297,9 @@ const UIcomponentsSearch = (train) => {
           <span class="\${train.day.includes('Sat') ? 'text-indigo-900' : 'text-slate-300'}">S</span>
         </div>
 
-        <button onclick="bookTrain('dummy-train-data')" class="bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 transition-all text-white px-10 py-3.5 rounded-[1rem] font-bold text-md shadow-lg shadow-indigo-600/25 active:scale-95 cursor-pointer">
+        <a href="../pages/checkout.html?train=${train.id}&start=${train.start}&dest=${train.dest}&t1=${train.t1}&t2=${train.t2}&time=${train.time}&price=${train.price}"><button  class="bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 transition-all text-white px-10 py-3.5 rounded-[1rem] font-bold text-md shadow-lg shadow-indigo-600/25 active:scale-95 cursor-pointer">
           Book Ticket
-        </button>
+        </button></a>
       </div>
     </div>`
 }
@@ -316,6 +316,7 @@ const TimeDiff = (t1, t2) => {
     return `${hours}h ${minutes}m`;
 }
 
+//making swap button live 
 document.getElementById("swap").addEventListener("click", () => {
     const source = document.getElementById("source");
     const destination = document.getElementById("destination");
