@@ -20,7 +20,7 @@ body {
   min-height: 100vh;
   background-image:
     url(../assets/loginbg.png);
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
