@@ -291,7 +291,7 @@ const UIcomponentsSearch = (train) => {
         <div class="bg-white px-4 font-bold text-slate-800 z-10 flex flex-col items-center">
           <span class="text-[11px] font-bold uppercase tracking-widest text-indigo-400 mb-1">Arrival</span>
           <span class="text-xl text-indigo-950">${train.t2}</span>
-          <span class="text-xs font-medium text-slate-500 mt-1"></span>
+          <span class="text-xs font-medium text-slate-500 mt-1">${train.dest}</span>
         </div>
       </div>
 
