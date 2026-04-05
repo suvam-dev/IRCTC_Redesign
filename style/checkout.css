@@ -28,9 +28,8 @@ body {
 
 input::placeholder {
   color: black;
-  opacity: 0.5;
+  opacity: 1;
   font-weight: normal;
-
 }
 
 .card {
