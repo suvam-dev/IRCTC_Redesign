@@ -3,7 +3,7 @@ body {
   background-image:
     linear-gradient(var(--overlay-60), var(--overlay-60)),
     url(../assets/loginbg.png);
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
